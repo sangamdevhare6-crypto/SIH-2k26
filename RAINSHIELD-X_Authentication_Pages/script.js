@@ -1,9 +1,0 @@
-const params=new URLSearchParams(location.search);const role=params.get('role');
-const roles={citizen:{title:'Citizen Login',welcome:'Welcome Citizen!',icon:'👥',desc:'Access rainfall alerts, safe routes and weather updates.',features:['🌧️ Live Rainfall Alerts','📍 Safe Route Guidance','🌊 Inundation Updates','☁️ Weather Forecast'],color:'#16a66a'},
-officer:{title:'Disaster Management Officer Login',welcome:'Welcome Officer!',icon:'🛡️',desc:'Monitor dashboards, manage alerts and coordinate emergency response.',features:['📡 Real-time Monitoring','🚨 Alert Management','📋 Incident Reports','🤝 Response Coordination'],color:'#ff8a00'},
-analyst:{title:'Weather Analyst Login',welcome:'Welcome Analyst!',icon:'🌦️',desc:'Analyze satellite, radar, observational and NWP model data.',features:['🛰️ Satellite & Radar Data','☁️ NWP Model Data','🧠 AI/ML Forecasts','📊 Data Visualization'],color:'#147cf5'},
-admin:{title:'Administrator Login',welcome:'Welcome Admin!',icon:'⚙️',desc:'Manage users, system configuration, data sources and security.',features:['👥 User Management','⚙️ System Configuration','🗄️ Data Sources','🔐 Audit Logs'],color:'#7650e8'}};
-if(role&&roles[role]){let r=roles[role];document.getElementById('roleTitle').textContent=r.title;document.getElementById('welcome').textContent=r.welcome;document.getElementById('roleIcon').textContent=r.icon;document.getElementById('roleDesc').textContent=r.desc;document.getElementById('roleButton').style.background=r.color;document.getElementById('roleFeatures').innerHTML=r.features.map(x=>`<div>${x}</div>`).join('')}
-function createAccount(e){e.preventDefault();alert('Account created successfully! Please login with your new account.');location.href='index.html'}
-function login(e){e.preventDefault();alert('Login successful! Connect this button to your backend/dashboard.')}
-function roleLogin(e){e.preventDefault();alert('Role login successful! Connect this button to the corresponding dashboard.')}
