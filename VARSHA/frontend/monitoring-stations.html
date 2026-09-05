@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Logs | VARSHA KRITRIMA BUDDHIH
+    </title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="admin-page">
+
+    <div class="admin-layout">
+
+        <!-- ================= SIDEBAR ================= -->
+        <aside class="admin-sidebar">
+
+            <!-- Brand -->
+            <a
+                class="side-brand"
+                href="admin-dashboard.html"
+            >
+                <img
+                    src="logo-icon.png"
+                    alt="VARSHA logo"
+                >
+
+                <span>
+                    VARSHA
+                    <strong>KRITRIMA BUDDHIH</strong>
+                </span>
+            </a>
+
+            <!-- Navigation -->
+            <nav class="side-nav">
+
+                <a href="admin-dashboard.html">
+                    <span class="nav-icon">🏠</span>
+                    Dashboard
+                </a>
+
+                <a href="alerts-management.html">
+                    <span class="nav-icon">🚨</span>
+                    Alerts Management
+                </a>
+
+                <a href="reports-complaints.html">
+                    <span class="nav-icon">📋</span>
+                    Reports & Complaints
+                </a>
+
+                <a href="risk-map.html">
+                    <span class="nav-icon">🗺️</span>
+                    Risk Map
+                </a>
+
+                <a href="weather-data.html">
+                    <span class="nav-icon">🌦️</span>
+                    Weather & Data
+                </a>
+
+                <a href="monitoring-stations.html">
+                    <span class="nav-icon">📡</span>
+                    Monitoring Stations
+                </a>
+
+                <a href="user-management.html">
+                    <span class="nav-icon">👥</span>
+                    User Management
+                </a>
+
+                <a href="resources.html">
+                    <span class="nav-icon">🧰</span>
+                    Resources
+                </a>
+
+                <a href="settings.html">
+                    <span class="nav-icon">⚙️</span>
+                    Settings
+                </a>
+
+                <a
+                    class="active"
+                    href="logs.html"
+                >
+                    <span class="nav-icon">📜</span>
+                    Logs
+                </a>
+
+                <a href="profile.html">
+                    <span class="nav-icon">👤</span>
+                    Profile
+                </a>
+
+            </nav>
+
+            <!-- Logout -->
+            <div class="side-bottom">
+
+                <a
+                    class="side-nav logout-link"
+                    href="#"
+                    onclick="logout(); return false;"
+                >
+                    <span class="nav-icon">🚪</span>
+                    Logout
+                </a>
+
+            </div>
+
+        </aside>
+
+        <!-- ================= MAIN CONTENT ================= -->
+        <div class="admin-content">
+
+            <!-- Topbar -->
+            <header class="admin-topbar">
+
+                <div class="top-title">
+                    Logs
+                </div>
+
+                <div class="top-user">
+
+                    <span id="adminName">
+                        Administrator
+                    </span>
+
+                    <span class="user-avatar">
+                        A
+                    </span>
+
+                </div>
+
+            </header>
+
+            <!-- ================= PAGE CONTENT ================= -->
+            <main class="page-wrap">
+
+                <!-- Page Header -->
+                <div class="page-head">
+
+                    <div>
+
+                        <div class="eyebrow">
+                            AUDIT & SYSTEM ACTIVITY
+                        </div>
+
+                        <h1>
+                            Logs
+                        </h1>
+
+                        <p>
+                            Review authentication, system and
+                            administrator activity.
+                        </p>
+
+                    </div>
+
+                    <div class="status-chip">
+                        ● System Online
+                    </div>
+
+                </div>
+
+                <!-- ================= LOG STATISTICS ================= -->
+                <section class="content-grid">
+
+                    <!-- Events Today -->
+                    <div class="info-card">
+
+                        <span class="label">
+                            EVENTS TODAY
+                        </span>
+
+                        <strong class="value">
+                            2,481
+                        </strong>
+
+                        <span class="sub">
+                            System events
+                        </span>
+
+                    </div>
+
+                    <!-- Warnings -->
+                    <div class="info-card">
+
+                        <span class="label">
+                            WARNINGS
+                        </span>
+
+                        <strong class="value">
+                            17
+                        </strong>
+
+                        <span class="sub">
+                            Requires review
+                        </span>
+
+                    </div>
+
+                    <!-- Errors -->
+                    <div class="info-card">
+
+                        <span class="label">
+                            ERRORS
+                        </span>
+
+                        <strong class="value">
+                            03
+                        </strong>
+
+                        <span class="sub">
+                            Open technical issues
+                        </span>
+
+                    </div>
+
+                    <!-- Security Events -->
+                    <div class="info-card">
+
+                        <span class="label">
+                            SECURITY EVENTS
+                        </span>
+
+                        <strong class="value">
+                            31
+                        </strong>
+
+                        <span class="sub">
+                            Authentication & access
+                        </span>
+
+                    </div>
+
+                </section>
+
+                <!-- ================= RECENT ACTIVITY ================= -->
+                <section class="section-card table-card">
+
+                    <div class="table-title">
+
+                        <h2>
+                            Recent Activity
+                        </h2>
+
+                        <button class="secondary-btn">
+                            Export Logs
+                        </button>
+
+                    </div>
+
+                    <!-- Activity Timeline -->
+                    <div class="timeline">
+
+                        <!-- Activity 1 -->
+                        <div class="timeline-item">
+
+                            <div class="timeline-time">
+                                10:43 PM
+                            </div>
+
+                            <div class="timeline-line"></div>
+
+                            <div class="timeline-body">
+
+                                <b>
+                                    Weather feed synchronized
+                                </b>
+
+                                <span>
+                                    Satellite and radar data
+                                    successfully updated.
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                        <!-- Activity 2 -->
+                        <div class="timeline-item">
+
+                            <div class="timeline-time">
+                                10:41 PM
+                            </div>
+
+                            <div class="timeline-line"></div>
+
+                            <div class="timeline-body">
+
+                                <b>
+                                    Alert ALT-1048 escalated
+                                </b>
+
+                                <span>
+                                    Risk score crossed the
+                                    high-risk threshold.
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                        <!-- Activity 3 -->
+                        <div class="timeline-item">
+
+                            <div class="timeline-time">
+                                10:38 PM
+                            </div>
+
+                            <div class="timeline-line"></div>
+
+                            <div class="timeline-body">
+
+                                <b>
+                                    Administrator login
+                                </b>
+
+                                <span>
+                                    Successful authenticated
+                                    session established.
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                        <!-- Activity 4 -->
+                        <div class="timeline-item">
+
+                            <div class="timeline-time">
+                                10:22 PM
+                            </div>
+
+                            <div class="timeline-line"></div>
+
+                            <div class="timeline-body">
+
+                                <b>
+                                    Station STN-028 disconnected
+                                </b>
+
+                                <span>
+                                    Telemetry heartbeat missed
+                                    for 20 minutes.
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </main>
+
+        </div>
+
+    </div>
+
+    <!-- ================= JAVASCRIPT ================= -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>

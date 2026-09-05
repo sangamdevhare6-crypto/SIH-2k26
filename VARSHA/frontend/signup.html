@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Account | VARSHA KRITRIMA BUDHHIH</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="auth-page">
+  <div class="page-shell compact-shell">
+    <header class="topbar">
+      <a class="brand" href="index.html"><img src="logo-icon.png" alt="Logo"><span class="brand-text">VARSHA <strong>KRITRIMA BUDHHIH</strong></span></a>
+      <span class="tagline">Predict. Protect. Prevent.</span>
+    </header>
+
+    <main class="signup-layout">
+      <section class="signup-hero">
+        <div class="role-logo-wrap"><img src="logo-icon.png" alt="Project logo"></div>
+        <div class="eyebrow">JOIN THE EARLY-WARNING NETWORK</div>
+        <h1>Create your<br><span>VARSHA account</span></h1>
+        <p>Get project-specific rainfall alerts, inundation updates and weather intelligence from one place.</p>
+        <div class="feature-pills"><span>🔔 Real-time alerts</span><span>🧠 AI/ML prediction</span><span>🌊 Flood awareness</span><span>🛰️ Multi-source data</span></div>
+      </section>
+
+      <section class="card form-card">
+        <h2>Create Your Account</h2>
+        <p class="card-subtitle">Fill in the details to get started</p>
+        <form onsubmit="createAccount(event)">
+          <label class="field"><span>👤</span><input type="text" placeholder="Full Name" required></label>
+          <label class="field"><span>✉</span><input type="email" placeholder="Email Address" required></label>
+          <label class="field"><span>📱</span><input type="tel" placeholder="Mobile Number" required></label>
+          <label class="field"><span>🔒</span><input type="password" placeholder="Password" required minlength="6"></label>
+          <label class="field"><span>🔐</span><input type="password" placeholder="Confirm Password" required minlength="6"></label>
+          <label class="field"><span>◈</span><select required><option value="">Select Role</option><option value="citizen">Citizen</option><option value="admin">Administrator</option></select></label>
+          <label class="terms"><input type="checkbox" required><span>I agree to the Terms &amp; Conditions and Privacy Policy.</span></label>
+          <button type="submit">CREATE ACCOUNT <span>→</span></button>
+        </form>
+        <p class="signup">Already have an account? <a href="index.html">Login</a></p>
+      </section>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

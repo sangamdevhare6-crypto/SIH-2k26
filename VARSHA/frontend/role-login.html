@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Role Login | VARSHA KRITRIMA BUDHHIH</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="auth-page">
+  <div class="page-shell compact-shell">
+    <header class="topbar">
+      <a class="brand" href="index.html"><img src="logo-icon.png" alt="Logo"><span class="brand-text">VARSHA <strong>KRITRIMA BUDHHIH</strong></span></a>
+      <span class="tagline">Predict. Protect. Prevent.</span>
+    </header>
+
+    <main class="role-layout">
+      <section class="role-info">
+        <div class="role-logo-wrap"><img src="logo-icon.png" alt="Project logo"></div>
+        <div class="eyebrow">SECURE PROJECT ACCESS</div>
+        <h1 id="roleTitle">Citizen Login</h1>
+        <p id="roleDesc">Access rainfall alerts, safe routes and weather updates.</p>
+        <div id="roleFeatures" class="feature-list"></div>
+      </section>
+
+      <section class="card role-card">
+        <div id="roleIcon" class="role-icon">👥</div>
+        <h2 id="welcome">Welcome Citizen!</h2>
+        <p class="card-subtitle">Login to your VARSHA KRITRIMA BUDHHIH account</p>
+        <form onsubmit="roleLogin(event)">
+          <label class="field"><span>✉</span><input type="email" placeholder="Email / User ID" required></label>
+          <label class="field"><span>🔒</span><input type="password" placeholder="Password" required></label>
+          <div class="row"><label class="remember"><input type="checkbox"> <span>Remember Me</span></label><a href="reset-password.html">Forgot Password?</a></div>
+          <button id="roleButton" type="submit">LOGIN <span>→</span></button>
+        </form>
+        <p class="signup">New User? <a href="signup.html">Create Account</a></p>
+        <p class="back-link"><a href="index.html">← Back to main login</a></p>
+      </section>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

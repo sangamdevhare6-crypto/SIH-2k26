@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Citizen Dashboard | VARSHA KRITRIMA BUDHHIH
+    </title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="dashboard-page">
+
+    <div class="dashboard-shell">
+
+        <!-- =========================
+             TOP NAVIGATION BAR
+        ========================== -->
+        <header class="dashboard-topbar">
+
+            <!-- Brand -->
+            <a
+                class="brand"
+                href="citizen-dashboard.html"
+            >
+                <img
+                    src="logo-icon.png"
+                    alt="Logo"
+                >
+
+                <span class="brand-text">
+                    VARSHA
+                    <strong>
+                        KRITRIMA BUDHHIH
+                    </strong>
+                </span>
+            </a>
+
+
+            <!-- User Menu -->
+            <div class="user-menu">
+
+                <span id="citizenName">
+                    Citizen
+                </span>
+
+                <button
+                    class="logout-btn"
+                    onclick="logout()"
+                >
+                    Logout
+                </button>
+
+            </div>
+
+        </header>
+
+
+        <!-- =========================
+             MAIN DASHBOARD
+        ========================== -->
+        <main class="dashboard-main">
+
+
+            <!-- Dashboard Heading -->
+            <div class="dashboard-heading">
+
+                <div>
+
+                    <div class="eyebrow">
+                        CITIZEN SAFETY CENTER
+                    </div>
+
+                    <h1>
+                        Weather &amp; Flood Awareness
+                    </h1>
+
+                    <p>
+                        Real-time project dashboard for rainfall
+                        and inundation awareness.
+                    </p>
+
+                </div>
+
+
+                <!-- Monitoring Status -->
+                <div class="status-chip">
+                    ● Monitoring Active
+                </div>
+
+            </div>
+
+
+            <!-- =========================
+                 METRIC CARDS
+            ========================== -->
+            <section class="metric-grid">
+
+
+                <!-- Live Rainfall -->
+                <article class="dash-card">
+
+                    <span>
+                        LIVE RAINFALL
+                    </span>
+
+                    <strong>
+                        78.6
+                        <small>mm/hr</small>
+                    </strong>
+
+                    <em>
+                        Heavy rainfall detected
+                    </em>
+
+                </article>
+
+
+                <!-- Water Level -->
+                <article class="dash-card">
+
+                    <span>
+                        WATER LEVEL
+                    </span>
+
+                    <strong>
+                        3.24
+                        <small>m</small>
+                    </strong>
+
+                    <em>
+                        Rising trend monitored
+                    </em>
+
+                </article>
+
+
+                <!-- Risk Level -->
+                <article class="dash-card danger-card">
+
+                    <span>
+                        RISK LEVEL
+                    </span>
+
+                    <strong>
+                        HIGH
+                    </strong>
+
+                    <em>
+                        Stay alert and follow local guidance
+                    </em>
+
+                </article>
+
+
+                <!-- Early Warning -->
+                <article class="dash-card">
+
+                    <span>
+                        EARLY WARNING
+                    </span>
+
+                    <strong>
+                        ACTIVE
+                    </strong>
+
+                    <em>
+                        AI/ML monitoring online
+                    </em>
+
+                </article>
+
+            </section>
+
+
+            <!-- =========================
+                 DASHBOARD PANELS
+            ========================== -->
+            <section class="dashboard-grid">
+
+
+                <!-- Rainfall & Inundation Monitor -->
+                <article class="dash-panel large">
+
+                    <div class="panel-title">
+
+                        <h2>
+                            Rainfall &amp; Inundation Monitor
+                        </h2>
+
+                        <span>
+                            LIVE
+                        </span>
+
+                    </div>
+
+
+                    <!-- Map Placeholder -->
+                    <div class="map-placeholder">
+
+                        <div class="radar-ring r1"></div>
+
+                        <div class="radar-ring r2"></div>
+
+                        <div class="radar-dot"></div>
+
+
+                        <div class="map-copy">
+
+                            <b>
+                                PROJECT MONITORING MAP
+                            </b>
+
+                            <span>
+                                Dashboard image/map can be
+                                connected here later.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- =========================
+                     SAFETY ALERTS
+                ========================== -->
+                <article class="dash-panel">
+
+                    <div class="panel-title">
+
+                        <h2>
+                            Safety Alerts
+                        </h2>
+
+                    </div>
+
+
+                    <ul class="alert-list">
+
+
+                        <!-- Alert 1 -->
+                        <li>
+
+                            <b>
+                                Heavy rainfall
+                            </b>
+
+                            <span>
+                                Monitor local conditions.
+                            </span>
+
+                        </li>
+
+
+                        <!-- Alert 2 -->
+                        <li>
+
+                            <b>
+                                Water level watch
+                            </b>
+
+                            <span>
+                                Keep emergency routes ready.
+                            </span>
+
+                        </li>
+
+
+                        <!-- Alert 3 -->
+                        <li>
+
+                            <b>
+                                Prediction system
+                            </b>
+
+                            <span>
+                                AI/ML early-warning active.
+                            </span>
+
+                        </li>
+
+                    </ul>
+
+                </article>
+
+            </section>
+
+
+            <!-- =========================
+                 QUICK ACTIONS
+            ========================== -->
+            <section class="quick-actions">
+
+                <a href="#">
+                    🌧️ Rainfall Forecast
+                </a>
+
+                <a href="#">
+                    🌊 Inundation Status
+                </a>
+
+                <a href="#">
+                    🛣️ Safe Route
+                </a>
+
+                <a href="#">
+                    📢 Alerts
+                </a>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>

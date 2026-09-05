@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>User Management | VARSHA KRITRIMA BUDDHIH</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="admin-page">
+
+    <div class="admin-layout">
+
+        <!-- ================= SIDEBAR ================= -->
+
+        <aside class="admin-sidebar">
+
+            <a class="side-brand" href="admin-dashboard.html">
+
+                <img src="logo-icon.png" alt="VARSHA logo">
+
+                <span>
+                    VARSHA
+                    <strong>KRITRIMA BUDDHIH</strong>
+                </span>
+
+            </a>
+
+            <nav class="side-nav">
+
+                <a class="" href="admin-dashboard.html">
+                    <span class="nav-icon">🏠</span>
+                    Dashboard
+                </a>
+
+                <a class="" href="alerts-management.html">
+                    <span class="nav-icon">🚨</span>
+                    Alerts Management
+                </a>
+
+                <a class="" href="reports-complaints.html">
+                    <span class="nav-icon">📋</span>
+                    Reports & Complaints
+                </a>
+
+                <a class="" href="risk-map.html">
+                    <span class="nav-icon">🗺️</span>
+                    Risk Map
+                </a>
+
+                <a class="" href="weather-data.html">
+                    <span class="nav-icon">🌦️</span>
+                    Weather & Data
+                </a>
+
+                <a class="" href="monitoring-stations.html">
+                    <span class="nav-icon">📡</span>
+                    Monitoring Stations
+                </a>
+
+                <a class="active" href="user-management.html">
+                    <span class="nav-icon">👥</span>
+                    User Management
+                </a>
+
+                <a class="" href="resources.html">
+                    <span class="nav-icon">🧰</span>
+                    Resources
+                </a>
+
+                <a class="" href="settings.html">
+                    <span class="nav-icon">⚙️</span>
+                    Settings
+                </a>
+
+                <a class="" href="logs.html">
+                    <span class="nav-icon">📜</span>
+                    Logs
+                </a>
+
+                <a class="" href="profile.html">
+                    <span class="nav-icon">👤</span>
+                    Profile
+                </a>
+
+            </nav>
+
+            <div class="side-bottom">
+
+                <a
+                    class="side-nav logout-link"
+                    href="#"
+                    onclick="logout(); return false;"
+                >
+                    <span class="nav-icon">🚪</span>
+                    Logout
+                </a>
+
+            </div>
+
+        </aside>
+
+        <!-- ================= MAIN CONTENT ================= -->
+
+        <div class="admin-content">
+
+            <!-- ================= TOPBAR ================= -->
+
+            <header class="admin-topbar">
+
+                <div class="top-title">
+                    User Management
+                </div>
+
+                <div class="top-user">
+
+                    <span id="adminName">
+                        Administrator
+                    </span>
+
+                    <span class="user-avatar">
+                        A
+                    </span>
+
+                </div>
+
+            </header>
+
+            <!-- ================= PAGE CONTENT ================= -->
+
+            <main class="page-wrap">
+
+                <!-- ================= PAGE HEADER ================= -->
+
+                <div class="page-head">
+
+                    <div>
+
+                        <div class="eyebrow">
+                            ACCESS CONTROL
+                        </div>
+
+                        <h1>
+                            User Management
+                        </h1>
+
+                        <p>
+                            Manage administrators, field officers and citizen accounts.
+                        </p>
+
+                    </div>
+
+                    <div class="status-chip">
+                        ● System Online
+                    </div>
+
+                </div>
+
+                <!-- ================= USER STATISTICS ================= -->
+
+                <section class="content-grid">
+
+                    <div class="info-card">
+
+                        <span class="label">
+                            TOTAL USERS
+                        </span>
+
+                        <strong class="value">
+                            1,284
+                        </strong>
+
+                        <span class="sub">
+                            Registered accounts
+                        </span>
+
+                    </div>
+
+                    <div class="info-card">
+
+                        <span class="label">
+                            ADMINISTRATORS
+                        </span>
+
+                        <strong class="value">
+                            18
+                        </strong>
+
+                        <span class="sub">
+                            Privileged users
+                        </span>
+
+                    </div>
+
+                    <div class="info-card">
+
+                        <span class="label">
+                            FIELD OFFICERS
+                        </span>
+
+                        <strong class="value">
+                            76
+                        </strong>
+
+                        <span class="sub">
+                            Response network
+                        </span>
+
+                    </div>
+
+                    <div class="info-card">
+
+                        <span class="label">
+                            CITIZENS
+                        </span>
+
+                        <strong class="value">
+                            1,190
+                        </strong>
+
+                        <span class="sub">
+                            Portal users
+                        </span>
+
+                    </div>
+
+                </section>
+
+                <!-- ================= ACCOUNTS ================= -->
+
+                <section class="section-card table-card">
+
+                    <div class="table-title">
+
+                        <h2>
+                            Accounts
+                        </h2>
+
+                        <div class="toolbar">
+
+                            <input
+                                class="search-box"
+                                placeholder="Search users..."
+                            >
+
+                            <button class="primary-btn">
+                                Add User
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    <table class="data-table">
+
+                        <thead>
+
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Role</th>
+                                <th>Last Login</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+
+                                <td>
+                                    System Administrator
+                                </td>
+
+                                <td>
+                                    admin@varsha.local
+                                </td>
+
+                                <td>
+                                    <span class="badge blue">
+                                        ADMIN
+                                    </span>
+                                </td>
+
+                                <td>
+                                    10:40 PM
+                                </td>
+
+                                <td>
+                                    <span class="badge online">
+                                        ACTIVE
+                                    </span>
+                                </td>
+
+                                <td>
+                                    Edit
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td>
+                                    Field Response Team
+                                </td>
+
+                                <td>
+                                    field@varsha.local
+                                </td>
+
+                                <td>
+                                    <span class="badge medium">
+                                        OFFICER
+                                    </span>
+                                </td>
+
+                                <td>
+                                    10:12 PM
+                                </td>
+
+                                <td>
+                                    <span class="badge online">
+                                        ACTIVE
+                                    </span>
+                                </td>
+
+                                <td>
+                                    Edit
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td>
+                                    Citizen Demo
+                                </td>
+
+                                <td>
+                                    citizen@example.com
+                                </td>
+
+                                <td>
+                                    <span class="badge low">
+                                        CITIZEN
+                                    </span>
+                                </td>
+
+                                <td>
+                                    09:51 PM
+                                </td>
+
+                                <td>
+                                    <span class="badge online">
+                                        ACTIVE
+                                    </span>
+                                </td>
+
+                                <td>
+                                    Edit
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </section>
+
+            </main>
+
+        </div>
+
+    </div>
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

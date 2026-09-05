@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Risk Map | VARSHA KRITRIMA BUDDHIH</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="admin-page">
+
+    <div class="admin-layout">
+
+        <!-- ================= SIDEBAR ================= -->
+
+        <aside class="admin-sidebar">
+
+            <a class="side-brand" href="admin-dashboard.html">
+
+                <img src="logo-icon.png" alt="VARSHA logo">
+
+                <span>
+                    VARSHA
+                    <strong>KRITRIMA BUDDHIH</strong>
+                </span>
+
+            </a>
+
+            <nav class="side-nav">
+
+                <a class="" href="admin-dashboard.html">
+                    <span class="nav-icon">🏠</span>
+                    Dashboard
+                </a>
+
+                <a class="" href="alerts-management.html">
+                    <span class="nav-icon">🚨</span>
+                    Alerts Management
+                </a>
+
+                <a class="" href="reports-complaints.html">
+                    <span class="nav-icon">📋</span>
+                    Reports & Complaints
+                </a>
+
+                <a class="active" href="risk-map.html">
+                    <span class="nav-icon">🗺️</span>
+                    Risk Map
+                </a>
+
+                <a class="" href="weather-data.html">
+                    <span class="nav-icon">🌦️</span>
+                    Weather & Data
+                </a>
+
+                <a class="" href="monitoring-stations.html">
+                    <span class="nav-icon">📡</span>
+                    Monitoring Stations
+                </a>
+
+                <a class="" href="user-management.html">
+                    <span class="nav-icon">👥</span>
+                    User Management
+                </a>
+
+                <a class="" href="resources.html">
+                    <span class="nav-icon">🧰</span>
+                    Resources
+                </a>
+
+                <a class="" href="settings.html">
+                    <span class="nav-icon">⚙️</span>
+                    Settings
+                </a>
+
+                <a class="" href="logs.html">
+                    <span class="nav-icon">📜</span>
+                    Logs
+                </a>
+
+                <a class="" href="profile.html">
+                    <span class="nav-icon">👤</span>
+                    Profile
+                </a>
+
+            </nav>
+
+            <div class="side-bottom">
+
+                <a
+                    class="side-nav logout-link"
+                    href="#"
+                    onclick="logout(); return false;"
+                >
+                    <span class="nav-icon">🚪</span>
+                    Logout
+                </a>
+
+            </div>
+
+        </aside>
+
+        <!-- ================= MAIN CONTENT ================= -->
+
+        <div class="admin-content">
+
+            <!-- ================= TOPBAR ================= -->
+
+            <header class="admin-topbar">
+
+                <div class="top-title">
+                    Risk Map
+                </div>
+
+                <div class="top-user">
+
+                    <span id="adminName">
+                        Administrator
+                    </span>
+
+                    <span class="user-avatar">
+                        A
+                    </span>
+
+                </div>
+
+            </header>
+
+            <!-- ================= PAGE CONTENT ================= -->
+
+            <main class="page-wrap">
+
+                <!-- ================= PAGE HEADER ================= -->
+
+                <div class="page-head">
+
+                    <div>
+
+                        <div class="eyebrow">
+                            SPATIAL INTELLIGENCE
+                        </div>
+
+                        <h1>
+                            Risk Map
+                        </h1>
+
+                        <p>
+                            Visualize live hazard zones, alert clusters and regional risk scores.
+                        </p>
+
+                    </div>
+
+                    <div class="status-chip">
+                        ● System Online
+                    </div>
+
+                </div>
+
+                <!-- ================= RISK STATISTICS ================= -->
+
+                <section class="content-grid">
+
+                    <div class="info-card">
+
+                        <span class="label">
+                            VERY HIGH RISK
+                        </span>
+
+                        <strong class="value">
+                            03
+                        </strong>
+
+                        <span class="sub">
+                            Priority zones
+                        </span>
+
+                    </div>
+
+                    <div class="info-card">
+
+                        <span class="label">
+                            HIGH RISK
+                        </span>
+
+                        <strong class="value">
+                            08
+                        </strong>
+
+                        <span class="sub">
+                            Watch closely
+                        </span>
+
+                    </div>
+
+                    <div class="info-card">
+
+                        <span class="label">
+                            MONITORED ZONES
+                        </span>
+
+                        <strong class="value">
+                            64
+                        </strong>
+
+                        <span class="sub">
+                            Active regions
+                        </span>
+
+                    </div>
+
+                    <div class="info-card">
+
+                        <span class="label">
+                            AI RISK SCORE
+                        </span>
+
+                        <strong class="value">
+                            78/100
+                        </strong>
+
+                        <span class="sub">
+                            Current regional index
+                        </span>
+
+                    </div>
+
+                </section>
+
+                <!-- ================= RISK MAP ================= -->
+
+                <section class="section-card map-card">
+
+                    <div class="risk-map">
+
+                        <!-- ================= MAP LEGEND ================= -->
+
+                        <div class="map-overlay">
+
+                            <h3>
+                                Risk Legend
+                            </h3>
+
+                            <div class="map-legend">
+
+                                <div>
+                                    <i class="legend-dot dot-red"></i>
+                                    Very High Risk
+                                </div>
+
+                                <div>
+                                    <i class="legend-dot dot-orange"></i>
+                                    High / Moderate Risk
+                                </div>
+
+                                <div>
+                                    <i class="legend-dot dot-green"></i>
+                                    Low Risk
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <!-- ================= MAP PINS ================= -->
+
+                        <span class="map-pin pin1"></span>
+
+                        <span class="map-pin pin2"></span>
+
+                        <span class="map-pin pin3"></span>
+
+                        <span class="map-pin pin4"></span>
+
+                    </div>
+
+                </section>
+
+            </main>
+
+        </div>
+
+    </div>
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

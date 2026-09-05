@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Weather & Data | VARSHA KRITRIMA BUDDHIH</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="admin-page">
+
+    <div class="admin-layout">
+
+        <!-- ================= SIDEBAR ================= -->
+
+        <aside class="admin-sidebar">
+
+            <a class="side-brand" href="admin-dashboard.html">
+
+                <img src="logo-icon.png" alt="VARSHA logo">
+
+                <span>
+                    VARSHA
+                    <strong>KRITRIMA BUDDHIH</strong>
+                </span>
+
+            </a>
+
+            <nav class="side-nav">
+
+                <a class="" href="admin-dashboard.html">
+                    <span class="nav-icon">🏠</span>
+                    Dashboard
+                </a>
+
+                <a class="" href="alerts-management.html">
+                    <span class="nav-icon">🚨</span>
+                    Alerts Management
+                </a>
+
+                <a class="" href="reports-complaints.html">
+                    <span class="nav-icon">📋</span>
+                    Reports & Complaints
+                </a>
+
+                <a class="" href="risk-map.html">
+                    <span class="nav-icon">🗺️</span>
+                    Risk Map
+                </a>
+
+                <a class="active" href="weather-data.html">
+                    <span class="nav-icon">🌦️</span>
+                    Weather & Data
+                </a>
+
+                <a class="" href="monitoring-stations.html">
+                    <span class="nav-icon">📡</span>
+                    Monitoring Stations
+                </a>
+
+                <a class="" href="user-management.html">
+                    <span class="nav-icon">👥</span>
+                    User Management
+                </a>
+
+                <a class="" href="resources.html">
+                    <span class="nav-icon">🧰</span>
+                    Resources
+                </a>
+
+                <a class="" href="settings.html">
+                    <span class="nav-icon">⚙️</span>
+                    Settings
+                </a>
+
+                <a class="" href="logs.html">
+                    <span class="nav-icon">📜</span>
+                    Logs
+                </a>
+
+                <a class="" href="profile.html">
+                    <span class="nav-icon">👤</span>
+                    Profile
+                </a>
+
+            </nav>
+
+            <div class="side-bottom">
+
+                <a
+                    class="side-nav logout-link"
+                    href="#"
+                    onclick="logout(); return false;"
+                >
+                    <span class="nav-icon">🚪</span>
+                    Logout
+                </a>
+
+            </div>
+
+        </aside>
+
+        <!-- ================= MAIN CONTENT ================= -->
+
+        <div class="admin-content">
+
+            <!-- ================= TOPBAR ================= -->
+
+            <header class="admin-topbar">
+
+                <div class="top-title">
+                    Weather & Data
+                </div>
+
+                <div class="top-user">
+
+                    <span id="adminName">
+                        Administrator
+                    </span>
+
+                    <span class="user-avatar">
+                        A
+                    </span>
+
+                </div>
+
+            </header>
+
+            <!-- ================= PAGE CONTENT ================= -->
+
+            <main class="page-wrap">
+
+                <!-- ================= PAGE HEADER ================= -->
+
+                <div class="page-head">
+
+                    <div>
+
+                        <div class="eyebrow">
+                            DATA INTELLIGENCE
+                        </div>
+
+                        <h1>
+                            Weather & Data
+                        </h1>
+
+                        <p>
+                            Observe rainfall, temperature, radar and predictive weather feeds.
+                        </p>
+
+                    </div>
+
+                    <div class="status-chip">
+                        ● System Online
+                    </div>
+
+                </div>
+
+                <!-- ================= WEATHER STATISTICS ================= -->
+
+                <section class="content-grid">
+
+                    <div class="info-card">
+
+                        <span class="label">
+                            RAINFALL
+                        </span>
+
+                        <strong class="value">
+                            42.6 mm
+                        </strong>
+
+                        <span class="sub">
+                            Last 24 hours
+                        </span>
+
+                    </div>
+
+                    <div class="info-card">
+
+                        <span class="label">
+                            TEMPERATURE
+                        </span>
+
+                        <strong class="value">
+                            27.4°C
+                        </strong>
+
+                        <span class="sub">
+                            Current average
+                        </span>
+
+                    </div>
+
+                    <div class="info-card">
+
+                        <span class="label">
+                            HUMIDITY
+                        </span>
+
+                        <strong class="value">
+                            81%
+                        </strong>
+
+                        <span class="sub">
+                            Regional average
+                        </span>
+
+                    </div>
+
+                    <div class="info-card">
+
+                        <span class="label">
+                            FORECAST CONFIDENCE
+                        </span>
+
+                        <strong class="value">
+                            94%
+                        </strong>
+
+                        <span class="sub">
+                            AI/NWP agreement
+                        </span>
+
+                    </div>
+
+                </section>
+
+                <!-- ================= DATA SOURCES ================= -->
+
+                <section class="section-card table-card">
+
+                    <div class="table-title">
+
+                        <h2>
+                            Data Sources
+                        </h2>
+
+                        <span>
+                            Last synchronized moments ago
+                        </span>
+
+                    </div>
+
+                    <table class="data-table">
+
+                        <thead>
+
+                            <tr>
+                                <th>Source</th>
+                                <th>Type</th>
+                                <th>Coverage</th>
+                                <th>Last Update</th>
+                                <th>Status</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+
+                                <td>
+                                    Weather Observation API
+                                </td>
+
+                                <td>
+                                    Live Weather
+                                </td>
+
+                                <td>
+                                    64 zones
+                                </td>
+
+                                <td>
+                                    10:43 PM
+                                </td>
+
+                                <td>
+                                    <span class="badge online">
+                                        ONLINE
+                                    </span>
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td>
+                                    Radar Feed
+                                </td>
+
+                                <td>
+                                    Radar
+                                </td>
+
+                                <td>
+                                    Regional
+                                </td>
+
+                                <td>
+                                    10:42 PM
+                                </td>
+
+                                <td>
+                                    <span class="badge online">
+                                        ONLINE
+                                    </span>
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td>
+                                    Satellite Feed
+                                </td>
+
+                                <td>
+                                    Satellite
+                                </td>
+
+                                <td>
+                                    Statewide
+                                </td>
+
+                                <td>
+                                    10:40 PM
+                                </td>
+
+                                <td>
+                                    <span class="badge online">
+                                        ONLINE
+                                    </span>
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td>
+                                    NWP Model
+                                </td>
+
+                                <td>
+                                    Prediction
+                                </td>
+
+                                <td>
+                                    72 hour
+                                </td>
+
+                                <td>
+                                    10:35 PM
+                                </td>
+
+                                <td>
+                                    <span class="badge blue">
+                                        PROCESSING
+                                    </span>
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </section>
+
+            </main>
+
+        </div>
+
+    </div>
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
