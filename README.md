@@ -31,3 +31,6 @@ Use the superuser created with `py manage.py createsuperuser` to sign in to the 
 - Existing frontend pages retained
 
 For production, use PostgreSQL, HTTPS, environment-based secrets, email-verified password reset, rate limiting, and stricter administrator provisioning.
+
+username : SANGAM
+password : sih@26
