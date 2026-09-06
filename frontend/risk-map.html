@@ -5,282 +5,522 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Risk Map | VARSHA KRITRIMA BUDDHIH</title>
+    <title>Risk Map - Varsha Kritrima Buddhih</title>
 
     <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 
-<body class="admin-page">
+<body>
 
-    <div class="admin-layout">
+<div class="authority-layout">
 
-        <!-- ================= SIDEBAR ================= -->
+    <aside class="authority-sidebar">
 
-        <aside class="admin-sidebar">
+        <div class="authority-logo-box">
+            <img src="logo-icon.png" alt="Varsha Kritrima Buddhih">
 
-            <a class="side-brand" href="admin-dashboard.html">
+            <div class="authority-brand">
+                <h3>VARSHA KRITRIMA BUDDHIH</h3>
+                <span>PREDICT. PROTECT. PREVENT.</span>
+            </div>
+        </div>
 
-                <img src="logo-icon.png" alt="VARSHA logo">
+        <nav class="authority-nav">
 
-                <span>
-                    VARSHA
-                    <strong>KRITRIMA BUDDHIH</strong>
-                </span>
-
+            <a href="authority-dashboard.html" class="authority-nav-item">
+                <i class="fa-solid fa-house"></i>
+                <span>Dashboard</span>
             </a>
 
-            <nav class="side-nav">
+            <a href="alerts-management.html" class="authority-nav-item">
+                <i class="fa-regular fa-bell"></i>
+                <span>Alerts Management</span>
+            </a>
 
-                <a class="" href="admin-dashboard.html">
-                    <span class="nav-icon">🏠</span>
-                    Dashboard
-                </a>
+            <a href="reports-complaints.html" class="authority-nav-item">
+                <i class="fa-regular fa-file-lines"></i>
+                <span>Reports & Complaints</span>
+            </a>
 
-                <a class="" href="alerts-management.html">
-                    <span class="nav-icon">🚨</span>
-                    Alerts Management
-                </a>
+            <a href="risk-map.html" class="authority-nav-item active">
+                <i class="fa-solid fa-location-dot"></i>
+                <span>Risk Map</span>
+            </a>
 
-                <a class="" href="reports-complaints.html">
-                    <span class="nav-icon">📋</span>
-                    Reports & Complaints
-                </a>
+            <a href="weather-data.html" class="authority-nav-item">
+                <i class="fa-solid fa-cloud-sun"></i>
+                <span>Weather & Data</span>
+            </a>
 
-                <a class="active" href="risk-map.html">
-                    <span class="nav-icon">🗺️</span>
-                    Risk Map
-                </a>
+            <a href="monitoring-stations.html" class="authority-nav-item">
+                <i class="fa-solid fa-tower-broadcast"></i>
+                <span>Monitoring Stations</span>
+            </a>
 
-                <a class="" href="weather-data.html">
-                    <span class="nav-icon">🌦️</span>
-                    Weather & Data
-                </a>
+            <a href="user-management.html" class="authority-nav-item">
+                <i class="fa-solid fa-users"></i>
+                <span>User Management</span>
+            </a>
 
-                <a class="" href="monitoring-stations.html">
-                    <span class="nav-icon">📡</span>
-                    Monitoring Stations
-                </a>
+            <a href="resources.html" class="authority-nav-item">
+                <i class="fa-solid fa-box"></i>
+                <span>Resources</span>
+            </a>
 
-                <a class="" href="user-management.html">
-                    <span class="nav-icon">👥</span>
-                    User Management
-                </a>
+            <a href="settings.html" class="authority-nav-item">
+                <i class="fa-solid fa-gear"></i>
+                <span>Settings</span>
+            </a>
 
-                <a class="" href="resources.html">
-                    <span class="nav-icon">🧰</span>
-                    Resources
-                </a>
+            <a href="logs.html" class="authority-nav-item">
+                <i class="fa-solid fa-clock-rotate-left"></i>
+                <span>Logs</span>
+            </a>
 
-                <a class="" href="settings.html">
-                    <span class="nav-icon">⚙️</span>
-                    Settings
-                </a>
+            <a href="profile.html" class="authority-nav-item">
+                <i class="fa-regular fa-user"></i>
+                <span>Profile</span>
+            </a>
 
-                <a class="" href="logs.html">
-                    <span class="nav-icon">📜</span>
-                    Logs
-                </a>
+            <a href="logout.html" class="authority-nav-item">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span>Logout</span>
+            </a>
 
-                <a class="" href="profile.html">
-                    <span class="nav-icon">👤</span>
-                    Profile
-                </a>
+        </nav>
 
-            </nav>
+        <div class="authority-sidebar-bottom">
 
-            <div class="side-bottom">
+            <img src="logo-icon.png" alt="Logo">
 
-                <a
-                    class="side-nav logout-link"
-                    href="#"
-                    onclick="logout(); return false;"
-                >
-                    <span class="nav-icon">🚪</span>
-                    Logout
-                </a>
+            <div>
+                <strong>VARSHA KRITRIMA BUDDHIH</strong>
+                <small>PREDICT. PROTECT. PREVENT.</small>
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <main class="authority-main">
+
+        <header class="authority-header">
+
+            <div>
+                <h1>Risk Map</h1>
+                <p>View flood risk and inundation zones</p>
+            </div>
+
+            <div class="authority-header-right">
+
+                <button class="authority-icon-btn">
+                    <i class="fa-regular fa-bell"></i>
+                    <span class="notification-dot"></span>
+                </button>
+
+                <div class="authority-date">
+                    <i class="fa-regular fa-calendar"></i>
+                    <span>01 June 2024, 10:30 AM</span>
+                </div>
+
+                <div class="authority-profile-icon">
+                    <i class="fa-solid fa-user-shield"></i>
+                </div>
 
             </div>
 
-        </aside>
+        </header>
 
-        <!-- ================= MAIN CONTENT ================= -->
 
-        <div class="admin-content">
+        <section class="risk-filter-panel authority-panel">
 
-            <!-- ================= TOPBAR ================= -->
+            <div class="risk-filter-group">
+                <label>State</label>
 
-            <header class="admin-topbar">
+                <select>
+                    <option>Maharashtra</option>
+                    <option>Madhya Pradesh</option>
+                    <option>Gujarat</option>
+                    <option>Karnataka</option>
+                </select>
+            </div>
 
-                <div class="top-title">
-                    Risk Map
-                </div>
 
-                <div class="top-user">
+            <div class="risk-filter-group">
+                <label>District</label>
 
-                    <span id="adminName">
-                        Administrator
-                    </span>
+                <select>
+                    <option>Pune</option>
+                    <option>Mumbai</option>
+                    <option>Nashik</option>
+                    <option>Kolhapur</option>
+                    <option>Nagpur</option>
+                </select>
+            </div>
 
-                    <span class="user-avatar">
-                        A
-                    </span>
 
-                </div>
+            <div class="risk-filter-group">
+                <label>Taluka</label>
 
-            </header>
+                <select>
+                    <option>Haveli</option>
+                    <option>Mulshi</option>
+                    <option>Baramati</option>
+                    <option>Shirur</option>
+                </select>
+            </div>
 
-            <!-- ================= PAGE CONTENT ================= -->
 
-            <main class="page-wrap">
+            <div class="risk-filter-group">
+                <label>Layer</label>
 
-                <!-- ================= PAGE HEADER ================= -->
+                <select>
+                    <option>Flood Risk</option>
+                    <option>Rainfall</option>
+                    <option>Water Level</option>
+                    <option>Inundation</option>
+                </select>
+            </div>
 
-                <div class="page-head">
+
+            <button class="risk-filter-btn">
+                <i class="fa-solid fa-filter"></i>
+                Filter
+            </button>
+
+
+            <button class="risk-refresh-btn">
+                <i class="fa-solid fa-rotate-right"></i>
+                Refresh
+            </button>
+
+        </section>
+
+
+        <section class="risk-map-layout">
+
+
+            <div class="risk-map-card authority-panel">
+
+                <div class="risk-map-header">
 
                     <div>
-
-                        <div class="eyebrow">
-                            SPATIAL INTELLIGENCE
-                        </div>
-
-                        <h1>
-                            Risk Map
-                        </h1>
-
-                        <p>
-                            Visualize live hazard zones, alert clusters and regional risk scores.
-                        </p>
-
+                        <h2>Flood Risk Map</h2>
+                        <span>Maharashtra • Pune • Haveli</span>
                     </div>
 
-                    <div class="status-chip">
-                        ● System Online
+                    <div class="map-live-status">
+                        <span></span>
+                        Live Data
                     </div>
 
                 </div>
 
-                <!-- ================= RISK STATISTICS ================= -->
 
-                <section class="content-grid">
+                <div class="risk-map-area">
 
-                    <div class="info-card">
+                    <div class="map-controls">
 
-                        <span class="label">
-                            VERY HIGH RISK
-                        </span>
+                        <button>
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
 
-                        <strong class="value">
-                            03
-                        </strong>
+                        <button>
+                            <i class="fa-solid fa-minus"></i>
+                        </button>
 
-                        <span class="sub">
-                            Priority zones
-                        </span>
-
-                    </div>
-
-                    <div class="info-card">
-
-                        <span class="label">
-                            HIGH RISK
-                        </span>
-
-                        <strong class="value">
-                            08
-                        </strong>
-
-                        <span class="sub">
-                            Watch closely
-                        </span>
+                        <button>
+                            <i class="fa-solid fa-location-crosshairs"></i>
+                        </button>
 
                     </div>
 
-                    <div class="info-card">
 
-                        <span class="label">
-                            MONITORED ZONES
-                        </span>
+                    <div class="map-road road-one"></div>
+                    <div class="map-road road-two"></div>
+                    <div class="map-road road-three"></div>
+                    <div class="map-road road-four"></div>
 
-                        <strong class="value">
-                            64
-                        </strong>
+                    <div class="map-river river-one"></div>
+                    <div class="map-river river-two"></div>
 
-                        <span class="sub">
-                            Active regions
-                        </span>
+                    <div class="risk-zone zone-green zone-one"></div>
+                    <div class="risk-zone zone-green zone-two"></div>
+                    <div class="risk-zone zone-green zone-three"></div>
 
+                    <div class="risk-zone zone-yellow zone-four"></div>
+                    <div class="risk-zone zone-yellow zone-five"></div>
+
+                    <div class="risk-zone zone-orange zone-six"></div>
+                    <div class="risk-zone zone-orange zone-seven"></div>
+
+                    <div class="risk-zone zone-red zone-eight"></div>
+                    <div class="risk-zone zone-red zone-nine"></div>
+
+                    <div class="map-location location-pune">
+                        <span></span>
+                        Pune
                     </div>
 
-                    <div class="info-card">
-
-                        <span class="label">
-                            AI RISK SCORE
-                        </span>
-
-                        <strong class="value">
-                            78/100
-                        </strong>
-
-                        <span class="sub">
-                            Current regional index
-                        </span>
-
+                    <div class="map-location location-pimpri">
+                        <span></span>
+                        Pimpri
                     </div>
 
-                </section>
+                    <div class="map-location location-hadapsar">
+                        <span></span>
+                        Hadapsar
+                    </div>
 
-                <!-- ================= RISK MAP ================= -->
+                    <div class="map-location location-kharadi">
+                        <span></span>
+                        Kharadi
+                    </div>
 
-                <section class="section-card map-card">
+                    <div class="map-location location-hinjewadi">
+                        <span></span>
+                        Hinjewadi
+                    </div>
 
-                    <div class="risk-map">
+                    <div class="map-location location-lonavala">
+                        <span></span>
+                        Lonavala
+                    </div>
 
-                        <!-- ================= MAP LEGEND ================= -->
+                    <div class="map-location location-chinchwad">
+                        <span></span>
+                        Chinchwad
+                    </div>
 
-                        <div class="map-overlay">
 
-                            <h3>
-                                Risk Legend
-                            </h3>
+                    <div class="map-label label-mulshi">
+                        Mulshi
+                    </div>
 
-                            <div class="map-legend">
+                    <div class="map-label label-bhosari">
+                        Bhosari
+                    </div>
 
-                                <div>
-                                    <i class="legend-dot dot-red"></i>
-                                    Very High Risk
-                                </div>
+                    <div class="map-label label-wagholi">
+                        Wagholi
+                    </div>
 
-                                <div>
-                                    <i class="legend-dot dot-orange"></i>
-                                    High / Moderate Risk
-                                </div>
 
-                                <div>
-                                    <i class="legend-dot dot-green"></i>
-                                    Low Risk
-                                </div>
+                    <div class="map-compass">
+                        <span>N</span>
+                        <i class="fa-solid fa-location-arrow"></i>
+                    </div>
 
-                            </div>
 
+                    <div class="map-legend">
+
+                        <strong>Risk Level</strong>
+
+                        <div>
+                            <span class="legend-dot legend-low"></span>
+                            Low
                         </div>
 
-                        <!-- ================= MAP PINS ================= -->
+                        <div>
+                            <span class="legend-dot legend-moderate"></span>
+                            Moderate
+                        </div>
 
-                        <span class="map-pin pin1"></span>
+                        <div>
+                            <span class="legend-dot legend-high"></span>
+                            High
+                        </div>
 
-                        <span class="map-pin pin2"></span>
-
-                        <span class="map-pin pin3"></span>
-
-                        <span class="map-pin pin4"></span>
+                        <div>
+                            <span class="legend-dot legend-very-high"></span>
+                            Very High
+                        </div>
 
                     </div>
 
-                </section>
+                </div>
 
-            </main>
+            </div>
 
-        </div>
+
+            <div class="risk-summary-panel authority-panel">
+
+                <div class="authority-panel-header">
+                    <div>
+                        <h2>Risk Summary</h2>
+                        <span>Selected Area</span>
+                    </div>
+                </div>
+
+
+                <div class="risk-summary-grid">
+
+                    <div class="risk-summary-box low">
+                        <span>Low Risk</span>
+                        <strong>12</strong>
+                        <small>46.4%</small>
+                    </div>
+
+                    <div class="risk-summary-box moderate">
+                        <span>Moderate Risk</span>
+                        <strong>18</strong>
+                        <small>42.8%</small>
+                    </div>
+
+                    <div class="risk-summary-box high">
+                        <span>High Risk</span>
+                        <strong>8</strong>
+                        <small>14.7%</small>
+                    </div>
+
+                    <div class="risk-summary-box very-high">
+                        <span>Very High Risk</span>
+                        <strong>4</strong>
+                        <small>2.2%</small>
+                    </div>
+
+                </div>
+
+
+                <div class="affected-box">
+
+                    <div class="affected-icon">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+
+                    <div>
+                        <span>Affected Population (Est.)</span>
+                        <strong>12,440 People</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="risk-info-list">
+
+                    <div>
+                        <span>
+                            <i class="fa-solid fa-water"></i>
+                            Rivers
+                        </span>
+                        <strong>2</strong>
+                    </div>
+
+                    <div>
+                        <span>
+                            <i class="fa-solid fa-droplet"></i>
+                            Lakes / Reservoirs
+                        </span>
+                        <strong>2</strong>
+                    </div>
+
+                    <div>
+                        <span>
+                            <i class="fa-solid fa-house"></i>
+                            Villages
+                        </span>
+                        <strong>18</strong>
+                    </div>
+
+                    <div>
+                        <span>
+                            <i class="fa-solid fa-road"></i>
+                            Roads at Risk
+                        </span>
+                        <strong>7</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="risk-alert-box">
+
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+
+                    <div>
+                        <strong>High Risk Zone Detected</strong>
+                        <span>Immediate monitoring recommended</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="risk-bottom-grid">
+
+
+            <div class="authority-panel risk-stat-panel">
+
+                <div class="risk-stat-icon blue">
+                    <i class="fa-solid fa-map-location-dot"></i>
+                </div>
+
+                <div>
+                    <span>Monitored Area</span>
+                    <strong>428 km²</strong>
+                    <small>Across selected region</small>
+                </div>
+
+            </div>
+
+
+            <div class="authority-panel risk-stat-panel">
+
+                <div class="risk-stat-icon green">
+                    <i class="fa-solid fa-circle-check"></i>
+                </div>
+
+                <div>
+                    <span>Safe Zones</span>
+                    <strong>12</strong>
+                    <small>Low risk areas</small>
+                </div>
+
+            </div>
+
+
+            <div class="authority-panel risk-stat-panel">
+
+                <div class="risk-stat-icon orange">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                </div>
+
+                <div>
+                    <span>Warning Zones</span>
+                    <strong>18</strong>
+                    <small>Moderate risk areas</small>
+                </div>
+
+            </div>
+
+
+            <div class="authority-panel risk-stat-panel">
+
+                <div class="risk-stat-icon red">
+                    <i class="fa-solid fa-radiation"></i>
+                </div>
+
+                <div>
+                    <span>Critical Zones</span>
+                    <strong>4</strong>
+                    <small>Very high risk areas</small>
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+</div>
 
     </div>
 

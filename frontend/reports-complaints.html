@@ -1,416 +1,690 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <title>
-        Reports & Complaints | VARSHA KRITRIMA BUDDHIH
-    </title>
+    <title>Reports & Complaints - Varsha Kritrima Buddhih</title>
 
     <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 
-<body class="admin-page">
+<body>
 
-    <div class="admin-layout">
+<div class="authority-layout">
 
-        <!-- ================= SIDEBAR ================= -->
-        <aside class="admin-sidebar">
+    <aside class="authority-sidebar">
 
-            <!-- Brand -->
-            <a
-                class="side-brand"
-                href="admin-dashboard.html"
-            >
-                <img
-                    src="logo-icon.png"
-                    alt="VARSHA logo"
-                >
+        <div class="authority-logo-box">
+            <img src="logo-icon.png" alt="Varsha Kritrima Buddhih">
 
-                <span>
-                    VARSHA
-                    <strong>KRITRIMA BUDDHIH</strong>
-                </span>
+            <div class="authority-brand">
+                <h3>VARSHA KRITRIMA BUDDHIH</h3>
+                <span>PREDICT. PROTECT. PREVENT.</span>
+            </div>
+        </div>
+
+        <nav class="authority-nav">
+
+            <a href="authority-dashboard.html" class="authority-nav-item">
+                <i class="fa-solid fa-house"></i>
+                <span>Dashboard</span>
             </a>
 
-            <!-- Navigation -->
-            <nav class="side-nav">
+            <a href="alerts-management.html" class="authority-nav-item">
+                <i class="fa-regular fa-bell"></i>
+                <span>Alerts Management</span>
+            </a>
 
-                <a href="admin-dashboard.html">
-                    <span class="nav-icon">🏠</span>
-                    Dashboard
-                </a>
+            <a href="reports-complaints.html" class="authority-nav-item active">
+                <i class="fa-regular fa-file-lines"></i>
+                <span>Reports & Complaints</span>
+            </a>
 
-                <a href="alerts-management.html">
-                    <span class="nav-icon">🚨</span>
-                    Alerts Management
-                </a>
+            <a href="risk-map.html" class="authority-nav-item">
+                <i class="fa-solid fa-location-dot"></i>
+                <span>Risk Map</span>
+            </a>
 
-                <a
-                    class="active"
-                    href="reports-complaints.html"
-                >
-                    <span class="nav-icon">📋</span>
-                    Reports & Complaints
-                </a>
+            <a href="weather-data.html" class="authority-nav-item">
+                <i class="fa-solid fa-cloud-sun"></i>
+                <span>Weather & Data</span>
+            </a>
 
-                <a href="risk-map.html">
-                    <span class="nav-icon">🗺️</span>
-                    Risk Map
-                </a>
+            <a href="monitoring-stations.html" class="authority-nav-item">
+                <i class="fa-solid fa-tower-broadcast"></i>
+                <span>Monitoring Stations</span>
+            </a>
 
-                <a href="weather-data.html">
-                    <span class="nav-icon">🌦️</span>
-                    Weather & Data
-                </a>
+            <a href="user-management.html" class="authority-nav-item">
+                <i class="fa-solid fa-users"></i>
+                <span>User Management</span>
+            </a>
 
-                <a href="monitoring-stations.html">
-                    <span class="nav-icon">📡</span>
-                    Monitoring Stations
-                </a>
+            <a href="resources.html" class="authority-nav-item">
+                <i class="fa-solid fa-box"></i>
+                <span>Resources</span>
+            </a>
 
-                <a href="user-management.html">
-                    <span class="nav-icon">👥</span>
-                    User Management
-                </a>
+            <a href="settings.html" class="authority-nav-item">
+                <i class="fa-solid fa-gear"></i>
+                <span>Settings</span>
+            </a>
 
-                <a href="resources.html">
-                    <span class="nav-icon">🧰</span>
-                    Resources
-                </a>
+            <a href="logs.html" class="authority-nav-item">
+                <i class="fa-solid fa-clock-rotate-left"></i>
+                <span>Logs</span>
+            </a>
 
-                <a href="settings.html">
-                    <span class="nav-icon">⚙️</span>
-                    Settings
-                </a>
+            <a href="profile.html" class="authority-nav-item">
+                <i class="fa-regular fa-user"></i>
+                <span>Profile</span>
+            </a>
 
-                <a href="logs.html">
-                    <span class="nav-icon">📜</span>
-                    Logs
-                </a>
+            <a href="logout.html" class="authority-nav-item">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span>Logout</span>
+            </a>
 
-                <a href="profile.html">
-                    <span class="nav-icon">👤</span>
-                    Profile
-                </a>
+        </nav>
 
-            </nav>
+        <div class="authority-sidebar-bottom">
 
-            <!-- Logout -->
-            <div class="side-bottom">
+            <img src="logo-icon.png" alt="Logo">
 
-                <a
-                    class="side-nav logout-link"
-                    href="#"
-                    onclick="logout(); return false;"
-                >
-                    <span class="nav-icon">🚪</span>
-                    Logout
-                </a>
-
+            <div>
+                <strong>VARSHA KRITRIMA BUDDHIH</strong>
+                <small>PREDICT. PROTECT. PREVENT.</small>
             </div>
-
-        </aside>
-
-        <!-- ================= MAIN CONTENT ================= -->
-        <div class="admin-content">
-
-            <!-- Topbar -->
-            <header class="admin-topbar">
-
-                <div class="top-title">
-                    Reports & Complaints
-                </div>
-
-                <div class="top-user">
-
-                    <span id="adminName">
-                        Administrator
-                    </span>
-
-                    <span class="user-avatar">
-                        A
-                    </span>
-
-                </div>
-
-            </header>
-
-            <!-- ================= PAGE CONTENT ================= -->
-            <main class="page-wrap">
-
-                <!-- Page Header -->
-                <div class="page-head">
-
-                    <div>
-
-                        <div class="eyebrow">
-                            PUBLIC RESPONSE DESK
-                        </div>
-
-                        <h1>
-                            Reports & Complaints
-                        </h1>
-
-                        <p>
-                            Track citizen reports, complaints
-                            and field verification requests.
-                        </p>
-
-                    </div>
-
-                    <div class="status-chip">
-                        ● System Online
-                    </div>
-
-                </div>
-
-                <!-- ================= REPORT STATISTICS ================= -->
-                <section class="content-grid">
-
-                    <!-- Open Reports -->
-                    <div class="info-card">
-
-                        <span class="label">
-                            OPEN REPORTS
-                        </span>
-
-                        <strong class="value">
-                            42
-                        </strong>
-
-                        <span class="sub">
-                            Awaiting review
-                        </span>
-
-                    </div>
-
-                    <!-- High Priority -->
-                    <div class="info-card">
-
-                        <span class="label">
-                            HIGH PRIORITY
-                        </span>
-
-                        <strong class="value">
-                            09
-                        </strong>
-
-                        <span class="sub">
-                            Escalated cases
-                        </span>
-
-                    </div>
-
-                    <!-- In Review -->
-                    <div class="info-card">
-
-                        <span class="label">
-                            IN REVIEW
-                        </span>
-
-                        <strong class="value">
-                            21
-                        </strong>
-
-                        <span class="sub">
-                            Field verification
-                        </span>
-
-                    </div>
-
-                    <!-- Resolved -->
-                    <div class="info-card">
-
-                        <span class="label">
-                            RESOLVED
-                        </span>
-
-                        <strong class="value">
-                            136
-                        </strong>
-
-                        <span class="sub">
-                            This month
-                        </span>
-
-                    </div>
-
-                </section>
-
-                <!-- ================= REPORTS TABLE ================= -->
-                <section class="section-card table-card">
-
-                    <div class="table-title">
-
-                        <h2>
-                            Recent Reports & Complaints
-                        </h2>
-
-                        <div class="toolbar">
-
-                            <select class="select-box">
-
-                                <option>
-                                    All Status
-                                </option>
-
-                                <option>
-                                    Open
-                                </option>
-
-                                <option>
-                                    In Review
-                                </option>
-
-                                <option>
-                                    Resolved
-                                </option>
-
-                            </select>
-
-                        </div>
-
-                    </div>
-
-                    <!-- Reports Table -->
-                    <table class="data-table">
-
-                        <thead>
-
-                            <tr>
-                                <th>Case</th>
-                                <th>Citizen / Source</th>
-                                <th>Category</th>
-                                <th>Location</th>
-                                <th>Priority</th>
-                                <th>Status</th>
-                            </tr>
-
-                        </thead>
-
-                        <tbody>
-
-                            <!-- Case 2031 -->
-                            <tr>
-
-                                <td>
-                                    #CMP-2031
-                                </td>
-
-                                <td>
-                                    Citizen Portal
-                                </td>
-
-                                <td>
-                                    Waterlogging
-                                </td>
-
-                                <td>
-                                    Beed Road
-                                </td>
-
-                                <td>
-                                    <span class="badge high">
-                                        HIGH
-                                    </span>
-                                </td>
-
-                                <td>
-                                    <span class="badge blue">
-                                        OPEN
-                                    </span>
-                                </td>
-
-                            </tr>
-
-                            <!-- Case 2030 -->
-                            <tr>
-
-                                <td>
-                                    #CMP-2030
-                                </td>
-
-                                <td>
-                                    Field Officer
-                                </td>
-
-                                <td>
-                                    Dam Discharge
-                                </td>
-
-                                <td>
-                                    Paithan
-                                </td>
-
-                                <td>
-                                    <span class="badge medium">
-                                        MEDIUM
-                                    </span>
-                                </td>
-
-                                <td>
-                                    <span class="badge medium">
-                                        IN REVIEW
-                                    </span>
-                                </td>
-
-                            </tr>
-
-                            <!-- Case 2029 -->
-                            <tr>
-
-                                <td>
-                                    #CMP-2029
-                                </td>
-
-                                <td>
-                                    Citizen Portal
-                                </td>
-
-                                <td>
-                                    Road Blockage
-                                </td>
-
-                                <td>
-                                    Kannad
-                                </td>
-
-                                <td>
-                                    <span class="badge low">
-                                        LOW
-                                    </span>
-                                </td>
-
-                                <td>
-                                    <span class="badge online">
-                                        RESOLVED
-                                    </span>
-                                </td>
-
-                            </tr>
-
-                        </tbody>
-
-                    </table>
-
-                </section>
-
-            </main>
 
         </div>
 
-    </div>
+    </aside>
 
-    <!-- ================= JAVASCRIPT ================= -->
-    <script src="script.js"></script>
+
+    <main class="authority-main">
+
+        <header class="authority-header">
+
+            <div>
+                <h1>Reports & Complaints</h1>
+                <p>View and manage citizen reports</p>
+            </div>
+
+            <div class="authority-header-right">
+
+                <button class="authority-icon-btn" id="notificationBtn">
+                    <i class="fa-regular fa-bell"></i>
+                    <span class="notification-dot"></span>
+                </button>
+
+                <div class="authority-date">
+                    <i class="fa-regular fa-calendar"></i>
+                    <span id="currentDate">
+                        01 June 2024, 10:30 AM
+                    </span>
+                </div>
+
+                <div class="authority-profile-icon">
+                    <i class="fa-solid fa-user-shield"></i>
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <section class="reports-toolbar authority-panel">
+
+            <div class="reports-filter">
+
+                <div class="filter-group">
+                    <label>Report Type</label>
+
+                    <select id="reportTypeFilter">
+                        <option value="all">All Types</option>
+                        <option value="waterlogging">Waterlogging</option>
+                        <option value="drainage">Drainage</option>
+                        <option value="flooding">Flooding</option>
+                        <option value="road">Road Damage</option>
+                    </select>
+                </div>
+
+
+                <div class="filter-group">
+                    <label>Status</label>
+
+                    <select id="reportStatusFilter">
+                        <option value="all">All Status</option>
+                        <option value="open">Open</option>
+                        <option value="progress">In Progress</option>
+                        <option value="resolved">Resolved</option>
+                    </select>
+                </div>
+
+
+                <div class="filter-group">
+                    <label>Priority</label>
+
+                    <select id="reportPriorityFilter">
+                        <option value="all">All Priority</option>
+                        <option value="high">High</option>
+                        <option value="medium">Medium</option>
+                        <option value="low">Low</option>
+                    </select>
+                </div>
+
+
+                <button class="reports-filter-btn" id="reportFilterBtn">
+                    <i class="fa-solid fa-filter"></i>
+                    Filters
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <section class="authority-panel reports-table-panel">
+
+            <div class="authority-panel-header">
+
+                <div>
+                    <h2>Citizen Reports</h2>
+
+                    <span class="reports-count" id="reportsCount">
+                        Showing 7 reports
+                    </span>
+                </div>
+
+                <button class="clear-filter-btn" id="clearReportFilters">
+                    <i class="fa-solid fa-rotate-left"></i>
+                    Clear Filters
+                </button>
+
+            </div>
+
+
+            <div class="reports-table-wrapper">
+
+                <table class="reports-table">
+
+                    <thead>
+                        <tr>
+                            <th>Report</th>
+                            <th>Location</th>
+                            <th>Type</th>
+                            <th>Priority</th>
+                            <th>Status</th>
+                            <th>Time</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+
+
+                    <tbody id="reportsTableBody">
+
+
+                        <tr
+                            data-type="waterlogging"
+                            data-status="open"
+                            data-priority="high"
+                        >
+
+                            <td>
+
+                                <div class="report-name">
+
+                                    <span class="report-icon report-blue">
+                                        <i class="fa-solid fa-droplet"></i>
+                                    </span>
+
+                                    <div>
+                                        <strong>Waterlogging on Link Road</strong>
+                                        <small>Drain overflow reported</small>
+                                    </div>
+
+                                </div>
+
+                            </td>
+
+                            <td>Pune</td>
+
+                            <td>Waterlogging</td>
+
+                            <td>
+                                <span class="priority-badge priority-high">
+                                    High
+                                </span>
+                            </td>
+
+                            <td>
+                                <span class="report-status status-open">
+                                    Open
+                                </span>
+                            </td>
+
+                            <td>10:25 AM</td>
+
+                            <td>
+                                <button class="view-report">
+                                    <i class="fa-regular fa-eye"></i>
+                                </button>
+                            </td>
+
+                        </tr>
+
+
+                        <tr
+                            data-type="drainage"
+                            data-status="progress"
+                            data-priority="medium"
+                        >
+
+                            <td>
+
+                                <div class="report-name">
+
+                                    <span class="report-icon report-orange">
+                                        <i class="fa-solid fa-road"></i>
+                                    </span>
+
+                                    <div>
+                                        <strong>Drain Blockage Report</strong>
+                                        <small>Drainage issue reported</small>
+                                    </div>
+
+                                </div>
+
+                            </td>
+
+                            <td>Pune</td>
+
+                            <td>Drainage</td>
+
+                            <td>
+                                <span class="priority-badge priority-medium">
+                                    Medium
+                                </span>
+                            </td>
+
+                            <td>
+                                <span class="report-status status-progress">
+                                    In Progress
+                                </span>
+                            </td>
+
+                            <td>10:10 AM</td>
+
+                            <td>
+                                <button class="view-report">
+                                    <i class="fa-regular fa-eye"></i>
+                                </button>
+                            </td>
+
+                        </tr>
+
+
+                        <tr
+                            data-type="flooding"
+                            data-status="open"
+                            data-priority="high"
+                        >
+
+                            <td>
+
+                                <div class="report-name">
+
+                                    <span class="report-icon report-red">
+                                        <i class="fa-solid fa-house-flood-water"></i>
+                                    </span>
+
+                                    <div>
+                                        <strong>Flooding Near Bridge</strong>
+                                        <small>Road access affected</small>
+                                    </div>
+
+                                </div>
+
+                            </td>
+
+                            <td>Pune</td>
+
+                            <td>Flooding</td>
+
+                            <td>
+                                <span class="priority-badge priority-high">
+                                    High
+                                </span>
+                            </td>
+
+                            <td>
+                                <span class="report-status status-open">
+                                    Open
+                                </span>
+                            </td>
+
+                            <td>09:45 AM</td>
+
+                            <td>
+                                <button class="view-report">
+                                    <i class="fa-regular fa-eye"></i>
+                                </button>
+                            </td>
+
+                        </tr>
+
+
+                        <tr
+                            data-type="flooding"
+                            data-status="open"
+                            data-priority="high"
+                        >
+
+                            <td>
+
+                                <div class="report-name">
+
+                                    <span class="report-icon report-purple">
+                                        <i class="fa-solid fa-house"></i>
+                                    </span>
+
+                                    <div>
+                                        <strong>Pothole Complaint</strong>
+                                        <small>Road damage reported</small>
+                                    </div>
+
+                                </div>
+
+                            </td>
+
+                            <td>Pune</td>
+
+                            <td>Flooding</td>
+
+                            <td>
+                                <span class="priority-badge priority-high">
+                                    High
+                                </span>
+                            </td>
+
+                            <td>
+                                <span class="report-status status-open">
+                                    Open
+                                </span>
+                            </td>
+
+                            <td>09:45 AM</td>
+
+                            <td>
+                                <button class="view-report">
+                                    <i class="fa-regular fa-eye"></i>
+                                </button>
+                            </td>
+
+                        </tr>
+
+
+                        <tr
+                            data-type="waterlogging"
+                            data-status="resolved"
+                            data-priority="low"
+                        >
+
+                            <td>
+
+                                <div class="report-name">
+
+                                    <span class="report-icon report-green">
+                                        <i class="fa-solid fa-water"></i>
+                                    </span>
+
+                                    <div>
+                                        <strong>Waterlogging on Street</strong>
+                                        <small>Issue resolved successfully</small>
+                                    </div>
+
+                                </div>
+
+                            </td>
+
+                            <td>Pune</td>
+
+                            <td>Waterlogging</td>
+
+                            <td>
+                                <span class="priority-badge priority-low">
+                                    Low
+                                </span>
+                            </td>
+
+                            <td>
+                                <span class="report-status status-resolved">
+                                    Resolved
+                                </span>
+                            </td>
+
+                            <td>09:20 AM</td>
+
+                            <td>
+                                <button class="view-report">
+                                    <i class="fa-regular fa-eye"></i>
+                                </button>
+                            </td>
+
+                        </tr>
+
+
+                        <tr
+                            data-type="drainage"
+                            data-status="progress"
+                            data-priority="medium"
+                        >
+
+                            <td>
+
+                                <div class="report-name">
+
+                                    <span class="report-icon report-blue">
+                                        <i class="fa-solid fa-water"></i>
+                                    </span>
+
+                                    <div>
+                                        <strong>Overflowing Drain</strong>
+                                        <small>Drain overflow complaint</small>
+                                    </div>
+
+                                </div>
+
+                            </td>
+
+                            <td>Pune</td>
+
+                            <td>Drainage</td>
+
+                            <td>
+                                <span class="priority-badge priority-medium">
+                                    Medium
+                                </span>
+                            </td>
+
+                            <td>
+                                <span class="report-status status-progress">
+                                    In Progress
+                                </span>
+                            </td>
+
+                            <td>08:50 AM</td>
+
+                            <td>
+                                <button class="view-report">
+                                    <i class="fa-regular fa-eye"></i>
+                                </button>
+                            </td>
+
+                        </tr>
+
+
+                        <tr
+                            data-type="flooding"
+                            data-status="progress"
+                            data-priority="high"
+                        >
+
+                            <td>
+
+                                <div class="report-name">
+
+                                    <span class="report-icon report-red">
+                                        <i class="fa-solid fa-cloud-showers-heavy"></i>
+                                    </span>
+
+                                    <div>
+                                        <strong>Road Flooded</strong>
+                                        <small>Heavy rainfall impact</small>
+                                    </div>
+
+                                </div>
+
+                            </td>
+
+                            <td>Mumbai</td>
+
+                            <td>Flooding</td>
+
+                            <td>
+                                <span class="priority-badge priority-high">
+                                    High
+                                </span>
+                            </td>
+
+                            <td>
+                                <span class="report-status status-progress">
+                                    In Progress
+                                </span>
+                            </td>
+
+                            <td>08:20 AM</td>
+
+                            <td>
+                                <button class="view-report">
+                                    <i class="fa-regular fa-eye"></i>
+                                </button>
+                            </td>
+
+                        </tr>
+
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+            <div class="reports-footer">
+
+                <span id="reportsFooterText">
+                    Showing 1 to 7 of 62 reports
+                </span>
+
+                <div class="pagination">
+
+                    <button>
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+
+                    <button class="page-active">1</button>
+
+                    <button>2</button>
+                    <button>3</button>
+                    <button>4</button>
+                    <button>5</button>
+
+                    <button>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="reports-summary-grid">
+
+
+            <div class="report-summary-card authority-stat-card">
+
+                <div class="summary-icon summary-blue">
+                    <i class="fa-solid fa-file-lines"></i>
+                </div>
+
+                <div>
+                    <span>Total Reports</span>
+                    <strong>62</strong>
+                    <small>This month</small>
+                </div>
+
+            </div>
+
+
+            <div class="report-summary-card authority-stat-card">
+
+                <div class="summary-icon summary-orange">
+                    <i class="fa-solid fa-folder-open"></i>
+                </div>
+
+                <div>
+                    <span>Open Reports</span>
+                    <strong>18</strong>
+                    <small>Needs attention</small>
+                </div>
+
+            </div>
+
+
+            <div class="report-summary-card authority-stat-card">
+
+                <div class="summary-icon summary-green">
+                    <i class="fa-solid fa-circle-check"></i>
+                </div>
+
+                <div>
+                    <span>Resolved</span>
+                    <strong>34</strong>
+                    <small>Good progress</small>
+                </div>
+
+            </div>
+
+
+            <div class="report-summary-card authority-stat-card">
+
+                <div class="summary-icon summary-red">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                </div>
+
+                <div>
+                    <span>High Priority</span>
+                    <strong>10</strong>
+                    <small>Needs action</small>
+                </div>
+
+            </div>
+
+
+        </section>
+
+    </main>
+
+</div>
+
+<script src="script.js"></script>
 
 </body>
-
 </html>
