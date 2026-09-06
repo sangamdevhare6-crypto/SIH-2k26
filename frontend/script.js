@@ -447,3 +447,112 @@ if (
             }
         });
 }
+document.addEventListener("DOMContentLoaded", function () {
+
+    const typeFilter = document.getElementById("alertTypeFilter");
+    const riskFilter = document.getElementById("riskFilter");
+    const statusFilter = document.getElementById("statusFilter");
+    const filterBtn = document.getElementById("filterBtn");
+    const clearBtn = document.getElementById("clearFilters");
+
+    const rows = document.querySelectorAll("#alertsTableBody tr");
+    const countText = document.getElementById("alertsCount");
+    const footerText = document.getElementById("footerText");
+
+
+    function applyFilters() {
+
+        const type = typeFilter.value;
+        const risk = riskFilter.value;
+        const status = statusFilter.value;
+
+        let visible = 0;
+
+        rows.forEach(function (row) {
+
+            const rowType = row.dataset.type;
+            const rowRisk = row.dataset.risk;
+            const rowStatus = row.dataset.status;
+
+            const typeMatch =
+                type === "all" || rowType === type;
+
+            const riskMatch =
+                risk === "all" || rowRisk === risk;
+
+            const statusMatch =
+                status === "all" || rowStatus === status;
+
+
+            if (typeMatch && riskMatch && statusMatch) {
+
+                row.style.display = "";
+
+                visible++;
+
+            } else {
+
+                row.style.display = "none";
+
+            }
+
+        });
+
+
+        countText.textContent =
+            "Showing " + visible + " alerts";
+
+        footerText.textContent =
+            "Showing 1 to " + visible + " of 78 alerts";
+
+    }
+
+
+    filterBtn.addEventListener("click", applyFilters);
+
+
+    typeFilter.addEventListener("change", applyFilters);
+    riskFilter.addEventListener("change", applyFilters);
+    statusFilter.addEventListener("change", applyFilters);
+
+
+    clearBtn.addEventListener("click", function () {
+
+        typeFilter.value = "all";
+        riskFilter.value = "all";
+        statusFilter.value = "all";
+
+        applyFilters();
+
+    });
+
+
+    document.querySelectorAll(".view-alert").forEach(function (button) {
+
+        button.addEventListener("click", function () {
+
+            const row = button.closest("tr");
+            const alertName =
+                row.querySelector(".alert-name strong").textContent;
+
+            alert("Alert Details:\n" + alertName);
+
+        });
+
+    });
+
+
+    const notificationBtn =
+        document.getElementById("notificationBtn");
+
+    if (notificationBtn) {
+
+        notificationBtn.addEventListener("click", function () {
+
+            alert("You have new alerts.");
+
+        });
+
+    }
+
+});
