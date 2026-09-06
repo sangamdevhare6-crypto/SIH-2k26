@@ -34,10 +34,6 @@ urlpatterns = [
         template_name="role-login.html"
     ), name="role-login"),
 
-    path("citizen-dashboard.html", TemplateView.as_view(
-        template_name="citizen-dashboard.html"
-    ), name="citizen-dashboard"),
-
     path("authority-dashboard.html", TemplateView.as_view(
         template_name="authority-dashboard.html"
     ), name="authority-dashboard"),

@@ -30,14 +30,17 @@ const roles = {
     }
 };
 
+
 const params = new URLSearchParams(location.search);
 const role = params.get('role');
+
 
 if (role && roles[role]) {
 
     const c = roles[role];
 
     const set = (id, value) => {
+
         const element = document.getElementById(id);
 
         if (element) {
@@ -59,6 +62,7 @@ if (role && roles[role]) {
     const features = document.getElementById('roleFeatures');
 
     if (features) {
+
         features.innerHTML = c.features
             .map(x => `<div>${x}</div>`)
             .join('');
@@ -85,6 +89,7 @@ async function api(path, payload) {
     } catch {}
 
     if (!response.ok) {
+
         throw new Error(
             data.message || 'Request failed.'
         );
@@ -94,14 +99,30 @@ async function api(path, payload) {
 }
 
 
+/* ===============================
+   LOGIN REDIRECT
+   =============================== */
+
 function redirectToDashboard(role) {
 
-    location.href =
-        role === 'admin'
-            ? 'admin-dashboard.html'
-            : 'citizen-dashboard.html';
+    if (role === 'admin') {
+
+        location.href = 'admin-dashboard.html';
+
+    } else if (role === 'citizen') {
+
+        location.href = 'authority-dashboard.html';
+
+    } else {
+
+        location.href = 'authority-dashboard.html';
+    }
 }
 
+
+/* ===============================
+   CREATE ACCOUNT
+   =============================== */
 
 async function createAccount(event) {
 
@@ -111,41 +132,54 @@ async function createAccount(event) {
 
     const inputs = form.querySelectorAll('input');
 
-    const role = form
-        .querySelector('select')
-        .value;
+    const roleSelect = form.querySelector('select');
+
+    const selectedRole = roleSelect
+        ? roleSelect.value
+        : 'citizen';
+
 
     const data = {
 
-        fullName: inputs[0].value.trim(),
+        fullName: inputs[0]
+            ? inputs[0].value.trim()
+            : '',
 
         email: inputs[1]
-            .value
-            .trim()
-            .toLowerCase(),
+            ? inputs[1].value.trim().toLowerCase()
+            : '',
 
         mobile: inputs[2]
-            .value
-            .trim(),
+            ? inputs[2].value.trim()
+            : '',
 
-        password: inputs[3].value,
+        password: inputs[3]
+            ? inputs[3].value
+            : '',
 
-        confirm: inputs[4].value,
+        confirm: inputs[4]
+            ? inputs[4].value
+            : '',
 
-        role: role
+        role: selectedRole
     };
 
+
     if (data.password !== data.confirm) {
+
         return alert(
             'Passwords do not match.'
         );
     }
 
+
     if (data.password.length < 6) {
+
         return alert(
             'Password must contain at least 6 characters.'
         );
     }
+
 
     try {
 
@@ -159,7 +193,7 @@ async function createAccount(event) {
         );
 
         location.href =
-            `role-login.html?role=${role}`;
+            `role-login.html?role=${selectedRole}`;
 
     } catch (error) {
 
@@ -167,6 +201,10 @@ async function createAccount(event) {
     }
 }
 
+
+/* ===============================
+   NORMAL LOGIN
+   =============================== */
 
 async function login(event) {
 
@@ -176,20 +214,27 @@ async function login(event) {
 
     try {
 
+        const emailInput =
+            form.querySelector('input[type=email]');
+
+        const passwordInput =
+            form.querySelector('input[type=password]');
+
+
         const data = await api(
             '/api/login/',
             {
-                email: form
-                    .querySelector('input[type=email]')
-                    .value
-                    .trim()
-                    .toLowerCase(),
 
-                password: form
-                    .querySelector('input[type=password]')
-                    .value
+                email: emailInput
+                    ? emailInput.value.trim().toLowerCase()
+                    : '',
+
+                password: passwordInput
+                    ? passwordInput.value
+                    : ''
             }
         );
+
 
         redirectToDashboard(
             data.user.role
@@ -202,6 +247,10 @@ async function login(event) {
 }
 
 
+/* ===============================
+   ROLE LOGIN
+   =============================== */
+
 async function roleLogin(event) {
 
     event.preventDefault();
@@ -210,20 +259,27 @@ async function roleLogin(event) {
 
     try {
 
+        const emailInput =
+            form.querySelector('input[type=email]');
+
+        const passwordInput =
+            form.querySelector('input[type=password]');
+
+
         const data = await api(
             '/api/login/',
             {
-                email: form
-                    .querySelector('input[type=email]')
-                    .value
-                    .trim()
-                    .toLowerCase(),
 
-                password: form
-                    .querySelector('input[type=password]')
-                    .value
+                email: emailInput
+                    ? emailInput.value.trim().toLowerCase()
+                    : '',
+
+                password: passwordInput
+                    ? passwordInput.value
+                    : ''
             }
         );
+
 
         if (
             role &&
@@ -235,6 +291,7 @@ async function roleLogin(event) {
             );
         }
 
+
         redirectToDashboard(
             data.user.role
         );
@@ -246,6 +303,10 @@ async function roleLogin(event) {
 }
 
 
+/* ===============================
+   RESET PASSWORD
+   =============================== */
+
 async function resetPassword(event) {
 
     event.preventDefault();
@@ -256,6 +317,7 @@ async function resetPassword(event) {
     const confirmPassword =
         document.getElementById('confirmNewPassword').value;
 
+
     if (newPassword !== confirmPassword) {
 
         return alert(
@@ -263,11 +325,13 @@ async function resetPassword(event) {
         );
     }
 
+
     try {
 
         await api(
             '/api/reset-password/',
             {
+
                 email: document
                     .getElementById('resetEmail')
                     .value
@@ -278,9 +342,11 @@ async function resetPassword(event) {
             }
         );
 
+
         alert(
             'Password reset successfully. Please login again.'
         );
+
 
         location.href =
             'role-login.html';
@@ -291,6 +357,10 @@ async function resetPassword(event) {
     }
 }
 
+
+/* ===============================
+   LOGOUT
+   =============================== */
 
 async function logout() {
 
@@ -309,6 +379,10 @@ async function logout() {
 }
 
 
+/* ===============================
+   DASHBOARD PROTECTION
+   =============================== */
+
 async function protectDashboard(requiredRole) {
 
     try {
@@ -316,15 +390,20 @@ async function protectDashboard(requiredRole) {
         const response =
             await fetch('/api/me/');
 
+
         if (!response.ok) {
+
             throw 0;
         }
+
 
         const data =
             await response.json();
 
+
         const user =
             data.user;
+
 
         if (
             requiredRole &&
@@ -336,18 +415,30 @@ async function protectDashboard(requiredRole) {
             );
         }
 
-        const id =
-            requiredRole === 'admin'
-                ? 'adminName'
-                : 'citizenName';
+
+        let id;
+
+
+        if (requiredRole === 'admin') {
+
+            id = 'adminName';
+
+        } else {
+
+            id = 'citizenName';
+        }
+
 
         const element =
             document.getElementById(id);
 
+
         if (element) {
+
             element.textContent =
                 user.name;
         }
+
 
         return user;
 
@@ -363,6 +454,10 @@ async function protectDashboard(requiredRole) {
 }
 
 
+/* ===============================
+   OLD DASHBOARD PROTECTION
+   =============================== */
+
 if (
     document.body.classList.contains(
         'dashboard-page'
@@ -374,6 +469,7 @@ if (
             .toLowerCase()
             .includes('administrator');
 
+
     protectDashboard(
         isAdmin
             ? 'admin'
@@ -382,7 +478,97 @@ if (
 }
 
 
-/* Shared protection for the administrator sidebar pages. */
+/* ===============================
+   AUTHORITY DASHBOARD PROTECTION
+   =============================== */
+
+if (
+    document.body.classList.contains(
+        'authority-page'
+    )
+) {
+
+    protectDashboard('citizen')
+        .then(user => {
+
+            if (!user) {
+                return;
+            }
+
+
+            const name =
+                document.getElementById(
+                    'profileName'
+                );
+
+
+            const email =
+                document.getElementById(
+                    'profileEmail'
+                );
+
+
+            const emailInput =
+                document.getElementById(
+                    'profileEmailInput'
+                );
+
+
+            const fullName =
+                document.getElementById(
+                    'profileFullName'
+                );
+
+
+            if (name) {
+
+                name.textContent =
+                    user.name;
+            }
+
+
+            if (email) {
+
+                email.textContent =
+                    user.email;
+            }
+
+
+            if (emailInput) {
+
+                emailInput.value =
+                    user.email;
+            }
+
+
+            if (fullName) {
+
+                fullName.value =
+                    user.name;
+            }
+
+
+            const avatar =
+                document.querySelector(
+                    '.user-avatar'
+                );
+
+
+            if (avatar) {
+
+                avatar.textContent =
+                    (user.name || 'A')
+                        .charAt(0)
+                        .toUpperCase();
+            }
+
+        });
+}
+
+
+/* ===============================
+   ADMIN SIDEBAR PAGES
+   =============================== */
 
 if (
     document.body.classList.contains(
@@ -393,50 +579,68 @@ if (
     protectDashboard('admin')
         .then(user => {
 
+            if (!user) {
+                return;
+            }
+
+
             const name =
                 document.getElementById(
                     'profileName'
                 );
+
 
             const email =
                 document.getElementById(
                     'profileEmail'
                 );
 
+
             const emailInput =
                 document.getElementById(
                     'profileEmailInput'
                 );
+
 
             const fullName =
                 document.getElementById(
                     'profileFullName'
                 );
 
+
             if (name) {
+
                 name.textContent =
                     user.name;
             }
 
+
             if (email) {
+
                 email.textContent =
                     user.email;
             }
 
+
             if (emailInput) {
+
                 emailInput.value =
                     user.email;
             }
 
+
             if (fullName) {
+
                 fullName.value =
                     user.name;
             }
+
 
             const avatar =
                 document.querySelector(
                     '.user-avatar'
                 );
+
 
             if (avatar) {
 
@@ -445,114 +649,277 @@ if (
                         .charAt(0)
                         .toUpperCase();
             }
+
         });
 }
-document.addEventListener("DOMContentLoaded", function () {
-
-    const typeFilter = document.getElementById("alertTypeFilter");
-    const riskFilter = document.getElementById("riskFilter");
-    const statusFilter = document.getElementById("statusFilter");
-    const filterBtn = document.getElementById("filterBtn");
-    const clearBtn = document.getElementById("clearFilters");
-
-    const rows = document.querySelectorAll("#alertsTableBody tr");
-    const countText = document.getElementById("alertsCount");
-    const footerText = document.getElementById("footerText");
 
 
-    function applyFilters() {
+/* ===============================
+   ALERT MANAGEMENT
+   =============================== */
 
-        const type = typeFilter.value;
-        const risk = riskFilter.value;
-        const status = statusFilter.value;
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
 
-        let visible = 0;
-
-        rows.forEach(function (row) {
-
-            const rowType = row.dataset.type;
-            const rowRisk = row.dataset.risk;
-            const rowStatus = row.dataset.status;
-
-            const typeMatch =
-                type === "all" || rowType === type;
-
-            const riskMatch =
-                risk === "all" || rowRisk === risk;
-
-            const statusMatch =
-                status === "all" || rowStatus === status;
+        const typeFilter =
+            document.getElementById(
+                "alertTypeFilter"
+            );
 
 
-            if (typeMatch && riskMatch && statusMatch) {
+        const riskFilter =
+            document.getElementById(
+                "riskFilter"
+            );
 
-                row.style.display = "";
 
-                visible++;
+        const statusFilter =
+            document.getElementById(
+                "statusFilter"
+            );
 
-            } else {
 
-                row.style.display = "none";
+        const filterBtn =
+            document.getElementById(
+                "filterBtn"
+            );
 
+
+        const clearBtn =
+            document.getElementById(
+                "clearFilters"
+            );
+
+
+        const rows =
+            document.querySelectorAll(
+                "#alertsTableBody tr"
+            );
+
+
+        const countText =
+            document.getElementById(
+                "alertsCount"
+            );
+
+
+        const footerText =
+            document.getElementById(
+                "footerText"
+            );
+
+
+        function applyFilters() {
+
+            if (
+                !typeFilter ||
+                !riskFilter ||
+                !statusFilter
+            ) {
+
+                return;
             }
 
-        });
+
+            const type =
+                typeFilter.value;
 
 
-        countText.textContent =
-            "Showing " + visible + " alerts";
+            const risk =
+                riskFilter.value;
 
-        footerText.textContent =
-            "Showing 1 to " + visible + " of 78 alerts";
+
+            const status =
+                statusFilter.value;
+
+
+            let visible = 0;
+
+
+            rows.forEach(function (row) {
+
+                const rowType =
+                    row.dataset.type;
+
+
+                const rowRisk =
+                    row.dataset.risk;
+
+
+                const rowStatus =
+                    row.dataset.status;
+
+
+                const typeMatch =
+                    type === "all" ||
+                    rowType === type;
+
+
+                const riskMatch =
+                    risk === "all" ||
+                    rowRisk === risk;
+
+
+                const statusMatch =
+                    status === "all" ||
+                    rowStatus === status;
+
+
+                if (
+                    typeMatch &&
+                    riskMatch &&
+                    statusMatch
+                ) {
+
+                    row.style.display = "";
+
+                    visible++;
+
+                } else {
+
+                    row.style.display =
+                        "none";
+                }
+
+            });
+
+
+            if (countText) {
+
+                countText.textContent =
+                    "Showing " +
+                    visible +
+                    " alerts";
+            }
+
+
+            if (footerText) {
+
+                footerText.textContent =
+                    "Showing 1 to " +
+                    visible +
+                    " of 78 alerts";
+            }
+        }
+
+
+        if (filterBtn) {
+
+            filterBtn.addEventListener(
+                "click",
+                applyFilters
+            );
+        }
+
+
+        if (typeFilter) {
+
+            typeFilter.addEventListener(
+                "change",
+                applyFilters
+            );
+        }
+
+
+        if (riskFilter) {
+
+            riskFilter.addEventListener(
+                "change",
+                applyFilters
+            );
+        }
+
+
+        if (statusFilter) {
+
+            statusFilter.addEventListener(
+                "change",
+                applyFilters
+            );
+        }
+
+
+        if (clearBtn) {
+
+            clearBtn.addEventListener(
+                "click",
+                function () {
+
+                    if (typeFilter) {
+                        typeFilter.value = "all";
+                    }
+
+                    if (riskFilter) {
+                        riskFilter.value = "all";
+                    }
+
+                    if (statusFilter) {
+                        statusFilter.value = "all";
+                    }
+
+                    applyFilters();
+                }
+            );
+        }
+
+
+        document
+            .querySelectorAll(".view-alert")
+            .forEach(function (button) {
+
+                button.addEventListener(
+                    "click",
+                    function () {
+
+                        const row =
+                            button.closest("tr");
+
+
+                        if (!row) {
+                            return;
+                        }
+
+
+                        const alertNameElement =
+                            row.querySelector(
+                                ".alert-name strong"
+                            );
+
+
+                        const alertName =
+                            alertNameElement
+                                ? alertNameElement.textContent
+                                : "Unknown Alert";
+
+
+                        alert(
+                            "Alert Details:\n" +
+                            alertName
+                        );
+                    }
+                );
+            });
+
+
+        const notificationBtn =
+            document.getElementById(
+                "notificationBtn"
+            );
+
+
+        if (notificationBtn) {
+
+            notificationBtn.addEventListener(
+                "click",
+                function () {
+
+                    alert(
+                        "You have new alerts."
+                    );
+                }
+            );
+        }
 
     }
-
-
-    filterBtn.addEventListener("click", applyFilters);
-
-
-    typeFilter.addEventListener("change", applyFilters);
-    riskFilter.addEventListener("change", applyFilters);
-    statusFilter.addEventListener("change", applyFilters);
-
-
-    clearBtn.addEventListener("click", function () {
-
-        typeFilter.value = "all";
-        riskFilter.value = "all";
-        statusFilter.value = "all";
-
-        applyFilters();
-
-    });
-
-
-    document.querySelectorAll(".view-alert").forEach(function (button) {
-
-        button.addEventListener("click", function () {
-
-            const row = button.closest("tr");
-            const alertName =
-                row.querySelector(".alert-name strong").textContent;
-
-            alert("Alert Details:\n" + alertName);
-
-        });
-
-    });
-
-
-    const notificationBtn =
-        document.getElementById("notificationBtn");
-
-    if (notificationBtn) {
-
-        notificationBtn.addEventListener("click", function () {
-
-            alert("You have new alerts.");
-
-        });
-
-    }
-
-});
+);
