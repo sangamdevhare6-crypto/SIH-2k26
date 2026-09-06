@@ -8391,3 +8391,554 @@ body {
         transition-duration: .01ms !important;
     }
 }
+/* =========================================================
+   VARSHA KRITRIMA BUDDHIH
+   REAL LIVE RISK MAP - LEAFLET
+========================================================= */
+
+
+/* Main Map */
+
+#liveRiskMap {
+    width: 100%;
+    height: 100%;
+    min-height: 475px;
+    z-index: 1;
+}
+
+
+/* Make Leaflet fit inside our glass card */
+
+.risk-map-area {
+    position: relative;
+    height: 475px;
+    overflow: hidden;
+    border-radius: 13px;
+    border: 1px solid #d8e8ee;
+    background: #eaf4f8;
+}
+
+
+/* Remove old fake map background */
+
+.risk-map-area::before {
+    display: none;
+}
+
+
+/* =========================================================
+   LEAFLET CONTROLS
+========================================================= */
+
+.leaflet-control-zoom {
+    border: none !important;
+    box-shadow: 0 5px 15px rgba(20, 80, 120, .15) !important;
+}
+
+
+.leaflet-control-zoom a {
+    width: 34px !important;
+    height: 34px !important;
+    line-height: 34px !important;
+
+    color: #176ab0 !important;
+
+    background: rgba(255, 255, 255, .94) !important;
+
+    border: 1px solid #d9e7ee !important;
+
+    transition: .25s ease;
+}
+
+
+.leaflet-control-zoom a:hover {
+    background: #eef8ff !important;
+
+    color: #0566c8 !important;
+
+    transform: scale(1.08);
+}
+
+
+/* =========================================================
+   CUSTOM RISK MARKERS
+========================================================= */
+
+.risk-marker-wrapper {
+    background: transparent;
+    border: none;
+}
+
+
+.risk-marker {
+    width: 20px;
+    height: 20px;
+
+    border-radius: 50%;
+
+    border: 3px solid white;
+
+    box-shadow:
+        0 0 0 4px rgba(255,255,255,.35),
+        0 5px 15px rgba(0,0,0,.30);
+
+    animation: riskMarkerPulse 2s infinite;
+}
+
+
+@keyframes riskMarkerPulse {
+
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.18);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+
+}
+
+
+/* =========================================================
+   MAP POPUP
+========================================================= */
+
+.leaflet-popup-content-wrapper {
+
+    border-radius: 14px !important;
+
+    box-shadow:
+        0 10px 35px rgba(20,80,120,.18) !important;
+}
+
+
+.leaflet-popup-content {
+
+    margin: 14px 16px !important;
+
+    font-family: Arial, sans-serif;
+}
+
+
+.risk-popup {
+
+    min-width: 190px;
+}
+
+
+.risk-popup h3 {
+
+    margin: 0 0 10px;
+
+    color: #19385e;
+
+    font-size: 15px;
+}
+
+
+.risk-popup-row {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    padding: 6px 0;
+
+    border-bottom: 1px solid #edf2f5;
+
+    font-size: 11px;
+
+    color: #6b8297;
+}
+
+
+.risk-popup-row:last-child {
+    border-bottom: none;
+}
+
+
+.risk-popup-row strong {
+
+    color: #19385e;
+
+    font-size: 11px;
+}
+
+
+.risk-popup-status {
+
+    display: inline-block;
+
+    padding: 4px 8px;
+
+    border-radius: 20px;
+
+    color: white;
+
+    font-size: 9px;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   LIVE MAP INFORMATION CARD
+========================================================= */
+
+.map-info-card {
+
+    position: absolute;
+
+    left: 14px;
+
+    top: 14px;
+
+    z-index: 500;
+
+    min-width: 175px;
+
+    padding: 11px 13px;
+
+    border-radius: 12px;
+
+    background: rgba(255,255,255,.92);
+
+    backdrop-filter: blur(14px);
+
+    -webkit-backdrop-filter: blur(14px);
+
+    border: 1px solid rgba(255,255,255,.85);
+
+    box-shadow:
+        0 8px 25px rgba(30,80,120,.14);
+
+    animation: mapInfoFloat 3s ease-in-out infinite;
+}
+
+
+.map-info-title {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    color: #52718b;
+
+    font-size: 9px;
+
+    font-weight: 700;
+}
+
+
+.map-info-title i {
+
+    color: #1687d2;
+
+    font-size: 12px;
+}
+
+
+.map-info-card strong {
+
+    display: block;
+
+    margin-top: 5px;
+
+    color: #19385e;
+
+    font-size: 19px;
+}
+
+
+.map-info-card small {
+
+    display: block;
+
+    margin-top: 2px;
+
+    color: #8397a8;
+
+    font-size: 7px;
+}
+
+
+@keyframes mapInfoFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-4px);
+    }
+
+}
+
+
+/* =========================================================
+   MAP LEGEND
+========================================================= */
+
+.map-legend {
+
+    position: absolute;
+
+    left: 14px;
+
+    bottom: 14px;
+
+    z-index: 500;
+
+    width: 115px;
+
+    padding: 10px;
+
+    border-radius: 10px;
+
+    background: rgba(255,255,255,.94);
+
+    backdrop-filter: blur(12px);
+
+    border: 1px solid #dbe8ef;
+
+    box-shadow:
+        0 7px 20px rgba(30,80,120,.12);
+}
+
+
+.map-legend strong {
+
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #35546e;
+
+    font-size: 9px;
+}
+
+
+.map-legend div {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    margin: 5px 0;
+
+    color: #617b91;
+
+    font-size: 8px;
+}
+
+
+.legend-dot {
+
+    width: 8px;
+
+    height: 8px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    animation: legendDotPulse 2s infinite;
+}
+
+
+.legend-low {
+    background: #2eae55;
+}
+
+
+.legend-moderate {
+    background: #f4c52d;
+}
+
+
+.legend-high {
+    background: #f18b20;
+}
+
+
+.legend-very-high {
+    background: #ed3f32;
+}
+
+
+@keyframes legendDotPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.25);
+    }
+
+}
+
+
+/* =========================================================
+   FLOOD ZONE OVERLAY
+========================================================= */
+
+.flood-zone {
+
+    border-radius: 50%;
+
+    animation: floodZonePulse 3s ease-in-out infinite;
+}
+
+
+@keyframes floodZonePulse {
+
+    0%,
+    100% {
+        opacity: .16;
+    }
+
+    50% {
+        opacity: .28;
+    }
+
+}
+
+
+/* =========================================================
+   CURRENT LOCATION BUTTON
+========================================================= */
+
+.current-location-btn {
+
+    width: 34px;
+
+    height: 34px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border: 1px solid #d9e7ee;
+
+    border-radius: 5px;
+
+    background: white;
+
+    color: #0872cf;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 4px 12px rgba(20,80,120,.12);
+
+    transition: .25s ease;
+}
+
+
+.current-location-btn:hover {
+
+    background: #eef8ff;
+
+    transform: scale(1.08);
+}
+
+
+/* =========================================================
+   MAP RESPONSIVE
+========================================================= */
+
+@media (max-width: 1200px) {
+
+    #liveRiskMap {
+
+        min-height: 475px;
+    }
+
+}
+
+
+@media (max-width: 900px) {
+
+    .risk-map-area {
+
+        height: 450px;
+    }
+
+    #liveRiskMap {
+
+        min-height: 450px;
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .risk-map-area {
+
+        height: 420px;
+    }
+
+    #liveRiskMap {
+
+        min-height: 420px;
+    }
+
+    .map-info-card {
+
+        min-width: 145px;
+
+        padding: 9px;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .risk-map-area {
+
+        height: 380px;
+    }
+
+    #liveRiskMap {
+
+        min-height: 380px;
+    }
+
+    .map-info-card {
+
+        left: 8px;
+
+        top: 8px;
+
+        min-width: 130px;
+    }
+
+    .map-legend {
+
+        left: 8px;
+
+        bottom: 8px;
+
+        width: 95px;
+    }
+
+}
