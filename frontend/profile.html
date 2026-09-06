@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Profile | VARSHA KRITRIMA BUDDHIH
+    </title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="admin-page">
+
+    <div class="admin-layout">
+
+        <!-- ================= SIDEBAR ================= -->
+        <aside class="admin-sidebar">
+
+            <!-- Brand -->
+            <a
+                class="side-brand"
+                href="admin-dashboard.html"
+            >
+                <img
+                    src="logo-icon.png"
+                    alt="VARSHA logo"
+                >
+
+                <span>
+                    VARSHA
+                    <strong>KRITRIMA BUDDHIH</strong>
+                </span>
+            </a>
+
+            <!-- Navigation -->
+            <nav class="side-nav">
+
+                <a href="admin-dashboard.html">
+                    <span class="nav-icon">🏠</span>
+                    Dashboard
+                </a>
+
+                <a href="alerts-management.html">
+                    <span class="nav-icon">🚨</span>
+                    Alerts Management
+                </a>
+
+                <a href="reports-complaints.html">
+                    <span class="nav-icon">📋</span>
+                    Reports & Complaints
+                </a>
+
+                <a href="risk-map.html">
+                    <span class="nav-icon">🗺️</span>
+                    Risk Map
+                </a>
+
+                <a href="weather-data.html">
+                    <span class="nav-icon">🌦️</span>
+                    Weather & Data
+                </a>
+
+                <a href="monitoring-stations.html">
+                    <span class="nav-icon">📡</span>
+                    Monitoring Stations
+                </a>
+
+                <a href="user-management.html">
+                    <span class="nav-icon">👥</span>
+                    User Management
+                </a>
+
+                <a href="resources.html">
+                    <span class="nav-icon">🧰</span>
+                    Resources
+                </a>
+
+                <a href="settings.html">
+                    <span class="nav-icon">⚙️</span>
+                    Settings
+                </a>
+
+                <a href="logs.html">
+                    <span class="nav-icon">📜</span>
+                    Logs
+                </a>
+
+                <a
+                    class="active"
+                    href="profile.html"
+                >
+                    <span class="nav-icon">👤</span>
+                    Profile
+                </a>
+
+            </nav>
+
+            <!-- Logout -->
+            <div class="side-bottom">
+
+                <a
+                    class="side-nav logout-link"
+                    href="#"
+                    onclick="logout(); return false;"
+                >
+                    <span class="nav-icon">🚪</span>
+                    Logout
+                </a>
+
+            </div>
+
+        </aside>
+
+        <!-- ================= MAIN CONTENT ================= -->
+        <div class="admin-content">
+
+            <!-- Topbar -->
+            <header class="admin-topbar">
+
+                <div class="top-title">
+                    Profile
+                </div>
+
+                <div class="top-user">
+
+                    <span id="adminName">
+                        Administrator
+                    </span>
+
+                    <span class="user-avatar">
+                        A
+                    </span>
+
+                </div>
+
+            </header>
+
+            <!-- ================= PAGE CONTENT ================= -->
+            <main class="page-wrap">
+
+                <!-- Page Header -->
+                <div class="page-head">
+
+                    <div>
+
+                        <div class="eyebrow">
+                            ACCOUNT CENTER
+                        </div>
+
+                        <h1>
+                            Profile
+                        </h1>
+
+                        <p>
+                            View your administrator profile
+                            and account details.
+                        </p>
+
+                    </div>
+
+                    <div class="status-chip">
+                        ● System Online
+                    </div>
+
+                </div>
+
+                <!-- ================= PROFILE CARD ================= -->
+                <section class="section-card table-card">
+
+                    <!-- Profile Header -->
+                    <div class="profile-header">
+
+                        <div class="profile-avatar">
+                            👤
+                        </div>
+
+                        <div>
+
+                            <h2 id="profileName">
+                                Administrator
+                            </h2>
+
+                            <p id="profileEmail">
+                                Loading account information...
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Profile Form -->
+                    <div
+                        class="form-card"
+                        style="
+                            border: 0;
+                            border-top: 1px solid #e8eef5;
+                            border-radius: 0;
+                            box-shadow: none;
+                        "
+                    >
+
+                        <!-- Name & Email -->
+                        <div class="form-row">
+
+                            <div class="field">
+
+                                <label>
+                                    Full Name
+                                </label>
+
+                                <input
+                                    id="profileFullName"
+                                    type="text"
+                                    value="Administrator"
+                                    readonly
+                                >
+
+                            </div>
+
+                            <div class="field">
+
+                                <label>
+                                    Email
+                                </label>
+
+                                <input
+                                    id="profileEmailInput"
+                                    type="email"
+                                    value=""
+                                    readonly
+                                >
+
+                            </div>
+
+                        </div>
+
+                        <!-- Role & Status -->
+                        <div class="form-row">
+
+                            <div class="field">
+
+                                <label>
+                                    Role
+                                </label>
+
+                                <input
+                                    type="text"
+                                    value="Administrator"
+                                    readonly
+                                >
+
+                            </div>
+
+                            <div class="field">
+
+                                <label>
+                                    Account Status
+                                </label>
+
+                                <input
+                                    type="text"
+                                    value="Active"
+                                    readonly
+                                >
+
+                            </div>
+
+                        </div>
+
+                        <!-- Edit Button -->
+                        <button class="secondary-btn">
+                            Edit Profile
+                        </button>
+
+                    </div>
+
+                </section>
+
+            </main>
+
+        </div>
+
+    </div>
+
+    <!-- ================= JAVASCRIPT ================= -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>

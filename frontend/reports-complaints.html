@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Reports & Complaints | VARSHA KRITRIMA BUDDHIH
+    </title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="admin-page">
+
+    <div class="admin-layout">
+
+        <!-- ================= SIDEBAR ================= -->
+        <aside class="admin-sidebar">
+
+            <!-- Brand -->
+            <a
+                class="side-brand"
+                href="admin-dashboard.html"
+            >
+                <img
+                    src="logo-icon.png"
+                    alt="VARSHA logo"
+                >
+
+                <span>
+                    VARSHA
+                    <strong>KRITRIMA BUDDHIH</strong>
+                </span>
+            </a>
+
+            <!-- Navigation -->
+            <nav class="side-nav">
+
+                <a href="admin-dashboard.html">
+                    <span class="nav-icon">🏠</span>
+                    Dashboard
+                </a>
+
+                <a href="alerts-management.html">
+                    <span class="nav-icon">🚨</span>
+                    Alerts Management
+                </a>
+
+                <a
+                    class="active"
+                    href="reports-complaints.html"
+                >
+                    <span class="nav-icon">📋</span>
+                    Reports & Complaints
+                </a>
+
+                <a href="risk-map.html">
+                    <span class="nav-icon">🗺️</span>
+                    Risk Map
+                </a>
+
+                <a href="weather-data.html">
+                    <span class="nav-icon">🌦️</span>
+                    Weather & Data
+                </a>
+
+                <a href="monitoring-stations.html">
+                    <span class="nav-icon">📡</span>
+                    Monitoring Stations
+                </a>
+
+                <a href="user-management.html">
+                    <span class="nav-icon">👥</span>
+                    User Management
+                </a>
+
+                <a href="resources.html">
+                    <span class="nav-icon">🧰</span>
+                    Resources
+                </a>
+
+                <a href="settings.html">
+                    <span class="nav-icon">⚙️</span>
+                    Settings
+                </a>
+
+                <a href="logs.html">
+                    <span class="nav-icon">📜</span>
+                    Logs
+                </a>
+
+                <a href="profile.html">
+                    <span class="nav-icon">👤</span>
+                    Profile
+                </a>
+
+            </nav>
+
+            <!-- Logout -->
+            <div class="side-bottom">
+
+                <a
+                    class="side-nav logout-link"
+                    href="#"
+                    onclick="logout(); return false;"
+                >
+                    <span class="nav-icon">🚪</span>
+                    Logout
+                </a>
+
+            </div>
+
+        </aside>
+
+        <!-- ================= MAIN CONTENT ================= -->
+        <div class="admin-content">
+
+            <!-- Topbar -->
+            <header class="admin-topbar">
+
+                <div class="top-title">
+                    Reports & Complaints
+                </div>
+
+                <div class="top-user">
+
+                    <span id="adminName">
+                        Administrator
+                    </span>
+
+                    <span class="user-avatar">
+                        A
+                    </span>
+
+                </div>
+
+            </header>
+
+            <!-- ================= PAGE CONTENT ================= -->
+            <main class="page-wrap">
+
+                <!-- Page Header -->
+                <div class="page-head">
+
+                    <div>
+
+                        <div class="eyebrow">
+                            PUBLIC RESPONSE DESK
+                        </div>
+
+                        <h1>
+                            Reports & Complaints
+                        </h1>
+
+                        <p>
+                            Track citizen reports, complaints
+                            and field verification requests.
+                        </p>
+
+                    </div>
+
+                    <div class="status-chip">
+                        ● System Online
+                    </div>
+
+                </div>
+
+                <!-- ================= REPORT STATISTICS ================= -->
+                <section class="content-grid">
+
+                    <!-- Open Reports -->
+                    <div class="info-card">
+
+                        <span class="label">
+                            OPEN REPORTS
+                        </span>
+
+                        <strong class="value">
+                            42
+                        </strong>
+
+                        <span class="sub">
+                            Awaiting review
+                        </span>
+
+                    </div>
+
+                    <!-- High Priority -->
+                    <div class="info-card">
+
+                        <span class="label">
+                            HIGH PRIORITY
+                        </span>
+
+                        <strong class="value">
+                            09
+                        </strong>
+
+                        <span class="sub">
+                            Escalated cases
+                        </span>
+
+                    </div>
+
+                    <!-- In Review -->
+                    <div class="info-card">
+
+                        <span class="label">
+                            IN REVIEW
+                        </span>
+
+                        <strong class="value">
+                            21
+                        </strong>
+
+                        <span class="sub">
+                            Field verification
+                        </span>
+
+                    </div>
+
+                    <!-- Resolved -->
+                    <div class="info-card">
+
+                        <span class="label">
+                            RESOLVED
+                        </span>
+
+                        <strong class="value">
+                            136
+                        </strong>
+
+                        <span class="sub">
+                            This month
+                        </span>
+
+                    </div>
+
+                </section>
+
+                <!-- ================= REPORTS TABLE ================= -->
+                <section class="section-card table-card">
+
+                    <div class="table-title">
+
+                        <h2>
+                            Recent Reports & Complaints
+                        </h2>
+
+                        <div class="toolbar">
+
+                            <select class="select-box">
+
+                                <option>
+                                    All Status
+                                </option>
+
+                                <option>
+                                    Open
+                                </option>
+
+                                <option>
+                                    In Review
+                                </option>
+
+                                <option>
+                                    Resolved
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Reports Table -->
+                    <table class="data-table">
+
+                        <thead>
+
+                            <tr>
+                                <th>Case</th>
+                                <th>Citizen / Source</th>
+                                <th>Category</th>
+                                <th>Location</th>
+                                <th>Priority</th>
+                                <th>Status</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            <!-- Case 2031 -->
+                            <tr>
+
+                                <td>
+                                    #CMP-2031
+                                </td>
+
+                                <td>
+                                    Citizen Portal
+                                </td>
+
+                                <td>
+                                    Waterlogging
+                                </td>
+
+                                <td>
+                                    Beed Road
+                                </td>
+
+                                <td>
+                                    <span class="badge high">
+                                        HIGH
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <span class="badge blue">
+                                        OPEN
+                                    </span>
+                                </td>
+
+                            </tr>
+
+                            <!-- Case 2030 -->
+                            <tr>
+
+                                <td>
+                                    #CMP-2030
+                                </td>
+
+                                <td>
+                                    Field Officer
+                                </td>
+
+                                <td>
+                                    Dam Discharge
+                                </td>
+
+                                <td>
+                                    Paithan
+                                </td>
+
+                                <td>
+                                    <span class="badge medium">
+                                        MEDIUM
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <span class="badge medium">
+                                        IN REVIEW
+                                    </span>
+                                </td>
+
+                            </tr>
+
+                            <!-- Case 2029 -->
+                            <tr>
+
+                                <td>
+                                    #CMP-2029
+                                </td>
+
+                                <td>
+                                    Citizen Portal
+                                </td>
+
+                                <td>
+                                    Road Blockage
+                                </td>
+
+                                <td>
+                                    Kannad
+                                </td>
+
+                                <td>
+                                    <span class="badge low">
+                                        LOW
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <span class="badge online">
+                                        RESOLVED
+                                    </span>
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </section>
+
+            </main>
+
+        </div>
+
+    </div>
+
+    <!-- ================= JAVASCRIPT ================= -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>

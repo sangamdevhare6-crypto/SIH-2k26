@@ -1,34 +1,33 @@
-# Team-Dominator
-Git install :- https://git-scm.com/download/win?utm_source=chatgpt.com
+# VARSHA KRITRIMA BUDHHIH — Django Integrated Login
 
-git clone https://github.com/sangamdevhare6-crypto/SIH-2k26.git
+This version keeps the existing HTML/CSS UI and replaces browser `localStorage` authentication with a Django backend and SQLite database.
 
-cd SIH-2k26
+## Run on Windows
 
-code .
-
-# frontend
-
-cd frontend
-git pull
-
-git add frontend/
-git commit -m "Updated frontend"
-git push
-
-# backend
-
+```powershell
 cd backend
-git pull
+py -m venv venv
+.\venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+py manage.py makemigrations
+py manage.py migrate
+py manage.py createsuperuser
+py manage.py runserver
+```
 
-git add backend/
-git commit -m "Updated backend"
-git push
+Open: http://127.0.0.1:8000/
 
-# README.md
+Django Admin panel: http://127.0.0.1:8000/admin/
 
-git pull
+Use the superuser created with `py manage.py createsuperuser` to sign in to the Django Admin panel. The admin panel is the real Django administration interface and is separate from the custom VARSHA dashboard.
 
-git add README.md
-git commit -m "Updated README"
-git push
+## What changed
+- Django custom User model
+- Passwords stored using Django password hashing
+- Session-based login/logout
+- Citizen/Admin roles
+- Django database (SQLite for easy local setup)
+- Signup, login, logout, password reset and current-user API endpoints
+- Existing frontend pages retained
+
+For production, use PostgreSQL, HTTPS, environment-based secrets, email-verified password reset, rate limiting, and stricter administrator provisioning.

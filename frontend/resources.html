@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Resources | VARSHA KRITRIMA BUDDHIH</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="admin-page">
+
+    <div class="admin-layout">
+
+        <!-- ================= SIDEBAR ================= -->
+
+        <aside class="admin-sidebar">
+
+            <a class="side-brand" href="admin-dashboard.html">
+                <img src="logo-icon.png" alt="VARSHA logo">
+
+                <span>
+                    VARSHA
+                    <strong>KRITRIMA BUDDHIH</strong>
+                </span>
+            </a>
+
+            <nav class="side-nav">
+
+                <a class="" href="admin-dashboard.html">
+                    <span class="nav-icon">🏠</span>
+                    Dashboard
+                </a>
+
+                <a class="" href="alerts-management.html">
+                    <span class="nav-icon">🚨</span>
+                    Alerts Management
+                </a>
+
+                <a class="" href="reports-complaints.html">
+                    <span class="nav-icon">📋</span>
+                    Reports & Complaints
+                </a>
+
+                <a class="" href="risk-map.html">
+                    <span class="nav-icon">🗺️</span>
+                    Risk Map
+                </a>
+
+                <a class="" href="weather-data.html">
+                    <span class="nav-icon">🌦️</span>
+                    Weather & Data
+                </a>
+
+                <a class="" href="monitoring-stations.html">
+                    <span class="nav-icon">📡</span>
+                    Monitoring Stations
+                </a>
+
+                <a class="" href="user-management.html">
+                    <span class="nav-icon">👥</span>
+                    User Management
+                </a>
+
+                <a class="active" href="resources.html">
+                    <span class="nav-icon">🧰</span>
+                    Resources
+                </a>
+
+                <a class="" href="settings.html">
+                    <span class="nav-icon">⚙️</span>
+                    Settings
+                </a>
+
+                <a class="" href="logs.html">
+                    <span class="nav-icon">📜</span>
+                    Logs
+                </a>
+
+                <a class="" href="profile.html">
+                    <span class="nav-icon">👤</span>
+                    Profile
+                </a>
+
+            </nav>
+
+            <div class="side-bottom">
+
+                <a
+                    class="side-nav logout-link"
+                    href="#"
+                    onclick="logout(); return false;"
+                >
+                    <span class="nav-icon">🚪</span>
+                    Logout
+                </a>
+
+            </div>
+
+        </aside>
+
+        <!-- ================= MAIN CONTENT ================= -->
+
+        <div class="admin-content">
+
+            <!-- ================= TOPBAR ================= -->
+
+            <header class="admin-topbar">
+
+                <div class="top-title">
+                    Resources
+                </div>
+
+                <div class="top-user">
+
+                    <span id="adminName">
+                        Administrator
+                    </span>
+
+                    <span class="user-avatar">
+                        A
+                    </span>
+
+                </div>
+
+            </header>
+
+            <!-- ================= PAGE CONTENT ================= -->
+
+            <main class="page-wrap">
+
+                <!-- ================= PAGE HEADER ================= -->
+
+                <div class="page-head">
+
+                    <div>
+
+                        <div class="eyebrow">
+                            RESPONSE RESOURCES
+                        </div>
+
+                        <h1>
+                            Resources
+                        </h1>
+
+                        <p>
+                            Coordinate shelters, response teams, vehicles and emergency resources.
+                        </p>
+
+                    </div>
+
+                    <div class="status-chip">
+                        ● System Online
+                    </div>
+
+                </div>
+
+                <!-- ================= RESOURCE STATS ================= -->
+
+                <section class="content-grid">
+
+                    <div class="info-card">
+
+                        <span class="label">
+                            SHELTERS
+                        </span>
+
+                        <strong class="value">
+                            34
+                        </strong>
+
+                        <span class="sub">
+                            28 currently available
+                        </span>
+
+                    </div>
+
+                    <div class="info-card">
+
+                        <span class="label">
+                            RESPONSE TEAMS
+                        </span>
+
+                        <strong class="value">
+                            19
+                        </strong>
+
+                        <span class="sub">
+                            6 deployed
+                        </span>
+
+                    </div>
+
+                    <div class="info-card">
+
+                        <span class="label">
+                            VEHICLES
+                        </span>
+
+                        <strong class="value">
+                            27
+                        </strong>
+
+                        <span class="sub">
+                            21 operational
+                        </span>
+
+                    </div>
+
+                    <div class="info-card">
+
+                        <span class="label">
+                            MEDICAL UNITS
+                        </span>
+
+                        <strong class="value">
+                            11
+                        </strong>
+
+                        <span class="sub">
+                            Ready for dispatch
+                        </span>
+
+                    </div>
+
+                </section>
+
+                <!-- ================= RESOURCE INVENTORY ================= -->
+
+                <section class="section-card table-card">
+
+                    <div class="table-title">
+
+                        <h2>
+                            Resource Inventory
+                        </h2>
+
+                        <button class="primary-btn">
+                            Add Resource
+                        </button>
+
+                    </div>
+
+                    <table class="data-table">
+
+                        <thead>
+
+                            <tr>
+                                <th>Resource</th>
+                                <th>Category</th>
+                                <th>Location</th>
+                                <th>Available</th>
+                                <th>Status</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+
+                                <td>
+                                    Central Relief Shelter
+                                </td>
+
+                                <td>
+                                    Shelter
+                                </td>
+
+                                <td>
+                                    Aurangabad
+                                </td>
+
+                                <td>
+                                    180 beds
+                                </td>
+
+                                <td>
+                                    <span class="badge online">
+                                        AVAILABLE
+                                    </span>
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td>
+                                    Rapid Response Unit 04
+                                </td>
+
+                                <td>
+                                    Team
+                                </td>
+
+                                <td>
+                                    Paithan
+                                </td>
+
+                                <td>
+                                    8 members
+                                </td>
+
+                                <td>
+                                    <span class="badge blue">
+                                        DEPLOYED
+                                    </span>
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td>
+                                    Rescue Vehicle R-12
+                                </td>
+
+                                <td>
+                                    Vehicle
+                                </td>
+
+                                <td>
+                                    Kannad
+                                </td>
+
+                                <td>
+                                    1 unit
+                                </td>
+
+                                <td>
+                                    <span class="badge online">
+                                        READY
+                                    </span>
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </section>
+
+            </main>
+
+        </div>
+
+    </div>
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

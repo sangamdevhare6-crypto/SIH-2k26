@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Settings | VARSHA KRITRIMA BUDDHIH</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="admin-page">
+
+    <div class="admin-layout">
+
+        <!-- ================= SIDEBAR ================= -->
+        <aside class="admin-sidebar">
+
+            <a class="side-brand" href="admin-dashboard.html">
+                <img src="logo-icon.png" alt="VARSHA logo">
+
+                <span>
+                    VARSHA
+                    <strong>KRITRIMA BUDDHIH</strong>
+                </span>
+            </a>
+
+            <nav class="side-nav">
+
+                <a href="admin-dashboard.html">
+                    <span class="nav-icon">🏠</span>
+                    Dashboard
+                </a>
+
+                <a href="alerts-management.html">
+                    <span class="nav-icon">🚨</span>
+                    Alerts Management
+                </a>
+
+                <a href="reports-complaints.html">
+                    <span class="nav-icon">📋</span>
+                    Reports & Complaints
+                </a>
+
+                <a href="risk-map.html">
+                    <span class="nav-icon">🗺️</span>
+                    Risk Map
+                </a>
+
+                <a href="weather-data.html">
+                    <span class="nav-icon">🌦️</span>
+                    Weather & Data
+                </a>
+
+                <a href="monitoring-stations.html">
+                    <span class="nav-icon">📡</span>
+                    Monitoring Stations
+                </a>
+
+                <a href="user-management.html">
+                    <span class="nav-icon">👥</span>
+                    User Management
+                </a>
+
+                <a href="resources.html">
+                    <span class="nav-icon">🧰</span>
+                    Resources
+                </a>
+
+                <a class="active" href="settings.html">
+                    <span class="nav-icon">⚙️</span>
+                    Settings
+                </a>
+
+                <a href="logs.html">
+                    <span class="nav-icon">📜</span>
+                    Logs
+                </a>
+
+                <a href="profile.html">
+                    <span class="nav-icon">👤</span>
+                    Profile
+                </a>
+
+            </nav>
+
+            <!-- Sidebar Bottom -->
+            <div class="side-bottom">
+
+                <a
+                    class="side-nav logout-link"
+                    href="#"
+                    onclick="logout(); return false;"
+                >
+                    <span class="nav-icon">🚪</span>
+                    Logout
+                </a>
+
+            </div>
+
+        </aside>
+
+        <!-- ================= MAIN CONTENT ================= -->
+        <div class="admin-content">
+
+            <!-- ================= TOPBAR ================= -->
+            <header class="admin-topbar">
+
+                <div class="top-title">
+                    Settings
+                </div>
+
+                <div class="top-user">
+
+                    <span id="adminName">
+                        Administrator
+                    </span>
+
+                    <span class="user-avatar">
+                        A
+                    </span>
+
+                </div>
+
+            </header>
+
+            <!-- ================= PAGE CONTENT ================= -->
+            <main class="page-wrap">
+
+                <!-- Page Header -->
+                <div class="page-head">
+
+                    <div>
+
+                        <div class="eyebrow">
+                            SYSTEM CONFIGURATION
+                        </div>
+
+                        <h1>
+                            Settings
+                        </h1>
+
+                        <p>
+                            Configure notifications, monitoring thresholds
+                            and platform preferences.
+                        </p>
+
+                    </div>
+
+                    <div class="status-chip">
+                        ● System Online
+                    </div>
+
+                </div>
+
+                <!-- ================= SETTINGS GRID ================= -->
+                <section class="settings-grid">
+
+                    <!-- Alert Configuration -->
+                    <article class="form-card">
+
+                        <h3>
+                            Alert Configuration
+                        </h3>
+
+                        <div class="field">
+
+                            <label>
+                                Default Alert Threshold
+                            </label>
+
+                            <select>
+
+                                <option>
+                                    High sensitivity
+                                </option>
+
+                                <option>
+                                    Balanced
+                                </option>
+
+                                <option>
+                                    Low sensitivity
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                        <div class="field">
+
+                            <label>
+                                Auto Escalation
+                            </label>
+
+                            <select>
+
+                                <option>
+                                    Enabled
+                                </option>
+
+                                <option>
+                                    Disabled
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                        <div class="field">
+
+                            <label>
+                                Notification Channel
+                            </label>
+
+                            <select>
+
+                                <option>
+                                    Dashboard + SMS
+                                </option>
+
+                                <option>
+                                    Dashboard only
+                                </option>
+
+                                <option>
+                                    Email + Dashboard
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                        <button class="primary-btn">
+                            Save Configuration
+                        </button>
+
+                    </article>
+
+                    <!-- Platform Preferences -->
+                    <article class="form-card">
+
+                        <h3>
+                            Platform Preferences
+                        </h3>
+
+                        <div class="form-row">
+
+                            <div class="field">
+
+                                <label>
+                                    Timezone
+                                </label>
+
+                                <select>
+
+                                    <option>
+                                        Asia/Kolkata
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+                            <div class="field">
+
+                                <label>
+                                    Data Refresh
+                                </label>
+
+                                <select>
+
+                                    <option>
+                                        30 seconds
+                                    </option>
+
+                                    <option>
+                                        1 minute
+                                    </option>
+
+                                    <option>
+                                        5 minutes
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+                        </div>
+
+                        <div class="field">
+
+                            <label>
+                                Administrator Email
+                            </label>
+
+                            <input
+                                type="email"
+                                value="admin@varsha.local"
+                            >
+
+                        </div>
+
+                        <div class="field">
+
+                            <label>
+                                Maintenance Notes
+                            </label>
+
+                            <textarea
+                                rows="4"
+                                placeholder="Internal configuration notes..."
+                            ></textarea>
+
+                        </div>
+
+                        <button class="primary-btn">
+                            Save Preferences
+                        </button>
+
+                    </article>
+
+                </section>
+
+            </main>
+
+        </div>
+
+    </div>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VARSHA KRITRIMA BUDHHIH | Login</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="auth-page">
+  <div class="page-shell">
+    <header class="topbar">
+      <a class="brand" href="index.html" aria-label="VARSHA KRITRIMA BUDHHIH home">
+        <img src="logo-icon.png" alt="VARSHA KRITRIMA BUDHHIH logo">
+        <span class="brand-text">VARSHA <strong>KRITRIMA BUDHHIH</strong></span>
+      </a>
+      <span class="tagline">Predict. Protect. Prevent.</span>
+    </header>
+
+    <main class="auth-layout">
+      <section class="hero-panel">
+        <div class="eyebrow">AI/ML-BASED INTEGRATED</div>
+        <h1>HEAVY RAINFALL<br><span>EARLY WARNING</span></h1>
+        <h2>&amp; INUNDATION PREDICTION SYSTEM</h2>
+
+        <div class="data-grid">
+          <div><span class="source-icon">🛰️</span><b>SATELLITE</b></div>
+          <div><span class="source-icon">📡</span><b>RADAR</b></div>
+          <div><span class="source-icon">🌦️</span><b>OBSERVATIONAL<br>WEATHER</b></div>
+          <div><span class="source-icon">☁️</span><b>NWP MODEL</b></div>
+        </div>
+
+        <div class="stats-card">
+          <div class="monitoring"><span></span> 24×7 MONITORING ACTIVE</div>
+          <div class="stat-row"><b>LIVE RAINFALL</b><strong>78.6 mm/hr</strong></div>
+          <div class="stat-row"><b>WATER LEVEL</b><strong>3.24 m</strong></div>
+          <div class="stat-row"><b>RISK LEVEL</b><strong class="danger">HIGH</strong></div>
+        </div>
+      </section>
+
+      <section class="card login-card">
+        <img class="login-logo" src="logo-icon.png" alt="VARSHA KRITRIMA BUDHHIH">
+        <h2>Welcome Back!</h2>
+        <p class="card-subtitle">Login to continue to <b>VARSHA KRITRIMA BUDHHIH</b></p>
+
+        <form onsubmit="login(event)" autocomplete="on">
+          <label class="field"><span>✉</span><input id="email" type="email" placeholder="Email / User ID" required></label>
+          <label class="field"><span>🔒</span><input id="password" type="password" placeholder="Password" required></label>
+          <div class="row">
+            <label class="remember"><input id="rememberMe" type="checkbox"> <span>Remember Me</span></label>
+            <a href="reset-password.html">Forgot Password?</a>
+          </div>
+          <button type="submit">LOGIN <span>→</span></button>
+        </form>
+
+        <div class="divider"><span>OR LOGIN AS</span></div>
+        <div class="roles two-roles">
+          <a href="role-login.html?role=citizen"><span>👥</span><b>Citizen</b><small>Public access</small></a>
+          <a href="role-login.html?role=admin"><span>⚙️</span><b>Administrator</b><small>System access</small></a>
+        </div>
+
+        <p class="signup">New User? <a href="signup.html">Create an Account</a></p>
+      </section>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

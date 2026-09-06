@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Administrator Dashboard | VARSHA KRITRIMA BUDDHIH
+    </title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="admin-page">
+
+    <div class="admin-layout">
+
+        <!-- ================= SIDEBAR ================= -->
+        <aside class="admin-sidebar">
+
+            <!-- Brand -->
+            <a
+                class="side-brand"
+                href="admin-dashboard.html"
+            >
+                <img
+                    src="logo-icon.png"
+                    alt="VARSHA logo"
+                >
+
+                <span>
+                    VARSHA
+                    <strong>KRITRIMA BUDDHIH</strong>
+                </span>
+            </a>
+
+            <!-- Navigation -->
+            <nav class="side-nav">
+
+                <a
+                    class="active"
+                    href="admin-dashboard.html"
+                >
+                    <span class="nav-icon">🏠</span>
+                    Dashboard
+                </a>
+
+                <a href="alerts-management.html">
+                    <span class="nav-icon">🚨</span>
+                    Alerts Management
+                </a>
+
+                <a href="reports-complaints.html">
+                    <span class="nav-icon">📋</span>
+                    Reports & Complaints
+                </a>
+
+                <a href="risk-map.html">
+                    <span class="nav-icon">🗺️</span>
+                    Risk Map
+                </a>
+
+                <a href="weather-data.html">
+                    <span class="nav-icon">🌦️</span>
+                    Weather & Data
+                </a>
+
+                <a href="monitoring-stations.html">
+                    <span class="nav-icon">📡</span>
+                    Monitoring Stations
+                </a>
+
+                <a href="user-management.html">
+                    <span class="nav-icon">👥</span>
+                    User Management
+                </a>
+
+                <a href="resources.html">
+                    <span class="nav-icon">🧰</span>
+                    Resources
+                </a>
+
+                <a href="settings.html">
+                    <span class="nav-icon">⚙️</span>
+                    Settings
+                </a>
+
+                <a href="logs.html">
+                    <span class="nav-icon">📜</span>
+                    Logs
+                </a>
+
+                <a href="profile.html">
+                    <span class="nav-icon">👤</span>
+                    Profile
+                </a>
+
+            </nav>
+
+            <!-- Sidebar Bottom -->
+            <div class="side-bottom">
+
+                <a
+                    class="side-nav logout-link"
+                    href="#"
+                    onclick="logout(); return false;"
+                >
+                    <span class="nav-icon">🚪</span>
+                    Logout
+                </a>
+
+            </div>
+
+        </aside>
+
+        <!-- ================= MAIN CONTENT ================= -->
+        <div class="admin-content">
+
+            <!-- ================= TOPBAR ================= -->
+            <header class="admin-topbar">
+
+                <div class="top-title">
+                    System Administration
+                </div>
+
+                <div class="top-user">
+
+                    <span id="adminName">
+                        Administrator
+                    </span>
+
+                    <span class="user-avatar">
+                        A
+                    </span>
+
+                </div>
+
+            </header>
+
+            <!-- ================= PAGE CONTENT ================= -->
+            <main class="page-wrap">
+
+                <!-- Page Header -->
+                <div class="page-head">
+
+                    <div>
+
+                        <div class="eyebrow">
+                            ADMIN CONTROL CENTER
+                        </div>
+
+                        <h1>
+                            System Administration
+                        </h1>
+
+                        <p>
+                            Manage users, monitoring services and
+                            project configuration.
+                        </p>
+
+                    </div>
+
+                    <div class="status-chip">
+                        ● System Online
+                    </div>
+
+                </div>
+
+                <!-- ================= INFORMATION CARDS ================= -->
+                <section class="content-grid">
+
+                    <!-- Active Users -->
+                    <div class="info-card">
+
+                        <span class="label">
+                            ACTIVE USERS
+                        </span>
+
+                        <strong
+                            class="value"
+                            id="userCount"
+                        >
+                            1,284
+                        </strong>
+
+                        <span class="sub">
+                            Registered accounts
+                        </span>
+
+                    </div>
+
+                    <!-- Monitoring Sources -->
+                    <div class="info-card">
+
+                        <span class="label">
+                            MONITORING SOURCES
+                        </span>
+
+                        <strong class="value">
+                            04
+                        </strong>
+
+                        <span class="sub">
+                            Satellite • Radar • Weather • NWP
+                        </span>
+
+                    </div>
+
+                    <!-- High Risk Events -->
+                    <div class="info-card">
+
+                        <span class="label">
+                            HIGH-RISK EVENTS
+                        </span>
+
+                        <strong class="value">
+                            01
+                        </strong>
+
+                        <span class="sub">
+                            Requires attention
+                        </span>
+
+                    </div>
+
+                    <!-- AI / ML Engine -->
+                    <div class="info-card">
+
+                        <span class="label">
+                            AI/ML ENGINE
+                        </span>
+
+                        <strong class="value">
+                            ON
+                        </strong>
+
+                        <span class="sub">
+                            Prediction pipeline ready
+                        </span>
+
+                    </div>
+
+                </section>
+
+                <!-- ================= SYSTEM MONITORING ================= -->
+                <section class="section-card table-card">
+
+                    <div class="table-title">
+
+                        <h2>
+                            System Monitoring
+                        </h2>
+
+                        <span>
+                            LIVE
+                        </span>
+
+                    </div>
+
+                    <table class="data-table">
+
+                        <thead>
+
+                            <tr>
+                                <th>Source</th>
+                                <th>Type</th>
+                                <th>Last Update</th>
+                                <th>Status</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            <!-- Satellite -->
+                            <tr>
+
+                                <td>
+                                    Satellite Feed
+                                </td>
+
+                                <td>
+                                    Satellite
+                                </td>
+
+                                <td>
+                                    10:43 PM
+                                </td>
+
+                                <td>
+                                    <span class="badge online">
+                                        ONLINE
+                                    </span>
+                                </td>
+
+                            </tr>
+
+                            <!-- Radar -->
+                            <tr>
+
+                                <td>
+                                    Radar Feed
+                                </td>
+
+                                <td>
+                                    Radar
+                                </td>
+
+                                <td>
+                                    10:42 PM
+                                </td>
+
+                                <td>
+                                    <span class="badge online">
+                                        ONLINE
+                                    </span>
+                                </td>
+
+                            </tr>
+
+                            <!-- Weather -->
+                            <tr>
+
+                                <td>
+                                    Observational Weather
+                                </td>
+
+                                <td>
+                                    Weather
+                                </td>
+
+                                <td>
+                                    10:43 PM
+                                </td>
+
+                                <td>
+                                    <span class="badge online">
+                                        ONLINE
+                                    </span>
+                                </td>
+
+                            </tr>
+
+                            <!-- NWP -->
+                            <tr>
+
+                                <td>
+                                    NWP Model
+                                </td>
+
+                                <td>
+                                    Prediction
+                                </td>
+
+                                <td>
+                                    10:35 PM
+                                </td>
+
+                                <td>
+                                    <span class="badge blue">
+                                        PROCESSING
+                                    </span>
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </section>
+
+                <!-- ================= QUICK ACTIONS ================= -->
+                <section class="section-card table-card">
+
+                    <div class="table-title">
+
+                        <h2>
+                            Quick Actions
+                        </h2>
+
+                    </div>
+
+                    <div
+                        style="
+                            padding: 22px;
+                            display: flex;
+                            gap: 12px;
+                            flex-wrap: wrap;
+                        "
+                    >
+
+                        <!-- Alerts -->
+                        <a
+                            class="primary-btn"
+                            href="alerts-management.html"
+                        >
+                            🚨 Alerts Management
+                        </a>
+
+                        <!-- Risk Map -->
+                        <a
+                            class="secondary-btn"
+                            href="risk-map.html"
+                        >
+                            🗺️ Open Risk Map
+                        </a>
+
+                        <!-- Users -->
+                        <a
+                            class="secondary-btn"
+                            href="user-management.html"
+                        >
+                            👥 Manage Users
+                        </a>
+
+                        <!-- Logs -->
+                        <a
+                            class="secondary-btn"
+                            href="logs.html"
+                        >
+                            📜 View Logs
+                        </a>
+
+                    </div>
+
+                </section>
+
+            </main>
+
+        </div>
+
+    </div>
+
+    <!-- ================= JAVASCRIPT ================= -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>

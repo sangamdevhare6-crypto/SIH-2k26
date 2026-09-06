@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Alerts Management | VARSHA KRITRIMA BUDDHIH
+    </title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="admin-page">
+
+    <div class="admin-layout">
+
+        <!-- ================= SIDEBAR ================= -->
+        <aside class="admin-sidebar">
+
+            <!-- Brand -->
+            <a
+                class="side-brand"
+                href="admin-dashboard.html"
+            >
+                <img
+                    src="logo-icon.png"
+                    alt="VARSHA logo"
+                >
+
+                <span>
+                    VARSHA
+                    <strong>KRITRIMA BUDDHIH</strong>
+                </span>
+            </a>
+
+            <!-- Navigation -->
+            <nav class="side-nav">
+
+                <a href="admin-dashboard.html">
+                    <span class="nav-icon">🏠</span>
+                    Dashboard
+                </a>
+
+                <a
+                    class="active"
+                    href="alerts-management.html"
+                >
+                    <span class="nav-icon">🚨</span>
+                    Alerts Management
+                </a>
+
+                <a href="reports-complaints.html">
+                    <span class="nav-icon">📋</span>
+                    Reports & Complaints
+                </a>
+
+                <a href="risk-map.html">
+                    <span class="nav-icon">🗺️</span>
+                    Risk Map
+                </a>
+
+                <a href="weather-data.html">
+                    <span class="nav-icon">🌦️</span>
+                    Weather & Data
+                </a>
+
+                <a href="monitoring-stations.html">
+                    <span class="nav-icon">📡</span>
+                    Monitoring Stations
+                </a>
+
+                <a href="user-management.html">
+                    <span class="nav-icon">👥</span>
+                    User Management
+                </a>
+
+                <a href="resources.html">
+                    <span class="nav-icon">🧰</span>
+                    Resources
+                </a>
+
+                <a href="settings.html">
+                    <span class="nav-icon">⚙️</span>
+                    Settings
+                </a>
+
+                <a href="logs.html">
+                    <span class="nav-icon">📜</span>
+                    Logs
+                </a>
+
+                <a href="profile.html">
+                    <span class="nav-icon">👤</span>
+                    Profile
+                </a>
+
+            </nav>
+
+            <!-- Logout -->
+            <div class="side-bottom">
+
+                <a
+                    class="side-nav logout-link"
+                    href="#"
+                    onclick="logout(); return false;"
+                >
+                    <span class="nav-icon">🚪</span>
+                    Logout
+                </a>
+
+            </div>
+
+        </aside>
+
+        <!-- ================= MAIN CONTENT ================= -->
+        <div class="admin-content">
+
+            <!-- Topbar -->
+            <header class="admin-topbar">
+
+                <div class="top-title">
+                    Alerts Management
+                </div>
+
+                <div class="top-user">
+
+                    <span id="adminName">
+                        Administrator
+                    </span>
+
+                    <span class="user-avatar">
+                        A
+                    </span>
+
+                </div>
+
+            </header>
+
+            <!-- ================= PAGE CONTENT ================= -->
+            <main class="page-wrap">
+
+                <!-- Page Header -->
+                <div class="page-head">
+
+                    <div>
+
+                        <div class="eyebrow">
+                            REAL-TIME ALERT CENTER
+                        </div>
+
+                        <h1>
+                            Alerts Management
+                        </h1>
+
+                        <p>
+                            Review, prioritize and resolve weather
+                            and disaster alerts.
+                        </p>
+
+                    </div>
+
+                    <div class="status-chip">
+                        ● System Online
+                    </div>
+
+                </div>
+
+                <!-- ================= ALERT STATISTICS ================= -->
+                <section class="content-grid">
+
+                    <!-- Active Alerts -->
+                    <div class="info-card">
+
+                        <span class="label">
+                            ACTIVE ALERTS
+                        </span>
+
+                        <strong class="value">
+                            18
+                        </strong>
+
+                        <span class="sub">
+                            Across monitored regions
+                        </span>
+
+                    </div>
+
+                    <!-- Critical -->
+                    <div class="info-card">
+
+                        <span class="label">
+                            CRITICAL
+                        </span>
+
+                        <strong class="value">
+                            04
+                        </strong>
+
+                        <span class="sub">
+                            Immediate attention
+                        </span>
+
+                    </div>
+
+                    <!-- Acknowledged -->
+                    <div class="info-card">
+
+                        <span class="label">
+                            ACKNOWLEDGED
+                        </span>
+
+                        <strong class="value">
+                            11
+                        </strong>
+
+                        <span class="sub">
+                            By response teams
+                        </span>
+
+                    </div>
+
+                    <!-- Resolved -->
+                    <div class="info-card">
+
+                        <span class="label">
+                            RESOLVED TODAY
+                        </span>
+
+                        <strong class="value">
+                            27
+                        </strong>
+
+                        <span class="sub">
+                            Last 24 hours
+                        </span>
+
+                    </div>
+
+                </section>
+
+                <!-- ================= LIVE ALERT QUEUE ================= -->
+                <section class="section-card table-card">
+
+                    <div class="table-title">
+
+                        <h2>
+                            Live Alert Queue
+                        </h2>
+
+                        <div class="toolbar">
+
+                            <input
+                                class="search-box"
+                                type="text"
+                                placeholder="Search alert..."
+                            >
+
+                            <button class="primary-btn">
+                                Create Alert
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Alert Table -->
+                    <table class="data-table">
+
+                        <thead>
+
+                            <tr>
+                                <th>Alert ID</th>
+                                <th>Event</th>
+                                <th>Location</th>
+                                <th>Risk</th>
+                                <th>Issued</th>
+                                <th>Status</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            <!-- Alert 1048 -->
+                            <tr>
+
+                                <td>
+                                    #ALT-1048
+                                </td>
+
+                                <td>
+                                    Flash Flood Warning
+                                </td>
+
+                                <td>
+                                    Wardha Basin
+                                </td>
+
+                                <td>
+                                    <span class="badge high">
+                                        HIGH
+                                    </span>
+                                </td>
+
+                                <td>
+                                    10:42 PM
+                                </td>
+
+                                <td>
+                                    <span class="badge blue">
+                                        ACTIVE
+                                    </span>
+                                </td>
+
+                            </tr>
+
+                            <!-- Alert 1047 -->
+                            <tr>
+
+                                <td>
+                                    #ALT-1047
+                                </td>
+
+                                <td>
+                                    Heavy Rainfall
+                                </td>
+
+                                <td>
+                                    Aurangabad
+                                </td>
+
+                                <td>
+                                    <span class="badge medium">
+                                        MEDIUM
+                                    </span>
+                                </td>
+
+                                <td>
+                                    10:18 PM
+                                </td>
+
+                                <td>
+                                    <span class="badge online">
+                                        ACKNOWLEDGED
+                                    </span>
+                                </td>
+
+                            </tr>
+
+                            <!-- Alert 1046 -->
+                            <tr>
+
+                                <td>
+                                    #ALT-1046
+                                </td>
+
+                                <td>
+                                    River Level Rise
+                                </td>
+
+                                <td>
+                                    Godavari Zone
+                                </td>
+
+                                <td>
+                                    <span class="badge high">
+                                        HIGH
+                                    </span>
+                                </td>
+
+                                <td>
+                                    09:54 PM
+                                </td>
+
+                                <td>
+                                    <span class="badge blue">
+                                        ACTIVE
+                                    </span>
+                                </td>
+
+                            </tr>
+
+                            <!-- Alert 1045 -->
+                            <tr>
+
+                                <td>
+                                    #ALT-1045
+                                </td>
+
+                                <td>
+                                    Lightning Risk
+                                </td>
+
+                                <td>
+                                    Jalna Sector
+                                </td>
+
+                                <td>
+                                    <span class="badge low">
+                                        LOW
+                                    </span>
+                                </td>
+
+                                <td>
+                                    09:31 PM
+                                </td>
+
+                                <td>
+                                    <span class="badge online">
+                                        RESOLVED
+                                    </span>
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </section>
+
+            </main>
+
+        </div>
+
+    </div>
+
+    <!-- ================= JAVASCRIPT ================= -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>
