@@ -31,7 +31,7 @@ select {
 
 .auth-page {
     min-height: 100vh;
-    background: #f5faff url('weather-bg.jpg') center / cover fixed no-repeat;
+    background: url('abc.jpg') center / cover fixed no-repeat;
 }
 
 .page-shell {
@@ -49,12 +49,53 @@ select {
 ========================================= */
 
 .topbar {
+    width: calc(100% - 40px);
     max-width: 1380px;
-    margin: 0 auto 28px;
+    height: 78px;
+
+    margin: 20px auto;
+    padding: 0 28px;
+
+    /* Glass effect */
+    background: rgba(255, 255, 255, 0);
+
+    /* Rounded 4 sides */
+    border-radius: 22px;
+
+    /* Glass border */
+    border: 1px solid rgba(255, 255, 255, 0.75);
+
+    /* Soft glass shadow */
+    box-shadow:
+        0 10px 35px rgba(30, 80, 130, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+
+    /* Layout */
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 18px;
+
+    /* Keep above content */
+    position: sticky;
+    top: 20px;
+    z-index: 999;
+}
+
+.topbar::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    border-radius: 22px;
+
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.35),
+        rgba(255, 255, 255, 0.08)
+    );
+
+    pointer-events: none;
 }
 
 .brand {
@@ -109,6 +150,21 @@ select {
 
 .hero-panel {
     padding: 34px 18px 34px 24px;
+
+    /* Glass Blur */
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(25px) saturate(160%);
+    -webkit-backdrop-filter: blur(25px) saturate(160%);
+
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    border-radius: 28px;
+
+    box-shadow:
+        0 20px 60px rgba(30, 80, 130, 0.18),
+        inset 0 1px 0 rgba(255, 255, 255, 0.75);
+
+    position: relative;
+    overflow: hidden;
 }
 
 .eyebrow {
@@ -242,11 +298,27 @@ select {
 ========================================= */
 
 .card {
-    background: rgba(255, 255, 255, 0.97);
-    border: 1px solid #d9e5f2;
+    background: rgba(240, 242, 243, 0.595);
+
+    /* Glass / Frosted effect */
+    backdrop-filter: blur(25px) saturate(160%);
+    -webkit-backdrop-filter: blur(25px) saturate(160%);
+
+    /* Glass border */
+    border: 1px solid rgb(170, 196, 198);
+
+    /* 4-side rounded corners */
     border-radius: 28px;
+
     padding: 36px;
-    box-shadow: 0 26px 70px #6484a61e;
+
+    /* Premium glass shadow */
+    box-shadow:
+        0 20px 60px rgba(30, 80, 130, 0.18),
+        inset 0 1px 0 rgba(255, 255, 255, 0.75);
+
+    position: relative;
+    overflow: hidden;
 }
 
 
@@ -287,31 +359,63 @@ select {
    FORM FIELDS
 ========================================= */
 
-.field {
+/* =========================================
+   FORM FIELDS - AUTH PAGE
+========================================= */
+
+.auth-page .field {
     position: relative;
     display: block;
     margin-bottom: 15px;
 }
 
-.field > span {
+.auth-page .field > span {
     position: absolute;
-    left: 16px;
+    left: 17px;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 17px;
-    opacity: 0.7;
-    z-index: 1;
+
+    width: 24px;
+    height: 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 18px;
+    line-height: 1;
+
+    opacity: 0.75;
+    z-index: 5;
+
+    pointer-events: none;
 }
 
-.field input,
-.field select {
+.auth-page .field input,
+.auth-page .field select {
     width: 100%;
-    padding: 16px 17px 16px 47px;
+    height: 60px;
+
+    padding: 16px 17px 16px 58px;
+
     border: 1px solid #cfdbe8;
     border-radius: 13px;
+
     background: #fff;
     color: #24395c;
+
     outline: none;
+}
+
+.auth-page .field input::placeholder {
+    color: #777;
+    opacity: 1;
+}
+
+.auth-page .field input:focus,
+.auth-page .field select:focus {
+    border-color: #1688ec;
+    box-shadow: 0 0 0 3px #1688ec18;
 }
 
 .field input:focus,
@@ -617,7 +721,7 @@ select {
 
 .dashboard-page {
     min-height: 100vh;
-    background: #f4f9fd url('weather-bg.jpg') center / cover fixed no-repeat;
+    background: url('abc.jpg') center / cover fixed no-repeat;
 }
 
 .dashboard-shell {
@@ -632,11 +736,26 @@ select {
 .dashboard-topbar {
     height: 78px;
     padding: 0 5vw;
-    background: #ffffffee;
-    border-bottom: 1px solid #dce8f3;
+
+    /* GLASS EFFECT */
+    background: rgba(255, 255, 255, 0.22);
+
+    backdrop-filter: blur(30px) saturate(180%);
+    -webkit-backdrop-filter: blur(30px) saturate(180%);
+
+    /* Border */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.45);
+
+    /* Soft shadow */
+    box-shadow: 0 8px 30px rgba(0, 80, 150, 0.12);
+
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    position: sticky;
+    top: 0;
+    z-index: 999;
 }
 
 .user-menu {
@@ -1090,7 +1209,7 @@ select {
 ========================================= */
 .admin-layout {
     min-height: 100vh;
-    background: #f4f9fe;
+    background: #f4f9fe url('abc.jpg') center / cover fixed no-repeat;
     display: flex;
     color: #122b55;
 }
@@ -1199,16 +1318,25 @@ select {
 
 .admin-topbar {
     height: 78px;
-    background: rgba(255, 255, 255, 0.9);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid #dce8f3;
+
+    background: rgba(255, 255, 255, 0.45);
+
+    backdrop-filter: blur(25px) saturate(180%);
+    -webkit-backdrop-filter: blur(25px) saturate(180%);
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+
+    box-shadow: 0 8px 30px rgba(40, 80, 120, 0.08);
+
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     padding: 0 34px;
+
     position: sticky;
     top: 0;
-    z-index: 10;
+    z-index: 100;
 }
 
 .top-title {
@@ -1443,7 +1571,7 @@ select {
             rgba(255, 255, 255, 0.35),
             rgba(255, 255, 255, 0.35)
         ),
-        url('weather-bg.jpg') center / cover;
+        url('abc.jpg') center / cover;
     position: relative;
     overflow: hidden;
 }
@@ -1739,5 +1867,1288 @@ select {
 
     .table-card {
         overflow: auto;
+    }
+}
+
+/* =========================================
+   FINAL AUTH FORM FIX
+   Keeps icons and text separated
+========================================= */
+
+.auth-page .field {
+    position: relative;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.auth-page .field > span {
+    position: absolute;
+    left: 17px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 24px;
+    height: 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 18px;
+    line-height: 1;
+
+    z-index: 10;
+    pointer-events: none;
+}
+
+.auth-page .field input,
+.auth-page .field select {
+    width: 100%;
+    height: 60px;
+
+    padding: 16px 17px 16px 58px;
+
+    border: 1px solid #cfdbe8;
+    border-radius: 13px;
+
+    background: #fff;
+    color: #24395c;
+
+    outline: none;
+}
+
+.auth-page .field input::placeholder {
+    color: #777;
+}
+
+.auth-page .field input:focus,
+.auth-page .field select:focus {
+    border-color: #1688ec;
+    box-shadow: 0 0 0 3px #1688ec18;
+}
+
+.auth-page .terms {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+}
+
+.auth-page .terms input {
+    width: auto;
+    height: auto;
+    padding: 0;
+    margin: 2px 0 0;
+}
+
+/* =========================================================
+   SIGNUP CARD - PREMIUM GLASS + PULSE ANIMATION
+   Paste this at the VERY BOTTOM of style.css
+   ========================================================= */
+
+.auth-page .signup-layout .form-card {
+    position: relative;
+    overflow: hidden;
+
+    /* Glass Effect */
+    background: rgba(255, 255, 255, 0.28);
+
+    backdrop-filter: blur(25px) saturate(170%);
+    -webkit-backdrop-filter: blur(25px) saturate(170%);
+
+    /* Border */
+    border: 1px solid rgba(255, 255, 255, 0.65);
+    border-radius: 28px;
+
+    /* Shadow */
+    box-shadow:
+        0 20px 60px rgba(30, 80, 130, 0.18),
+        inset 0 1px 0 rgba(255, 255, 255, 0.85);
+
+    /* Smooth Animation */
+    transition:
+        transform 0.45s cubic-bezier(.2, .8, .2, 1),
+        box-shadow 0.45s ease,
+        border-color 0.45s ease;
+
+    animation:
+        signupCardEnter 0.9s cubic-bezier(.2, .8, .2, 1) both;
+}
+
+
+/* =========================================================
+   SOFT BLUE PULSE GLOW
+   ========================================================= */
+
+.auth-page .signup-layout .form-card::before {
+    content: "";
+
+    position: absolute;
+    inset: -2px;
+
+    border-radius: inherit;
+
+    background:
+        linear-gradient(
+            120deg,
+            transparent 20%,
+            rgba(20, 140, 245, 0.18),
+            transparent 80%
+        );
+
+    opacity: 0;
+
+    animation: signupCardGlow 4s ease-in-out infinite;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   MOVING GLASS SHINE
+   ========================================================= */
+
+.auth-page .signup-layout .form-card::after {
+    content: "";
+
+    position: absolute;
+
+    top: -120%;
+    left: -80%;
+
+    width: 60%;
+    height: 300%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.30),
+            transparent
+        );
+
+    transform: rotate(20deg);
+
+    animation: signupGlassShine 6s ease-in-out infinite;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   KEEP CARD CONTENT ABOVE ANIMATION
+   ========================================================= */
+
+.auth-page .signup-layout .form-card > * {
+    position: relative;
+    z-index: 2;
+}
+
+
+/* =========================================================
+   CARD HOVER EFFECT
+   ========================================================= */
+
+.auth-page .signup-layout .form-card:hover {
+    transform: translateY(-8px);
+
+    border-color: rgba(255, 255, 255, 0.95);
+
+    box-shadow:
+        0 30px 85px rgba(30, 100, 180, 0.25),
+        0 0 35px rgba(20, 140, 245, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.95);
+}
+
+
+/* =========================================================
+   INPUT GLASS EFFECT
+   ========================================================= */
+
+.auth-page .signup-layout .form-card .field input,
+.auth-page .signup-layout .form-card .field select {
+    background: rgba(255, 255, 255, 0.42);
+
+    border: 1px solid rgba(255, 255, 255, 0.70);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    transition:
+        background 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* Input Hover */
+
+.auth-page .signup-layout .form-card .field input:hover,
+.auth-page .signup-layout .form-card .field select:hover {
+    background: rgba(255, 255, 255, 0.58);
+
+    border-color: rgba(255, 255, 255, 0.95);
+
+    transform: translateY(-1px);
+}
+
+
+/* Input Focus */
+
+.auth-page .signup-layout .form-card .field input:focus,
+.auth-page .signup-layout .form-card .field select:focus {
+    background: rgba(255, 255, 255, 0.68);
+
+    border-color: #1688ec;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 0 0 3px rgba(22, 136, 236, 0.12),
+        0 8px 25px rgba(22, 136, 236, 0.12);
+}
+
+
+/* =========================================================
+   BUTTON PREMIUM ANIMATION
+   ========================================================= */
+
+.auth-page .signup-layout .form-card button {
+    position: relative;
+
+    overflow: hidden;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        filter 0.3s ease;
+}
+
+
+/* Button Hover */
+
+.auth-page .signup-layout .form-card button:hover {
+    transform: translateY(-3px) scale(1.01);
+
+    filter: brightness(1.08);
+
+    box-shadow:
+        0 15px 35px rgba(20, 124, 245, 0.35);
+}
+
+
+/* Button Click */
+
+.auth-page .signup-layout .form-card button:active {
+    transform: scale(0.97);
+}
+
+
+/* Button Shine */
+
+.auth-page .signup-layout .form-card button::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -100%;
+
+    width: 70%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.40),
+            transparent
+        );
+
+    transform: skewX(-20deg);
+
+    transition: 0.6s;
+}
+
+
+/* Shine on Hover */
+
+.auth-page .signup-layout .form-card button:hover::before {
+    left: 130%;
+}
+
+
+/* =========================================================
+   CARD ENTRY ANIMATION
+   ========================================================= */
+
+@keyframes signupCardEnter {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(35px)
+            scale(0.97);
+
+        filter: blur(8px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+        filter: blur(0);
+    }
+}
+
+
+/* =========================================================
+   PULSE GLOW ANIMATION
+   ========================================================= */
+
+@keyframes signupCardGlow {
+
+    0%,
+    100% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+
+/* =========================================================
+   GLASS SHINE ANIMATION
+   ========================================================= */
+
+@keyframes signupGlassShine {
+
+    0% {
+        left: -80%;
+    }
+
+    45%,
+    100% {
+        left: 140%;
+    }
+}
+
+
+/* =========================================================
+   FEATURE PILLS ANIMATION
+   ========================================================= */
+
+.auth-page .signup-layout .feature-pills span {
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+
+.auth-page .signup-layout .feature-pills span:hover {
+    transform: translateY(-4px);
+
+    background: rgba(255, 255, 255, 0.75);
+
+    border-color: rgba(20, 140, 245, 0.35);
+
+    box-shadow:
+        0 8px 22px rgba(30, 100, 180, 0.12);
+}
+
+
+/* =========================================================
+   FORM ICON ANIMATION
+   ========================================================= */
+
+.auth-page .signup-layout .form-card .field > span {
+    transition:
+        transform 0.3s ease,
+        filter 0.3s ease;
+}
+
+
+.auth-page .signup-layout .form-card .field:focus-within > span {
+    transform:
+        translateY(-50%)
+        scale(1.15);
+
+    filter:
+        drop-shadow(
+            0 0 6px rgba(20, 140, 245, 0.45)
+        );
+}
+
+
+/* =========================================================
+   LOGIN LINK ANIMATION
+   ========================================================= */
+
+.auth-page .signup-layout .form-card .signup a {
+    transition:
+        color 0.25s ease,
+        text-shadow 0.25s ease;
+}
+
+
+.auth-page .signup-layout .form-card .signup a:hover {
+    color: #147cf5;
+
+    text-shadow:
+        0 0 10px rgba(20, 124, 245, 0.25);
+}
+
+
+/* =========================================================
+   REDUCE MOTION FOR ACCESSIBILITY
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .auth-page .signup-layout .form-card,
+    .auth-page .signup-layout .form-card::before,
+    .auth-page .signup-layout .form-card::after {
+        animation: none;
+    }
+
+    .auth-page .signup-layout .form-card,
+    .auth-page .signup-layout .form-card:hover {
+        transform: none;
+    }
+}
+
+
+/* =========================================================
+   VARSHA - GLOBAL PREMIUM UI/UX ANIMATION PACK
+   Login + Dashboard + Cards + Sidebar + Navigation
+   Paste at the VERY BOTTOM of style.css
+   ========================================================= */
+
+
+/* =========================================================
+   1. GLOBAL SMOOTH TRANSITIONS
+   ========================================================= */
+
+.auth-page *,
+.dashboard-page *,
+.admin-page * {
+    transition:
+        background-color 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        transform 0.3s ease,
+        opacity 0.3s ease,
+        color 0.3s ease;
+}
+
+
+/* =========================================================
+   2. LOGIN / AUTH CARDS
+   ========================================================= */
+
+.auth-page .card,
+.auth-page .login-card,
+.auth-page .form-card,
+.auth-page .role-card {
+    position: relative;
+    overflow: hidden;
+
+    background: rgba(255, 255, 255, 0.28);
+
+    backdrop-filter: blur(25px) saturate(170%);
+    -webkit-backdrop-filter: blur(25px) saturate(170%);
+
+    border: 1px solid rgba(255, 255, 255, 0.65);
+
+    box-shadow:
+        0 20px 60px rgba(30, 80, 130, 0.18),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+
+    animation: premiumCardEnter 0.8s cubic-bezier(.2,.8,.2,1) both;
+}
+
+
+/* =========================================================
+   3. CARD GLOW
+   ========================================================= */
+
+.auth-page .card::before,
+.auth-page .login-card::before,
+.auth-page .form-card::before,
+.dashboard-page .card::before,
+.admin-page .card::before,
+.info-card::before,
+.table-card::before,
+.map-card::before {
+    content: "";
+
+    position: absolute;
+    inset: -2px;
+
+    border-radius: inherit;
+
+    background:
+        linear-gradient(
+            120deg,
+            transparent 20%,
+            rgba(20, 140, 245, 0.16),
+            transparent 80%
+        );
+
+    opacity: 0;
+
+    animation: premiumPulse 4s ease-in-out infinite;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   4. MOVING GLASS SHINE
+   ========================================================= */
+
+.auth-page .card::after,
+.auth-page .login-card::after,
+.auth-page .form-card::after,
+.dashboard-page .card::after,
+.admin-page .card::after,
+.info-card::after,
+.table-card::after,
+.map-card::after {
+    content: "";
+
+    position: absolute;
+
+    top: -120%;
+    left: -100%;
+
+    width: 45%;
+    height: 300%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,0.30),
+            transparent
+        );
+
+    transform: rotate(20deg);
+
+    animation: glassSweep 7s ease-in-out infinite;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   5. KEEP CARD CONTENT ABOVE EFFECT
+   ========================================================= */
+
+.auth-page .card > *,
+.auth-page .login-card > *,
+.auth-page .form-card > *,
+.dashboard-page .card > *,
+.admin-page .card > *,
+.info-card > *,
+.table-card > *,
+.map-card > * {
+    position: relative;
+    z-index: 2;
+}
+
+
+/* =========================================================
+   6. CARD HOVER
+   ========================================================= */
+
+.auth-page .card:hover,
+.auth-page .login-card:hover,
+.auth-page .form-card:hover,
+.auth-page .role-card:hover,
+.dashboard-page .card:hover,
+.admin-page .card:hover,
+.info-card:hover,
+.table-card:hover,
+.map-card:hover {
+    transform: translateY(-7px);
+
+    border-color: rgba(255, 255, 255, 0.95);
+
+    box-shadow:
+        0 30px 80px rgba(30, 100, 180, 0.24),
+        0 0 35px rgba(20, 140, 245, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+
+/* =========================================================
+   7. DASHBOARD STAT CARDS
+   ========================================================= */
+
+.stat-card,
+.stats-card,
+.metric-card,
+.dashboard-card,
+.alert-card,
+.weather-card,
+.feature-card,
+.action-card {
+    position: relative;
+    overflow: hidden;
+
+    transition:
+        transform 0.35s cubic-bezier(.2,.8,.2,1),
+        box-shadow 0.35s ease,
+        border-color 0.35s ease;
+}
+
+
+.stat-card:hover,
+.stats-card:hover,
+.metric-card:hover,
+.dashboard-card:hover,
+.alert-card:hover,
+.weather-card:hover,
+.feature-card:hover,
+.action-card:hover {
+    transform:
+        translateY(-8px)
+        scale(1.015);
+
+    box-shadow:
+        0 22px 55px rgba(30, 100, 180, 0.18),
+        0 0 25px rgba(20, 140, 245, 0.10);
+}
+
+
+/* =========================================================
+   8. SIDEBAR
+   ========================================================= */
+
+.sidebar {
+    position: relative;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,0.30),
+            rgba(255,255,255,0.16)
+        );
+
+    backdrop-filter: blur(25px) saturate(160%);
+    -webkit-backdrop-filter: blur(25px) saturate(160%);
+
+    border-right:
+        1px solid rgba(255,255,255,0.55);
+
+    box-shadow:
+        10px 0 45px rgba(30,80,130,0.12);
+
+    animation:
+        sidebarEnter 0.8s cubic-bezier(.2,.8,.2,1) both;
+}
+
+
+/* Sidebar glowing edge */
+
+.sidebar::after {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    right: 0;
+
+    width: 2px;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            180deg,
+            transparent,
+            rgba(20,140,245,0.55),
+            transparent
+        );
+
+    animation:
+        sidebarGlow 4s ease-in-out infinite;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   9. SIDEBAR MENU ITEMS
+   ========================================================= */
+
+.sidebar a,
+.sidebar button,
+.nav-item,
+.menu-item {
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius: 12px;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.sidebar a:hover,
+.sidebar button:hover,
+.nav-item:hover,
+.menu-item:hover {
+    transform: translateX(6px);
+
+    background:
+        rgba(255,255,255,0.30);
+
+    box-shadow:
+        0 8px 25px rgba(20,120,220,0.12);
+}
+
+
+/* Active sidebar item */
+
+.sidebar a.active,
+.sidebar .active,
+.nav-item.active,
+.menu-item.active {
+    background:
+        linear-gradient(
+            90deg,
+            rgba(20,140,245,0.16),
+            rgba(20,140,245,0.04)
+        );
+
+    box-shadow:
+        inset 3px 0 0 #1688ec,
+        0 8px 25px rgba(20,140,245,0.10);
+}
+
+
+/* =========================================================
+   10. TOP NAVIGATION / TOPBAR
+   ========================================================= */
+
+.topbar,
+.navbar,
+.navigation,
+.dashboard-nav {
+    position: relative;
+    overflow: hidden;
+
+    backdrop-filter: blur(20px) saturate(160%);
+    -webkit-backdrop-filter: blur(20px) saturate(160%);
+
+    background:
+        rgba(255,255,255,0.20);
+
+    border:
+        1px solid rgba(255,255,255,0.60);
+
+    box-shadow:
+        0 12px 40px rgba(30,80,130,0.12);
+
+    animation:
+        navEnter 0.8s cubic-bezier(.2,.8,.2,1) both;
+}
+
+
+/* Navigation shine */
+
+.topbar::after,
+.navbar::after,
+.navigation::after,
+.dashboard-nav::after {
+    content: "";
+
+    position: absolute;
+
+    top: -100%;
+    left: -70%;
+
+    width: 35%;
+    height: 300%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,0.25),
+            transparent
+        );
+
+    transform: rotate(20deg);
+
+    animation:
+        navShine 8s ease-in-out infinite;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   11. NAVIGATION LINKS
+   ========================================================= */
+
+.topbar a,
+.navbar a,
+.navigation a,
+.dashboard-nav a {
+    transition:
+        transform 0.25s ease,
+        color 0.25s ease,
+        text-shadow 0.25s ease;
+}
+
+
+.topbar a:hover,
+.navbar a:hover,
+.navigation a:hover,
+.dashboard-nav a:hover {
+    transform: translateY(-2px);
+
+    color: #147cf5;
+
+    text-shadow:
+        0 0 12px rgba(20,124,245,0.25);
+}
+
+
+/* =========================================================
+   12. BUTTONS
+   ========================================================= */
+
+button,
+.btn,
+.primary-btn,
+.secondary-btn {
+    position: relative;
+
+    overflow: hidden;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        filter 0.3s ease;
+}
+
+
+button:hover,
+.btn:hover,
+.primary-btn:hover,
+.secondary-btn:hover {
+    transform:
+        translateY(-3px)
+        scale(1.01);
+
+    filter: brightness(1.06);
+
+    box-shadow:
+        0 14px 32px rgba(20,124,245,0.25);
+}
+
+
+button:active,
+.btn:active,
+.primary-btn:active,
+.secondary-btn:active {
+    transform: scale(0.96);
+}
+
+
+/* Button shine */
+
+button::before,
+.btn::before,
+.primary-btn::before,
+.secondary-btn::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -120%;
+
+    width: 70%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,0.38),
+            transparent
+        );
+
+    transform: skewX(-20deg);
+
+    transition:
+        left 0.6s ease;
+
+    pointer-events: none;
+}
+
+
+button:hover::before,
+.btn:hover::before,
+.primary-btn:hover::before,
+.secondary-btn:hover::before {
+    left: 140%;
+}
+
+
+/* =========================================================
+   13. INPUTS
+   ========================================================= */
+
+input,
+select,
+textarea {
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+input:hover,
+select:hover,
+textarea:hover {
+    transform: translateY(-1px);
+
+    border-color:
+        rgba(20,140,245,0.45);
+}
+
+
+input:focus,
+select:focus,
+textarea:focus {
+    transform: translateY(-2px);
+
+    border-color:
+        #1688ec;
+
+    box-shadow:
+        0 0 0 3px rgba(22,136,236,0.10),
+        0 8px 25px rgba(22,136,236,0.12);
+}
+
+
+/* =========================================================
+   14. ICON ANIMATION
+   ========================================================= */
+
+.card-icon,
+.stat-icon,
+.feature-icon,
+.menu-icon,
+.weather-icon {
+    transition:
+        transform 0.4s cubic-bezier(.2,.8,.2,1),
+        filter 0.4s ease;
+}
+
+
+.card:hover .card-icon,
+.card:hover .stat-icon,
+.card:hover .feature-icon,
+.card:hover .menu-icon,
+.card:hover .weather-icon {
+    transform:
+        scale(1.12)
+        rotate(3deg);
+
+    filter:
+        drop-shadow(
+            0 0 10px rgba(20,140,245,0.25)
+        );
+}
+
+
+/* =========================================================
+   15. TABLE ROW ANIMATION
+   ========================================================= */
+
+table tbody tr {
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+table tbody tr:hover {
+    transform: translateX(4px);
+
+    background:
+        rgba(20,140,245,0.045);
+
+    box-shadow:
+        inset 3px 0 0 rgba(20,140,245,0.45);
+}
+
+
+/* =========================================================
+   16. DASHBOARD SECTION ENTRANCE
+   ========================================================= */
+
+.dashboard-section,
+.dashboard-content,
+.main-content,
+.content-section {
+    animation:
+        sectionEnter 0.8s cubic-bezier(.2,.8,.2,1) both;
+}
+
+
+/* =========================================================
+   17. KEYFRAME - CARD ENTRY
+   ========================================================= */
+
+@keyframes premiumCardEnter {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(35px)
+            scale(0.96);
+
+        filter: blur(8px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+        filter: blur(0);
+    }
+}
+
+
+/* =========================================================
+   18. KEYFRAME - PULSE
+   ========================================================= */
+
+@keyframes premiumPulse {
+
+    0%,
+    100% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+
+/* =========================================================
+   19. KEYFRAME - GLASS SHINE
+   ========================================================= */
+
+@keyframes glassSweep {
+
+    0% {
+        left: -100%;
+    }
+
+    45%,
+    100% {
+        left: 150%;
+    }
+}
+
+
+/* =========================================================
+   20. SIDEBAR ENTRY
+   ========================================================= */
+
+@keyframes sidebarEnter {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateX(-35px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateX(0);
+    }
+}
+
+
+/* =========================================================
+   21. SIDEBAR GLOW
+   ========================================================= */
+
+@keyframes sidebarGlow {
+
+    0%,
+    100% {
+        opacity: 0.25;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+
+/* =========================================================
+   22. NAVBAR ENTRY
+   ========================================================= */
+
+@keyframes navEnter {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(-25px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* =========================================================
+   23. NAVBAR SHINE
+   ========================================================= */
+
+@keyframes navShine {
+
+    0% {
+        left: -70%;
+    }
+
+    45%,
+    100% {
+        left: 150%;
+    }
+}
+
+
+/* =========================================================
+   24. SECTION ENTRY
+   ========================================================= */
+
+@keyframes sectionEnter {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* =========================================================
+   25. STAGGERED CARD ANIMATION
+   ========================================================= */
+
+.dashboard-page .card:nth-child(1),
+.admin-page .card:nth-child(1) {
+    animation-delay: 0.05s;
+}
+
+.dashboard-page .card:nth-child(2),
+.admin-page .card:nth-child(2) {
+    animation-delay: 0.12s;
+}
+
+.dashboard-page .card:nth-child(3),
+.admin-page .card:nth-child(3) {
+    animation-delay: 0.19s;
+}
+
+.dashboard-page .card:nth-child(4),
+.admin-page .card:nth-child(4) {
+    animation-delay: 0.26s;
+}
+
+.dashboard-page .card:nth-child(5),
+.admin-page .card:nth-child(5) {
+    animation-delay: 0.33s;
+}
+
+
+/* =========================================================
+   26. MOBILE OPTIMIZATION
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .auth-page .card:hover,
+    .auth-page .login-card:hover,
+    .auth-page .form-card:hover,
+    .dashboard-page .card:hover,
+    .admin-page .card:hover,
+    .info-card:hover,
+    .table-card:hover,
+    .map-card:hover {
+        transform: translateY(-3px);
+    }
+
+    .sidebar a:hover,
+    .sidebar button:hover,
+    .nav-item:hover,
+    .menu-item:hover {
+        transform: translateX(3px);
+    }
+}
+
+
+/* =========================================================
+   27. ACCESSIBILITY
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
     }
 }

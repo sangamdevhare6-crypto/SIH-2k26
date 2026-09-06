@@ -32,5 +32,5 @@ Use the superuser created with `py manage.py createsuperuser` to sign in to the 
 
 For production, use PostgreSQL, HTTPS, environment-based secrets, email-verified password reset, rate limiting, and stricter administrator provisioning.
 
-username : SANGAM
-password : sih@26
+Username: admin
+Password: Admin@12345
