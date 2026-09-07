@@ -4122,9 +4122,9 @@ table tbody tr:hover {
 
 .authority-panel-header h2 {
 
-    font-size: 13px;
+    font-size: 20px;
 
-    color: #19385e;
+    color: #e21212;
 
     margin: 0;
 }
@@ -8941,4 +8941,983 @@ body {
         width: 95px;
     }
 
+}
+/* =========================================================
+   WEATHER / RAINFALL PREDICTION
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: white;
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(18, 168, 237, 0.30),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 85% 75%,
+            rgba(22, 127, 240, 0.25),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #06101d,
+            #0b1d34,
+            #08111f
+        );
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+header {
+    padding: 25px 40px;
+
+    background: rgba(20, 45, 75, 0.55);
+
+    border-bottom: 1px solid rgba(255,255,255,0.20);
+
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+
+    box-shadow:
+        0 10px 35px rgba(0,0,0,0.30),
+        inset 0 1px 1px rgba(255,255,255,0.15);
+
+    position: relative;
+    z-index: 5;
+
+    animation: headerIn 0.8s ease;
+}
+
+h1 {
+    margin: 0;
+
+    color: #4fc3f7;
+
+    font-size: 30px;
+
+    text-shadow:
+        0 0 15px rgba(79,195,247,0.45);
+
+    animation: titleGlow 3s ease-in-out infinite;
+}
+
+header p {
+    color: #b9cee2;
+}
+
+
+/* =========================================================
+   MAIN CONTAINER
+   ========================================================= */
+
+.container {
+    max-width: 1100px;
+
+    margin: 40px auto;
+
+    padding: 20px;
+
+    animation: pageIn 0.9s ease;
+}
+
+
+/* =========================================================
+   GRID
+   ========================================================= */
+
+.grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 25px;
+}
+
+
+/* =========================================================
+   MAIN GLASS BOX
+   ========================================================= */
+
+.card {
+    position: relative;
+
+    overflow: hidden;
+
+    padding: 25px;
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(40,160,230,0.24),
+            rgba(255,255,255,0.08)
+        );
+
+    border: 1px solid rgba(255,255,255,0.25);
+
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,0.35),
+        inset 0 1px 1px rgba(255,255,255,0.20);
+
+    animation: cardIn 0.9s ease;
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease,
+        border-color 0.4s ease;
+}
+
+
+/* Main box hover */
+
+.card:hover {
+    transform: translateY(-7px);
+
+    border-color:
+        rgba(79,195,247,0.60);
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,0.45),
+        0 0 30px rgba(79,195,247,0.15),
+        inset 0 1px 1px rgba(255,255,255,0.25);
+}
+
+
+/* =========================================================
+   GLASS SHINE
+   ========================================================= */
+
+.card::before {
+    content: "";
+
+    position: absolute;
+
+    top: -100%;
+    left: -50%;
+
+    width: 200%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,0.18),
+            transparent
+        );
+
+    transform: rotate(-8deg);
+
+    pointer-events: none;
+
+    animation: glassMove 7s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   HEADINGS
+   ========================================================= */
+
+h2 {
+    color: #4fc3f7;
+
+    margin-top: 0;
+
+    text-shadow:
+        0 0 12px rgba(79,195,247,0.35);
+
+    animation: headingIn 0.8s ease;
+}
+
+
+/* =========================================================
+   INPUT GROUP
+   ========================================================= */
+
+.input-group {
+    margin-bottom: 18px;
+
+    position: relative;
+
+    animation: inputIn 0.7s ease;
+}
+
+
+/* =========================================================
+   LABEL / NAME ABOVE INPUT
+   ========================================================= */
+
+label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color:#0F2731;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.3px;
+
+    text-shadow:
+        0 1px 5px rgba(0,0,0,0.30);
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.input-group:hover label {
+    color: #4fc3f7;
+
+    transform: translateX(6px);
+}
+
+
+/* =========================================================
+   INPUT BOXES
+   ========================================================= */
+
+input {
+    width: 100%;
+
+    padding: 13px 15px;
+
+    border-radius: 11px;
+
+    border: 1px solid rgba(255,255,255,0.25);
+
+    background:
+        rgba(5,20,38,0.55);
+
+    color: white;
+
+    font-size: 16px;
+
+    outline: none;
+
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    box-shadow:
+        inset 0 1px 1px rgba(255,255,255,0.08),
+        0 5px 15px rgba(0,0,0,0.12);
+
+    transition:
+        all 0.35s ease;
+}
+
+
+/* Input hover */
+
+input:hover {
+    border-color:
+        rgba(79,195,247,0.55);
+
+    background:
+        rgba(15,45,70,0.65);
+
+    transform: translateY(-2px);
+}
+
+
+/* Input focus */
+
+input:focus {
+    border-color: #4fc3f7;
+
+    background:
+        rgba(20,60,90,0.65);
+
+    transform:
+        translateY(-2px)
+        scale(1.01);
+
+    box-shadow:
+        0 0 0 3px rgba(79,195,247,0.10),
+        0 0 25px rgba(79,195,247,0.20),
+        inset 0 1px 1px rgba(255,255,255,0.15);
+}
+
+input::placeholder {
+    color: #8fa8bd;
+}
+
+
+/* =========================================================
+   BUTTON
+   ========================================================= */
+
+button {
+    width: 100%;
+
+    padding: 15px;
+
+    border: 1px solid rgba(255,255,255,0.25);
+
+    border-radius: 11px;
+
+    color: white;
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0288d1,
+            #167ff0
+        );
+
+    box-shadow:
+        0 10px 25px rgba(3,136,209,0.30),
+        inset 0 1px 1px rgba(255,255,255,0.25);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* Button shine */
+
+button::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -120%;
+
+    width: 70%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,0.35),
+            transparent
+        );
+
+    transform: skewX(-20deg);
+
+    transition: left 0.7s ease;
+}
+
+
+/* Button hover */
+
+button:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 15px 35px rgba(3,136,209,0.40),
+        0 0 25px rgba(79,195,247,0.20),
+        inset 0 1px 1px rgba(255,255,255,0.30);
+}
+
+button:hover::before {
+    left: 130%;
+}
+
+button:active {
+    transform: scale(0.97);
+}
+
+
+/* =========================================================
+   RESULT MAIN GLASS BOX
+   ========================================================= */
+
+.result {
+    position: relative;
+
+    overflow: hidden;
+
+    width: 100%;
+
+    min-height: 280px;
+
+    padding: 25px;
+
+    border-radius: 20px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(30,160,230,0.26),
+            rgba(255,255,255,0.09)
+        );
+
+    border: 1px solid rgba(255,255,255,0.28);
+
+    backdrop-filter: blur(28px);
+    -webkit-backdrop-filter: blur(28px);
+
+    box-shadow:
+        0 20px 55px rgba(0,0,0,0.35),
+        inset 0 1px 1px rgba(255,255,255,0.22);
+
+    animation:
+        resultIn 0.9s ease,
+        resultFloat 5s ease-in-out infinite;
+}
+
+
+/* Result shine */
+
+.result::before {
+    content: "";
+
+    position: absolute;
+
+    top: -100%;
+    left: -40%;
+
+    width: 180%;
+    height: 90%;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,0.20),
+            transparent
+        );
+
+    transform: rotate(-7deg);
+
+    pointer-events: none;
+
+    animation: resultShine 6s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   RESULT INNER BOXES
+   ========================================================= */
+
+.result .rainfall {
+    width: 90%;
+
+    margin: 8px 0;
+
+    padding: 12px 18px;
+
+    border-radius: 12px;
+
+    background:
+        rgba(255,255,255,0.09);
+
+    border:
+        1px solid rgba(255,255,255,0.18);
+
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    color: #dff4ff;
+
+    box-shadow:
+        inset 0 1px 1px rgba(255,255,255,0.10),
+        0 6px 18px rgba(0,0,0,0.12);
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease;
+
+    animation:
+        innerBoxIn 0.8s ease;
+}
+
+
+/* Inner box hover */
+
+.result .rainfall:hover {
+    transform: translateY(-3px);
+
+    background:
+        rgba(79,195,247,0.14);
+
+    border-color:
+        rgba(79,195,247,0.40);
+}
+
+
+/* =========================================================
+   RISK BOX
+   ========================================================= */
+
+.result .risk {
+    min-width: 190px;
+
+    margin: 18px 0;
+
+    padding: 15px 30px;
+
+    border-radius: 15px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(79,195,247,0.20),
+            rgba(255,255,255,0.08)
+        );
+
+    border:
+        1px solid rgba(79,195,247,0.35);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    font-size: 42px;
+
+    font-weight: bold;
+
+    color: #4fc3f7;
+
+    text-shadow:
+        0 0 18px rgba(79,195,247,0.55);
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.20),
+        inset 0 1px 1px rgba(255,255,255,0.15);
+
+    animation:
+        riskIn 0.9s ease,
+        riskPulse 2.5s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   INUNDATION RISK TEXT BOX
+   ========================================================= */
+
+.result > div:not(.rainfall):not(.risk):not(.warning) {
+    margin: 10px 0;
+
+    padding: 12px 20px;
+
+    width: 90%;
+
+    border-radius: 12px;
+
+    background:
+        rgba(255,255,255,0.08);
+
+    border:
+        1px solid rgba(255,255,255,0.16);
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    color: #dceefa;
+
+    box-shadow:
+        inset 0 1px 1px rgba(255,255,255,0.08);
+
+    animation:
+        innerBoxIn 1s ease;
+}
+
+
+/* =========================================================
+   WARNING INNER BOX
+   ========================================================= */
+
+.warning {
+    width: 90%;
+
+    margin-top: 15px;
+
+    padding: 16px 20px;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(79,195,247,0.15),
+            rgba(255,255,255,0.07)
+        );
+
+    border:
+        1px solid rgba(255,255,255,0.20);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    color: #e8f7ff;
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,0.18),
+        inset 0 1px 1px rgba(255,255,255,0.12);
+
+    animation:
+        warningIn 0.9s ease,
+        warningFloat 4s ease-in-out infinite;
+}
+
+
+/* Warning hover */
+
+.warning:hover {
+    border-color:
+        rgba(79,195,247,0.45);
+
+    background:
+        rgba(79,195,247,0.17);
+}
+
+
+/* =========================================================
+   ERROR
+   ========================================================= */
+
+.error {
+    color: #ff8585;
+
+    text-align: center;
+
+    margin-top: 15px;
+
+    font-weight: bold;
+
+    animation:
+        errorShake 0.5s ease;
+}
+
+
+/* =========================================================
+   ANIMATIONS
+   ========================================================= */
+
+@keyframes headerIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+@keyframes pageIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+@keyframes cardIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(40px) scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+@keyframes headingIn {
+
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+@keyframes inputIn {
+
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+@keyframes glassMove {
+
+    0% {
+        transform:
+            translateX(-20%)
+            rotate(-8deg);
+    }
+
+    50% {
+        transform:
+            translateX(20%)
+            rotate(-8deg);
+    }
+
+    100% {
+        transform:
+            translateX(-20%)
+            rotate(-8deg);
+    }
+}
+
+
+@keyframes resultIn {
+
+    from {
+        opacity: 0;
+        transform:
+            translateY(35px)
+            scale(0.92);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+@keyframes resultFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+
+@keyframes resultShine {
+
+    0% {
+        top: -100%;
+    }
+
+    45% {
+        top: 120%;
+    }
+
+    100% {
+        top: 120%;
+    }
+}
+
+
+@keyframes innerBoxIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+@keyframes riskIn {
+
+    from {
+        opacity: 0;
+        transform: scale(0.7);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+@keyframes riskPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+
+        box-shadow:
+            0 10px 30px rgba(0,0,0,0.20),
+            0 0 10px rgba(79,195,247,0.10);
+    }
+
+    50% {
+        transform: scale(1.05);
+
+        box-shadow:
+            0 10px 35px rgba(0,0,0,0.25),
+            0 0 30px rgba(79,195,247,0.25);
+    }
+}
+
+
+@keyframes warningIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+@keyframes warningFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-3px);
+    }
+}
+
+
+@keyframes titleGlow {
+
+    0%,
+    100% {
+        text-shadow:
+            0 0 10px rgba(79,195,247,0.25);
+    }
+
+    50% {
+        text-shadow:
+            0 0 25px rgba(79,195,247,0.60);
+    }
+}
+
+
+@keyframes errorShake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-6px);
+    }
+
+    75% {
+        transform: translateX(6px);
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 750px) {
+
+    header {
+        padding: 22px 20px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    .container {
+        margin: 25px auto;
+        padding: 15px;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        padding: 20px;
+    }
+
+    .result {
+        min-height: 250px;
+        padding: 18px;
+    }
+
+    .result .risk {
+        font-size: 32px;
+        min-width: 150px;
+    }
+
+    .result .rainfall,
+    .result .warning {
+        width: 100%;
+    }
+}
+.authority-panel-header p {
+    color: #09171D;
+    font-size: 16px;
+    font-weight: 500;
+    text-shadow: 0 0 8px rgba(79, 195, 247, 0.25);
 }

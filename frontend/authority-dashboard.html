@@ -1,408 +1,722 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Authority Dashboard</title>
+```
+<title>Authority Dashboard</title>
 
-    <!-- Your Existing CSS -->
-    <link rel="stylesheet" href="style.css">
+<!-- Main CSS -->
+<link rel="stylesheet" href="style.css">
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<!-- Font Awesome -->
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+```
+
 </head>
 
 <body>
 
 <div class="authority-layout">
 
-    <!-- ================= SIDEBAR ================= -->
-    <aside class="authority-sidebar">
+```
+<!-- =====================================================
+     SIDEBAR
+====================================================== -->
 
-        <!-- Logo -->
-        <div class="authority-logo-box">
+<aside class="authority-sidebar">
 
-            <!-- Apna logo path yaha change karo -->
-            <img src="logo-icon.png" alt="Varsha Kritrima Buddhih">
+    <!-- Logo -->
+    <div class="authority-logo-box">
 
-            <div class="authority-brand">
-                <h3>VARSHA KRITRIMA BUDDHIH</h3>
-                <span>PREDICT. PROTECT. PREVENT.</span>
+        <img src="logo-icon.png" alt="Varsha Kritrima Buddhih">
+
+        <div class="authority-brand">
+            <h3>VARSHA KRITRIMA BUDDHIH</h3>
+            <span>PREDICT. PROTECT. PREVENT.</span>
+        </div>
+
+    </div>
+
+
+    <!-- Navigation -->
+    <nav class="authority-nav">
+
+        <a href="authority-dashboard.html"
+           class="authority-nav-item active">
+
+            <i class="fa-solid fa-house"></i>
+            <span>Dashboard</span>
+
+        </a>
+
+
+        <a href="alerts-management.html"
+           class="authority-nav-item">
+
+            <i class="fa-regular fa-bell"></i>
+            <span>Alerts Management</span>
+
+        </a>
+
+
+        <a href="reports-complaints.html"
+           class="authority-nav-item">
+
+            <i class="fa-regular fa-file-lines"></i>
+            <span>Reports & Complaints</span>
+
+        </a>
+
+
+        <a href="risk-map.html"
+           class="authority-nav-item">
+
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Risk Map</span>
+
+        </a>
+
+
+        <a href="#weather-prediction"
+           class="authority-nav-item">
+
+            <i class="fa-solid fa-cloud-sun"></i>
+            <span>Weather & Data</span>
+
+        </a>
+
+
+        <a href="#monitoring-stations"
+           class="authority-nav-item">
+
+            <i class="fa-solid fa-tower-broadcast"></i>
+            <span>Monitoring Stations</span>
+
+        </a>
+
+
+        <a href="#user-management"
+           class="authority-nav-item">
+
+            <i class="fa-solid fa-users"></i>
+            <span>User Management</span>
+
+        </a>
+
+
+        <a href="#resources"
+           class="authority-nav-item">
+
+            <i class="fa-solid fa-box"></i>
+            <span>Resources</span>
+
+        </a>
+
+
+        <a href="#settings"
+           class="authority-nav-item">
+
+            <i class="fa-solid fa-gear"></i>
+            <span>Settings</span>
+
+        </a>
+
+
+        <a href="#logs"
+           class="authority-nav-item">
+
+            <i class="fa-solid fa-clock-rotate-left"></i>
+            <span>Logs</span>
+
+        </a>
+
+
+        <a href="#profile"
+           class="authority-nav-item">
+
+            <i class="fa-regular fa-user"></i>
+            <span>Profile</span>
+
+        </a>
+
+
+        <a href="index.html"
+           class="authority-nav-item">
+
+            <i class="fa-solid fa-right-from-bracket"></i>
+            <span>Logout</span>
+
+        </a>
+
+    </nav>
+
+
+    <!-- Bottom Logo -->
+    <div class="authority-sidebar-bottom">
+
+        <img src="logo-icon.png" alt="Logo">
+
+        <div>
+            <strong>VARSHA KRITRIMA BUDDHIH</strong>
+            <small>PREDICT. PROTECT. PREVENT.</small>
+        </div>
+
+    </div>
+
+</aside>
+
+
+
+<!-- =====================================================
+     MAIN CONTENT
+====================================================== -->
+
+<main class="authority-main">
+
+
+    <!-- =================================================
+         HEADER
+    ================================================== -->
+
+    <header class="authority-header">
+
+        <div>
+
+            <h1>Authority Dashboard</h1>
+
+            <p>
+                Monitor, analyze and take action
+            </p>
+
+        </div>
+
+
+        <div class="authority-header-right">
+
+            <button class="authority-icon-btn">
+
+                <i class="fa-regular fa-bell"></i>
+
+                <span class="notification-dot"></span>
+
+            </button>
+
+
+            <div class="authority-date">
+
+                <i class="fa-regular fa-calendar"></i>
+
+                <span>
+                    01 June 2024, 10:30 AM
+                </span>
+
+            </div>
+
+
+            <div class="authority-profile-icon">
+
+                <i class="fa-solid fa-user-shield"></i>
+
             </div>
 
         </div>
 
-        <!-- Navigation -->
-        <nav class="authority-nav">
+    </header>
 
-            <a href="authority-dashboard.html" class="authority-nav-item active">
-                <i class="fa-solid fa-house"></i>
-                <span>Dashboard</span>
-            </a>
 
-            <a href="alerts-management.html" class="authority-nav-item">
-               <i class="fa-regular fa-bell"></i>
-               <span>Alerts Management</span>
-             </a>
 
-            <a href="reports-complaints.html" class="authority-nav-item">
-                <i class="fa-regular fa-file-lines"></i>
-                <span>Reports & Complaints</span>
-            </a>
+    <!-- =================================================
+         STAT CARDS
+    ================================================== -->
 
-            <a href="risk-map.html" class="authority-nav-item">
-                <i class="fa-solid fa-location-dot"></i>
-                <span>Risk Map</span>
-            </a>
+    <section class="authority-stats">
 
-            <a href="#" class="authority-nav-item">
-                <i class="fa-solid fa-cloud-sun"></i>
-                <span>Weather & Data</span>
-            </a>
 
-            <a href="#" class="authority-nav-item">
-                <i class="fa-solid fa-tower-broadcast"></i>
-                <span>Monitoring Stations</span>
-            </a>
+        <!-- Total Alerts -->
 
-            <a href="#" class="authority-nav-item">
-                <i class="fa-solid fa-users"></i>
-                <span>User Management</span>
-            </a>
+        <div class="authority-stat-card blue">
 
-            <a href="#" class="authority-nav-item">
-                <i class="fa-solid fa-box"></i>
-                <span>Resources</span>
-            </a>
+            <div class="authority-stat-icon">
 
-            <a href="#" class="authority-nav-item">
-                <i class="fa-solid fa-gear"></i>
-                <span>Settings</span>
-            </a>
+                <i class="fa-solid fa-cloud-rain"></i>
 
-            <a href="#" class="authority-nav-item">
-                <i class="fa-solid fa-clock-rotate-left"></i>
-                <span>Logs</span>
-            </a>
-
-            <a href="#" class="authority-nav-item">
-                <i class="fa-regular fa-user"></i>
-                <span>Profile</span>
-            </a>
-
-            <a href="index.html" class="authority-nav-item">
-                <i class="fa-solid fa-right-from-bracket"></i>
-                <span>Logout</span>
-            </a>
-
-        </nav>
-
-        <!-- Bottom Logo -->
-        <div class="authority-sidebar-bottom">
-
-            <img src="logo-icon.png" alt="Logo">
+            </div>
 
             <div>
-                <strong>VARSHA KRITRIMA BUDDHIH</strong>
-                <small>PREDICT. PROTECT. PREVENT.</small>
+
+                <span>Total Alerts</span>
+
+                <h2>18</h2>
+
+                <small>12 Active</small>
+
             </div>
+
+            <a href="alerts-management.html">
+                View All Alerts →
+            </a>
 
         </div>
 
-    </aside>
 
 
-    <!-- ================= MAIN CONTENT ================= -->
-    <main class="authority-main">
+        <!-- High Risk -->
 
-        <!-- Header -->
-        <header class="authority-header">
+        <div class="authority-stat-card orange">
+
+            <div class="authority-stat-icon">
+
+                <i class="fa-solid fa-triangle-exclamation"></i>
+
+            </div>
 
             <div>
-                <h1>Authority Dashboard</h1>
+
+                <span>High Risk Areas</span>
+
+                <h2>7</h2>
+
+                <small>2 Critical</small>
+
+            </div>
+
+            <a href="risk-map.html">
+                View Risk Map →
+            </a>
+
+        </div>
+
+
+
+        <!-- Reports -->
+
+        <div class="authority-stat-card green">
+
+            <div class="authority-stat-icon">
+
+                <i class="fa-solid fa-file-circle-check"></i>
+
+            </div>
+
+            <div>
+
+                <span>Reports Received</span>
+
+                <h2>1,256</h2>
+
+                <small>16 New</small>
+
+            </div>
+
+            <a href="reports-complaints.html">
+                View Reports →
+            </a>
+
+        </div>
+
+
+
+        <!-- Processed -->
+
+        <div class="authority-stat-card purple">
+
+            <div class="authority-stat-icon">
+
+                <i class="fa-solid fa-person-circle-check"></i>
+
+            </div>
+
+            <div>
+
+                <span>Reports Processed</span>
+
+                <h2>1,125</h2>
+
+                <small>126 Pending</small>
+
+            </div>
+
+            <a href="#">
+                View Ratings →
+            </a>
+
+        </div>
+
+
+
+        <!-- Warnings -->
+
+        <div class="authority-stat-card red">
+
+            <div class="authority-stat-icon">
+
+                <i class="fa-solid fa-triangle-exclamation"></i>
+
+            </div>
+
+            <div>
+
+                <span>Active Warnings</span>
+
+                <h2>8</h2>
+
+                <small>4 Critical</small>
+
+            </div>
+
+            <a href="#">
+                View Warnings →
+            </a>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         WEATHER PREDICTION
+    ================================================== -->
+
+    <section id="weather-prediction"
+             class="authority-panel rainfall-prediction-panel">
+
+
+        <div class="authority-panel-header">
+
+            <div>
+
+                <h2>
+                    🌧️ Rainfall Risk Prediction
+                </h2>
 
                 <p>
-                    Monitor, analyze and take action
+                    AI-powered heavy rainfall and inundation
+                    risk prediction
                 </p>
+
             </div>
 
-            <div class="authority-header-right">
+        </div>
 
-                <button class="authority-icon-btn">
-                    <i class="fa-regular fa-bell"></i>
-                    <span class="notification-dot"></span>
+
+
+        <!-- Prediction Grid -->
+
+        <div class="grid">
+
+
+            <!-- =========================================
+                 INPUT
+            ========================================== -->
+
+            <div class="card">
+
+                <h2>
+                    Weather Information
+                </h2>
+
+
+                <div class="input-group">
+
+                    <label>
+                        📍 Location
+                    </label>
+
+                    <input
+                        type="text"
+                        id="location"
+                        placeholder="Chhatrapati Sambhajinagar"
+                    >
+
+                </div>
+
+
+                <div class="input-group">
+
+                    <label>
+                        🌧️ Rainfall (mm)
+                    </label>
+
+                    <input
+                        type="number"
+                        id="rainfall"
+                        placeholder="120"
+                    >
+
+                </div>
+
+
+                <div class="input-group">
+
+                    <label>
+                        🌡️ Temperature (°C)
+                    </label>
+
+                    <input
+                        type="number"
+                        id="temperature"
+                        placeholder="25"
+                    >
+
+                </div>
+
+
+                <div class="input-group">
+
+                    <label>
+                        💧 Humidity (%)
+                    </label>
+
+                    <input
+                        type="number"
+                        id="humidity"
+                        placeholder="92"
+                    >
+
+                </div>
+
+
+                <div class="input-group">
+
+                    <label>
+                        💨 Wind Speed (km/h)
+                    </label>
+
+                    <input
+                        type="number"
+                        id="wind_speed"
+                        placeholder="35"
+                    >
+
+                </div>
+
+
+                <div class="input-group">
+
+                    <label>
+                        📊 Pressure (hPa)
+                    </label>
+
+                    <input
+                        type="number"
+                        id="pressure"
+                        placeholder="995"
+                    >
+
+                </div>
+
+
+                <button
+                    id="predictButton"
+                    type="button">
+
+                    🔍 PREDICT RAINFALL RISK
+
                 </button>
 
-                <div class="authority-date">
-                    <i class="fa-regular fa-calendar"></i>
-                    <span>01 June 2024, 10:30 AM</span>
-                </div>
 
-                <div class="authority-profile-icon">
-                    <i class="fa-solid fa-user-shield"></i>
+                <div
+                    id="error"
+                    class="error">
                 </div>
 
             </div>
 
-        </header>
 
 
-        <!-- ================= STAT CARDS ================= -->
-        <section class="authority-stats">
+            <!-- =========================================
+                 RESULT
+            ========================================== -->
 
-            <div class="authority-stat-card blue">
+            <div class="card">
 
-                <div class="authority-stat-icon">
-                    <i class="fa-solid fa-cloud-rain"></i>
+                <h2>
+                    Prediction Result
+                </h2>
+
+
+                <div
+                    id="result"
+                    class="result">
+
+                    <p>
+
+                        Enter weather information
+                        and click
+
+                        <b>
+                            Predict Rainfall Risk
+                        </b>.
+
+                    </p>
+
                 </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         MIDDLE SECTION
+    ================================================== -->
+
+    <section class="authority-middle-grid">
+
+
+        <!-- LIVE RISK MAP -->
+
+        <div class="authority-panel authority-map-panel">
+
+            <div class="authority-panel-header">
 
                 <div>
-                    <span>Total Alerts</span>
-                    <h2>18</h2>
-                    <small>12 Active</small>
-                </div>
 
-                <a href="alerts-management.html">View All Alerts →</a>
-
-            </div>
-
-
-            <div class="authority-stat-card orange">
-
-                <div class="authority-stat-icon">
-                    <i class="fa-solid fa-triangle-exclamation"></i>
-                </div>
-
-                <div>
-                    <span>High Risk Areas</span>
-                    <h2>7</h2>
-                    <small>2 Critical</small>
-                </div>
-
-                <a href="risk-map.html">View Risk Map →</a>
-
-            </div>
-
-
-            <div class="authority-stat-card green">
-
-                <div class="authority-stat-icon">
-                    <i class="fa-solid fa-file-circle-check"></i>
-                </div>
-
-                <div>
-                    <span>Reports Received</span>
-                    <h2>1,256</h2>
-                    <small>16 New</small>
-                </div>
-
-                <a href="reports-complaints.html">View Reports →</a>
-
-            </div>
-
-
-            <div class="authority-stat-card purple">
-
-                <div class="authority-stat-icon">
-                    <i class="fa-solid fa-person-circle-check"></i>
-                </div>
-
-                <div>
-                    <span>Reports Processed</span>
-                    <h2>1,125</h2>
-                    <small>126 Pending</small>
-                </div>
-
-                <a href="#">View Ratings →</a>
-
-            </div>
-
-
-            <div class="authority-stat-card red">
-
-                <div class="authority-stat-icon">
-                    <i class="fa-solid fa-triangle-exclamation"></i>
-                </div>
-
-                <div>
-                    <span>Active Warnings</span>
-                    <h2>8</h2>
-                    <small>4 Critical</small>
-                </div>
-
-                <a href="#">View Warnings →</a>
-
-            </div>
-
-        </section>
-
-
-        <!-- ================= MIDDLE SECTION ================= -->
-        <section class="authority-middle-grid">
-
-            <!-- LIVE RISK MAP -->
-            <div class="authority-panel authority-map-panel">
-
-                <div class="authority-panel-header">
-
-                    <div>
-                        <h2>Live Risk Map</h2>
-                    </div>
-
-                    <div class="authority-map-controls">
-                         <select name="state" id="stateSelect">
-                            <option>Maharashtra</option><option>Madhya Pradesh</option><option>Gujarat</option><option>Rajasthan</option><option>Goa</option><option>Karnataka</option><option>Telangana</option><option>Andhra Pradesh</option><option>Tamil Nadu</option><option>Kerala</option>
-                            <option>Chhattisgarh</option><option>Odisha</option><option>Jharkhand</option><option>West Bengal</option><option>Bihar</option><option>Uttar Pradesh</option><option>Punjab</option><option>Haryana</option><option>Assam</option><option>Delhi</option>
-                         </select>
-                        <button>
-                            View Full Map
-                        </button>
-
-                    </div>
+                    <h2>
+                        Live Risk Map
+                    </h2>
 
                 </div>
 
-                <div class="authority-map">
 
-                    <!-- Replace with your actual map -->
-                    <div class="authority-map-placeholder">
+                <div class="authority-map-controls">
 
-                        <i class="fa-solid fa-map-location-dot"></i>
+                    <select
+                        name="state"
+                        id="stateSelect">
 
-                        <h3>Live Risk Map</h3>
+                        <option>
+                            Maharashtra
+                        </option>
 
-                        <p>
-                            Maharashtra Rainfall & Flood Risk
-                        </p>
+                        <option>
+                            Madhya Pradesh
+                        </option>
 
-                        <div class="risk-zones">
+                        <option>
+                            Gujarat
+                        </option>
 
-                            <span class="low">
-                                <i></i> Low
-                            </span>
+                        <option>
+                            Rajasthan
+                        </option>
 
-                            <span class="moderate">
-                                <i></i> Moderate
-                            </span>
+                        <option>
+                            Goa
+                        </option>
 
-                            <span class="high">
-                                <i></i> High
-                            </span>
+                        <option>
+                            Karnataka
+                        </option>
 
-                            <span class="very-high">
-                                <i></i> Very High
-                            </span>
+                        <option>
+                            Telangana
+                        </option>
 
-                        </div>
+                        <option>
+                            Andhra Pradesh
+                        </option>
 
-                    </div>
+                        <option>
+                            Tamil Nadu
+                        </option>
+
+                        <option>
+                            Kerala
+                        </option>
+
+                        <option>
+                            Chhattisgarh
+                        </option>
+
+                        <option>
+                            Odisha
+                        </option>
+
+                        <option>
+                            Jharkhand
+                        </option>
+
+                        <option>
+                            West Bengal
+                        </option>
+
+                        <option>
+                            Bihar
+                        </option>
+
+                        <option>
+                            Uttar Pradesh
+                        </option>
+
+                        <option>
+                            Punjab
+                        </option>
+
+                        <option>
+                            Haryana
+                        </option>
+
+                        <option>
+                            Assam
+                        </option>
+
+                        <option>
+                            Delhi
+                        </option>
+
+                    </select>
+
+
+                    <button>
+                        View Full Map
+                    </button>
 
                 </div>
 
             </div>
 
 
-            <!-- RECENT ALERTS -->
-            <div class="authority-panel">
 
-                <div class="authority-panel-header">
+            <div class="authority-map">
 
-                    <h2>Recent Alerts</h2>
+                <div class="authority-map-placeholder">
 
-                    <a href="#">View All</a>
+                    <i class="fa-solid fa-map-location-dot"></i>
 
-                </div>
+                    <h3>
+                        Live Risk Map
+                    </h3>
+
+                    <p>
+                        Maharashtra Rainfall & Flood Risk
+                    </p>
 
 
-                <div class="authority-alert-list">
+                    <div class="risk-zones">
 
-                    <div class="authority-alert">
-
-                        <div class="alert-icon red">
-                            <i class="fa-solid fa-circle-exclamation"></i>
-                        </div>
-
-                        <div class="alert-content">
-                            <strong>Heavy Rainfall Warning</strong>
-                            <small>Mumbai, Maharashtra • 10:15 AM</small>
-                        </div>
-
-                        <span class="alert-badge high">
-                            High
+                        <span class="low">
+                            <i></i> Low
                         </span>
 
-                    </div>
-
-
-                    <div class="authority-alert">
-
-                        <div class="alert-icon orange">
-                            <i class="fa-solid fa-triangle-exclamation"></i>
-                        </div>
-
-                        <div class="alert-content">
-                            <strong>River Water Level Rising</strong>
-                            <small>Pune, Maharashtra • 09:45 AM</small>
-                        </div>
-
-                        <span class="alert-badge moderate">
-                            Moderate
+                        <span class="moderate">
+                            <i></i> Moderate
                         </span>
 
-                    </div>
-
-
-                    <div class="authority-alert">
-
-                        <div class="alert-icon orange">
-                            <i class="fa-solid fa-triangle-exclamation"></i>
-                        </div>
-
-                        <div class="alert-content">
-                            <strong>Flood Risk Warning</strong>
-                            <small>Kolhapur, Maharashtra • 09:30 AM</small>
-                        </div>
-
-                        <span class="alert-badge high">
-                            High
+                        <span class="high">
+                            <i></i> High
                         </span>
 
-                    </div>
-
-
-                    <div class="authority-alert">
-
-                        <div class="alert-icon orange">
-                            <i class="fa-solid fa-triangle-exclamation"></i>
-                        </div>
-
-                        <div class="alert-content">
-                            <strong>Heavy Rainfall Warning</strong>
-                            <small>Nashik, Maharashtra • 08:50 AM</small>
-                        </div>
-
-                        <span class="alert-badge moderate">
-                            Moderate
-                        </span>
-
-                    </div>
-
-
-                    <div class="authority-alert">
-
-                        <div class="alert-icon green">
-                            <i class="fa-solid fa-circle-check"></i>
-                        </div>
-
-                        <div class="alert-content">
-                            <strong>Normal Rainfall</strong>
-                            <small>Nagpur, Maharashtra • 08:30 AM</small>
-                        </div>
-
-                        <span class="alert-badge low">
-                            Low
+                        <span class="very-high">
+                            <i></i> Very High
                         </span>
 
                     </div>
@@ -411,130 +725,418 @@
 
             </div>
 
-        </section>
+        </div>
 
 
-        <!-- ================= BOTTOM SECTION ================= -->
-        <section class="authority-bottom-grid">
 
+        <!-- RECENT ALERTS -->
 
-            <!-- WEATHER -->
-            <div class="authority-panel weather-panel">
+        <div class="authority-panel">
 
-                <div class="authority-panel-header">
+            <div class="authority-panel-header">
 
-                    <h2>Weather Overview (Today)</h2>
+                <h2>
+                    Recent Alerts
+                </h2>
 
-                    <span>Pune, Maharashtra</span>
-
-                </div>
-
-
-                <div class="authority-weather-content">
-
-                    <div class="weather-main">
-
-                        <i class="fa-solid fa-cloud-rain"></i>
-
-                        <div>
-                            <strong>26°C</strong>
-                            <span>Light Rain</span>
-                        </div>
-
-                    </div>
-
-
-                    <div class="weather-details">
-
-                        <div>
-                            <i class="fa-solid fa-droplet"></i>
-                            <span>Humidity</span>
-                            <strong>82%</strong>
-                        </div>
-
-                        <div>
-                            <i class="fa-solid fa-wind"></i>
-                            <span>Wind</span>
-                            <strong>16 km/h</strong>
-                        </div>
-
-                        <div>
-                            <i class="fa-solid fa-eye"></i>
-                            <span>Visibility</span>
-                            <strong>10 km</strong>
-                        </div>
-
-                        <div>
-                            <i class="fa-solid fa-gauge"></i>
-                            <span>Pressure</span>
-                            <strong>1006 hPa</strong>
-                        </div>
-
-                    </div>
-
-                </div>
+                <a href="#">
+                    View All
+                </a>
 
             </div>
 
 
-            <!-- PENDING ACTIONS -->
-            <div class="authority-panel">
 
-                <div class="authority-panel-header">
+            <div class="authority-alert-list">
 
-                    <h2>Pending Action Items</h2>
 
-                    <a href="#">View All</a>
+                <div class="authority-alert">
+
+                    <div class="alert-icon red">
+
+                        <i class="fa-solid fa-circle-exclamation"></i>
+
+                    </div>
+
+                    <div class="alert-content">
+
+                        <strong>
+                            Heavy Rainfall Warning
+                        </strong>
+
+                        <small>
+                            Mumbai, Maharashtra • 10:15 AM
+                        </small>
+
+                    </div>
+
+                    <span class="alert-badge high">
+                        High
+                    </span>
 
                 </div>
 
 
-                <div class="authority-action-list">
 
-                    <div class="authority-action">
+                <div class="authority-alert">
+
+                    <div class="alert-icon orange">
+
                         <i class="fa-solid fa-triangle-exclamation"></i>
 
-                        <div>
-                            <strong>Escalate High Risk Areas</strong>
-                            <small>2 areas • Immediate action</small>
-                        </div>
+                    </div>
 
-                        <span>2</span>
+                    <div class="alert-content">
+
+                        <strong>
+                            River Water Level Rising
+                        </strong>
+
+                        <small>
+                            Pune, Maharashtra • 09:45 AM
+                        </small>
+
+                    </div>
+
+                    <span class="alert-badge moderate">
+                        Moderate
+                    </span>
+
+                </div>
+
+
+
+                <div class="authority-alert">
+
+                    <div class="alert-icon orange">
+
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+
+                    </div>
+
+                    <div class="alert-content">
+
+                        <strong>
+                            Flood Risk Warning
+                        </strong>
+
+                        <small>
+                            Kolhapur, Maharashtra • 09:30 AM
+                        </small>
+
+                    </div>
+
+                    <span class="alert-badge high">
+                        High
+                    </span>
+
+                </div>
+
+
+
+                <div class="authority-alert">
+
+                    <div class="alert-icon orange">
+
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+
+                    </div>
+
+                    <div class="alert-content">
+
+                        <strong>
+                            Heavy Rainfall Warning
+                        </strong>
+
+                        <small>
+                            Nashik, Maharashtra • 08:50 AM
+                        </small>
+
+                    </div>
+
+                    <span class="alert-badge moderate">
+                        Moderate
+                    </span>
+
+                </div>
+
+
+
+                <div class="authority-alert">
+
+                    <div class="alert-icon green">
+
+                        <i class="fa-solid fa-circle-check"></i>
+
+                    </div>
+
+                    <div class="alert-content">
+
+                        <strong>
+                            Normal Rainfall
+                        </strong>
+
+                        <small>
+                            Nagpur, Maharashtra • 08:30 AM
+                        </small>
+
+                    </div>
+
+                    <span class="alert-badge low">
+                        Low
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         BOTTOM SECTION
+    ================================================== -->
+
+    <section class="authority-bottom-grid">
+
+
+        <!-- WEATHER -->
+
+        <div class="authority-panel weather-panel">
+
+            <div class="authority-panel-header">
+
+                <h2>
+                    Weather Overview (Today)
+                </h2>
+
+                <span>
+                    Pune, Maharashtra
+                </span>
+
+            </div>
+
+
+
+            <div class="authority-weather-content">
+
+                <div class="weather-main">
+
+                    <i class="fa-solid fa-cloud-rain"></i>
+
+                    <div>
+
+                        <strong>
+                            26°C
+                        </strong>
+
+                        <span>
+                            Light Rain
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="weather-details">
+
+
+                    <div>
+
+                        <i class="fa-solid fa-droplet"></i>
+
+                        <span>
+                            Humidity
+                        </span>
+
+                        <strong>
+                            82%
+                        </strong>
+
                     </div>
 
 
-                    <div class="authority-action">
-                        <i class="fa-solid fa-file-circle-check"></i>
+                    <div>
 
-                        <div>
-                            <strong>Strengthen Embankment</strong>
-                            <small>3 locations • Maintenance</small>
-                        </div>
+                        <i class="fa-solid fa-wind"></i>
 
-                        <span>3</span>
+                        <span>
+                            Wind
+                        </span>
+
+                        <strong>
+                            16 km/h
+                        </strong>
+
                     </div>
 
 
-                    <div class="authority-action">
-                        <i class="fa-solid fa-user-clock"></i>
+                    <div>
 
-                        <div>
-                            <strong>Review Deployment</strong>
-                            <small>2 teams • To be deployed</small>
-                        </div>
+                        <i class="fa-solid fa-eye"></i>
 
-                        <span>2</span>
+                        <span>
+                            Visibility
+                        </span>
+
+                        <strong>
+                            10 km
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <i class="fa-solid fa-gauge"></i>
+
+                        <span>
+                            Pressure
+                        </span>
+
+                        <strong>
+                            1006 hPa
+                        </strong>
+
                     </div>
 
                 </div>
 
             </div>
 
-        </section>
+        </div>
 
-    </main>
+
+
+        <!-- PENDING ACTIONS -->
+
+        <div class="authority-panel">
+
+            <div class="authority-panel-header">
+
+                <h2>
+                    Pending Action Items
+                </h2>
+
+                <a href="#">
+                    View All
+                </a>
+
+            </div>
+
+
+
+            <div class="authority-action-list">
+
+
+                <div class="authority-action">
+
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+
+                    <div>
+
+                        <strong>
+                            Escalate High Risk Areas
+                        </strong>
+
+                        <small>
+                            2 areas • Immediate action
+                        </small>
+
+                    </div>
+
+                    <span>
+                        2
+                    </span>
+
+                </div>
+
+
+
+                <div class="authority-action">
+
+                    <i class="fa-solid fa-file-circle-check"></i>
+
+                    <div>
+
+                        <strong>
+                            Strengthen Embankment
+                        </strong>
+
+                        <small>
+                            3 locations • Maintenance
+                        </small>
+
+                    </div>
+
+                    <span>
+                        3
+                    </span>
+
+                </div>
+
+
+
+                <div class="authority-action">
+
+                    <i class="fa-solid fa-user-clock"></i>
+
+                    <div>
+
+                        <strong>
+                            Review Deployment
+                        </strong>
+
+                        <small>
+                            2 teams • To be deployed
+                        </small>
+
+                    </div>
+
+                    <span>
+                        2
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- Placeholder Sections -->
+
+    <section id="monitoring-stations"></section>
+
+    <section id="user-management"></section>
+
+    <section id="resources"></section>
+
+    <section id="settings"></section>
+
+    <section id="logs"></section>
+
+    <section id="profile"></section>
+
+
+</main>
+```
 
 </div>
+
+<!-- =====================================================
+     JAVASCRIPT
+====================================================== -->
+
 <script src="script.js"></script>
+
 </body>
 </html>

@@ -1,37 +1,65 @@
-/* VARSHA KRITRIMA BUDHHIH - Django-backed authentication. */
+/* =========================================================
+   VARSHA KRITRIMA BUDHHIH
+   Django-backed Authentication + Rainfall Prediction
+   ========================================================= */
+
+
+/* =========================================================
+   ROLE CONFIGURATION
+   ========================================================= */
 
 const roles = {
+
     citizen: {
+
         title: 'Citizen Login',
+
         welcome: 'Welcome Citizen!',
+
         icon: '👥',
+
         desc: 'Access rainfall alerts, safe routes and weather updates.',
+
         features: [
             '🌧️ Live Rainfall Alerts',
             '📍 Safety & Route Guidance',
             '🌊 Inundation Updates',
             '☁️ Weather Forecast'
         ],
+
         color: 'linear-gradient(100deg,#12a8ed,#167ff0)'
     },
 
+
     admin: {
+
         title: 'Administrator Login',
+
         welcome: 'Welcome Administrator!',
+
         icon: '⚙️',
+
         desc: 'Manage users, monitoring sources, configuration and system access.',
+
         features: [
             '👥 User Management',
             '⚙️ System Configuration',
             '📡 Data Sources',
             '🔐 Audit & Access Control'
         ],
+
         color: 'linear-gradient(100deg,#7b61e8,#5367e8)'
     }
+
 };
 
 
+/* =========================================================
+   ROLE LOGIN PAGE
+   ========================================================= */
+
 const params = new URLSearchParams(location.search);
+
 const role = params.get('role');
 
 
@@ -39,40 +67,65 @@ if (role && roles[role]) {
 
     const c = roles[role];
 
+
     const set = (id, value) => {
 
         const element = document.getElementById(id);
 
         if (element) {
+
             element.textContent = value;
+
         }
+
     };
 
+
     set('roleTitle', c.title);
+
     set('welcome', c.welcome);
+
     set('roleIcon', c.icon);
+
     set('roleDesc', c.desc);
 
-    const button = document.getElementById('roleButton');
+
+    const button =
+        document.getElementById('roleButton');
+
 
     if (button) {
+
         button.style.background = c.color;
+
     }
 
-    const features = document.getElementById('roleFeatures');
+
+    const features =
+        document.getElementById('roleFeatures');
+
 
     if (features) {
 
         features.innerHTML = c.features
+
             .map(x => `<div>${x}</div>`)
+
             .join('');
+
     }
+
 }
 
+
+/* =========================================================
+   GENERIC API FUNCTION
+   ========================================================= */
 
 async function api(path, payload) {
 
     const response = await fetch(path, {
+
         method: 'POST',
 
         headers: {
@@ -80,28 +133,43 @@ async function api(path, payload) {
         },
 
         body: JSON.stringify(payload)
+
     });
+
 
     let data = {};
 
+
     try {
+
         data = await response.json();
-    } catch {}
+
+    }
+
+    catch {
+
+        // Response is not JSON
+
+    }
+
 
     if (!response.ok) {
 
         throw new Error(
             data.message || 'Request failed.'
         );
+
     }
 
+
     return data;
+
 }
 
 
-/* ===============================
+/* =========================================================
    LOGIN REDIRECT
-   =============================== */
+   ========================================================= */
 
 function redirectToDashboard(role) {
 
@@ -109,33 +177,47 @@ function redirectToDashboard(role) {
 
         location.href = 'admin-dashboard.html';
 
-    } else if (role === 'citizen') {
-
-        location.href = 'authority-dashboard.html';
-
-    } else {
-
-        location.href = 'authority-dashboard.html';
     }
+
+    else if (role === 'citizen') {
+
+        location.href = 'authority-dashboard.html';
+
+    }
+
+    else {
+
+        location.href = 'authority-dashboard.html';
+
+    }
+
 }
 
 
-/* ===============================
+/* =========================================================
    CREATE ACCOUNT
-   =============================== */
+   ========================================================= */
 
 async function createAccount(event) {
 
     event.preventDefault();
 
+
     const form = event.target;
 
-    const inputs = form.querySelectorAll('input');
 
-    const roleSelect = form.querySelector('select');
+    const inputs =
+        form.querySelectorAll('input');
+
+
+    const roleSelect =
+        form.querySelector('select');
+
 
     const selectedRole = roleSelect
+
         ? roleSelect.value
+
         : 'citizen';
 
 
@@ -162,6 +244,7 @@ async function createAccount(event) {
             : '',
 
         role: selectedRole
+
     };
 
 
@@ -170,6 +253,7 @@ async function createAccount(event) {
         return alert(
             'Passwords do not match.'
         );
+
     }
 
 
@@ -178,6 +262,7 @@ async function createAccount(event) {
         return alert(
             'Password must contain at least 6 characters.'
         );
+
     }
 
 
@@ -188,41 +273,52 @@ async function createAccount(event) {
             data
         );
 
+
         alert(
             'Account created successfully! Please login.'
         );
 
+
         location.href =
             `role-login.html?role=${selectedRole}`;
 
-    } catch (error) {
+    }
+
+    catch (error) {
 
         alert(error.message);
+
     }
+
 }
 
 
-/* ===============================
+/* =========================================================
    NORMAL LOGIN
-   =============================== */
+   ========================================================= */
 
 async function login(event) {
 
     event.preventDefault();
 
+
     const form = event.target;
+
 
     try {
 
         const emailInput =
             form.querySelector('input[type=email]');
 
+
         const passwordInput =
             form.querySelector('input[type=password]');
 
 
         const data = await api(
+
             '/api/login/',
+
             {
 
                 email: emailInput
@@ -232,7 +328,9 @@ async function login(event) {
                 password: passwordInput
                     ? passwordInput.value
                     : ''
+
             }
+
         );
 
 
@@ -240,34 +338,43 @@ async function login(event) {
             data.user.role
         );
 
-    } catch (error) {
+    }
+
+    catch (error) {
 
         alert(error.message);
+
     }
+
 }
 
 
-/* ===============================
+/* =========================================================
    ROLE LOGIN
-   =============================== */
+   ========================================================= */
 
 async function roleLogin(event) {
 
     event.preventDefault();
 
+
     const form = event.target;
+
 
     try {
 
         const emailInput =
             form.querySelector('input[type=email]');
 
+
         const passwordInput =
             form.querySelector('input[type=password]');
 
 
         const data = await api(
+
             '/api/login/',
+
             {
 
                 email: emailInput
@@ -277,7 +384,9 @@ async function roleLogin(event) {
                 password: passwordInput
                     ? passwordInput.value
                     : ''
+
             }
+
         );
 
 
@@ -289,6 +398,7 @@ async function roleLogin(event) {
             return alert(
                 `This account is registered as ${data.user.role}.`
             );
+
         }
 
 
@@ -296,23 +406,29 @@ async function roleLogin(event) {
             data.user.role
         );
 
-    } catch (error) {
+    }
+
+    catch (error) {
 
         alert(error.message);
+
     }
+
 }
 
 
-/* ===============================
+/* =========================================================
    RESET PASSWORD
-   =============================== */
+   ========================================================= */
 
 async function resetPassword(event) {
 
     event.preventDefault();
 
+
     const newPassword =
         document.getElementById('newPassword').value;
+
 
     const confirmPassword =
         document.getElementById('confirmNewPassword').value;
@@ -323,13 +439,16 @@ async function resetPassword(event) {
         return alert(
             'Passwords do not match.'
         );
+
     }
 
 
     try {
 
         await api(
+
             '/api/reset-password/',
+
             {
 
                 email: document
@@ -339,7 +458,9 @@ async function resetPassword(event) {
                     .toLowerCase(),
 
                 newPassword: newPassword
+
             }
+
         );
 
 
@@ -351,16 +472,20 @@ async function resetPassword(event) {
         location.href =
             'role-login.html';
 
-    } catch (error) {
+    }
+
+    catch (error) {
 
         alert(error.message);
+
     }
+
 }
 
 
-/* ===============================
+/* =========================================================
    LOGOUT
-   =============================== */
+   ========================================================= */
 
 async function logout() {
 
@@ -371,17 +496,21 @@ async function logout() {
             {}
         );
 
-    } finally {
+    }
+
+    finally {
 
         location.href =
             'index.html';
+
     }
+
 }
 
 
-/* ===============================
+/* =========================================================
    DASHBOARD PROTECTION
-   =============================== */
+   ========================================================= */
 
 async function protectDashboard(requiredRole) {
 
@@ -394,6 +523,7 @@ async function protectDashboard(requiredRole) {
         if (!response.ok) {
 
             throw 0;
+
         }
 
 
@@ -413,6 +543,7 @@ async function protectDashboard(requiredRole) {
             return redirectToDashboard(
                 user.role
             );
+
         }
 
 
@@ -423,9 +554,12 @@ async function protectDashboard(requiredRole) {
 
             id = 'adminName';
 
-        } else {
+        }
+
+        else {
 
             id = 'citizenName';
+
         }
 
 
@@ -437,26 +571,32 @@ async function protectDashboard(requiredRole) {
 
             element.textContent =
                 user.name;
+
         }
 
 
         return user;
 
-    } catch {
+    }
+
+    catch {
 
         alert(
             'Please login first.'
         );
 
+
         location.href =
             'index.html';
+
     }
+
 }
 
 
-/* ===============================
+/* =========================================================
    OLD DASHBOARD PROTECTION
-   =============================== */
+   ========================================================= */
 
 if (
     document.body.classList.contains(
@@ -471,16 +611,19 @@ if (
 
 
     protectDashboard(
+
         isAdmin
             ? 'admin'
             : 'citizen'
+
     );
+
 }
 
 
-/* ===============================
+/* =========================================================
    AUTHORITY DASHBOARD PROTECTION
-   =============================== */
+   ========================================================= */
 
 if (
     document.body.classList.contains(
@@ -489,10 +632,13 @@ if (
 ) {
 
     protectDashboard('citizen')
+
         .then(user => {
 
             if (!user) {
+
                 return;
+
             }
 
 
@@ -524,6 +670,7 @@ if (
 
                 name.textContent =
                     user.name;
+
             }
 
 
@@ -531,6 +678,7 @@ if (
 
                 email.textContent =
                     user.email;
+
             }
 
 
@@ -538,6 +686,7 @@ if (
 
                 emailInput.value =
                     user.email;
+
             }
 
 
@@ -545,6 +694,7 @@ if (
 
                 fullName.value =
                     user.name;
+
             }
 
 
@@ -557,18 +707,21 @@ if (
             if (avatar) {
 
                 avatar.textContent =
+
                     (user.name || 'A')
                         .charAt(0)
                         .toUpperCase();
+
             }
 
         });
+
 }
 
 
-/* ===============================
+/* =========================================================
    ADMIN SIDEBAR PAGES
-   =============================== */
+   ========================================================= */
 
 if (
     document.body.classList.contains(
@@ -577,10 +730,13 @@ if (
 ) {
 
     protectDashboard('admin')
+
         .then(user => {
 
             if (!user) {
+
                 return;
+
             }
 
 
@@ -612,6 +768,7 @@ if (
 
                 name.textContent =
                     user.name;
+
             }
 
 
@@ -619,6 +776,7 @@ if (
 
                 email.textContent =
                     user.email;
+
             }
 
 
@@ -626,6 +784,7 @@ if (
 
                 emailInput.value =
                     user.email;
+
             }
 
 
@@ -633,6 +792,7 @@ if (
 
                 fullName.value =
                     user.name;
+
             }
 
 
@@ -645,22 +805,30 @@ if (
             if (avatar) {
 
                 avatar.textContent =
+
                     (user.name || 'A')
                         .charAt(0)
                         .toUpperCase();
+
             }
 
         });
+
 }
 
 
-/* ===============================
-   ALERT MANAGEMENT
-   =============================== */
+/* =========================================================
+   DOM CONTENT LOADED
+   ========================================================= */
 
 document.addEventListener(
     "DOMContentLoaded",
     function () {
+
+
+        /* =================================================
+           ALERT MANAGEMENT
+           ================================================= */
 
         const typeFilter =
             document.getElementById(
@@ -719,6 +887,7 @@ document.addEventListener(
             ) {
 
                 return;
+
             }
 
 
@@ -776,10 +945,13 @@ document.addEventListener(
 
                     visible++;
 
-                } else {
+                }
+
+                else {
 
                     row.style.display =
                         "none";
+
                 }
 
             });
@@ -791,6 +963,7 @@ document.addEventListener(
                     "Showing " +
                     visible +
                     " alerts";
+
             }
 
 
@@ -800,7 +973,9 @@ document.addEventListener(
                     "Showing 1 to " +
                     visible +
                     " of 78 alerts";
+
             }
+
         }
 
 
@@ -810,6 +985,7 @@ document.addEventListener(
                 "click",
                 applyFilters
             );
+
         }
 
 
@@ -819,6 +995,7 @@ document.addEventListener(
                 "change",
                 applyFilters
             );
+
         }
 
 
@@ -828,6 +1005,7 @@ document.addEventListener(
                 "change",
                 applyFilters
             );
+
         }
 
 
@@ -837,30 +1015,48 @@ document.addEventListener(
                 "change",
                 applyFilters
             );
+
         }
 
 
         if (clearBtn) {
 
             clearBtn.addEventListener(
+
                 "click",
+
                 function () {
 
                     if (typeFilter) {
-                        typeFilter.value = "all";
+
+                        typeFilter.value =
+                            "all";
+
                     }
+
 
                     if (riskFilter) {
-                        riskFilter.value = "all";
+
+                        riskFilter.value =
+                            "all";
+
                     }
+
 
                     if (statusFilter) {
-                        statusFilter.value = "all";
+
+                        statusFilter.value =
+                            "all";
+
                     }
 
+
                     applyFilters();
+
                 }
+
             );
+
         }
 
 
@@ -869,7 +1065,9 @@ document.addEventListener(
             .forEach(function (button) {
 
                 button.addEventListener(
+
                     "click",
+
                     function () {
 
                         const row =
@@ -877,7 +1075,9 @@ document.addEventListener(
 
 
                         if (!row) {
+
                             return;
+
                         }
 
 
@@ -889,16 +1089,23 @@ document.addEventListener(
 
                         const alertName =
                             alertNameElement
+
                                 ? alertNameElement.textContent
+
                                 : "Unknown Alert";
 
 
                         alert(
+
                             "Alert Details:\n" +
                             alertName
+
                         );
+
                     }
+
                 );
+
             });
 
 
@@ -911,15 +1118,358 @@ document.addEventListener(
         if (notificationBtn) {
 
             notificationBtn.addEventListener(
+
                 "click",
+
                 function () {
 
                     alert(
                         "You have new alerts."
                     );
+
                 }
+
             );
+
+        }
+
+
+        /* =================================================
+           RAINFALL PREDICTION
+           ================================================= */
+
+        const predictButton =
+            document.getElementById(
+                "predictButton"
+            );
+
+
+        /*
+           Important:
+           Agar current page par rainfall prediction
+           form nahi hai, to code kuch nahi karega.
+        */
+
+        if (predictButton) {
+
+            predictButton.addEventListener(
+                "click",
+                predictRainfall
+            );
+
         }
 
     }
 );
+
+
+/* =========================================================
+   RAINFALL PREDICTION FUNCTION
+   ========================================================= */
+
+async function predictRainfall() {
+
+    console.log(
+        "Prediction button clicked"
+    );
+
+
+    const locationInput =
+        document.getElementById(
+            "location"
+        );
+
+
+    const rainfallInput =
+        document.getElementById(
+            "rainfall"
+        );
+
+
+    const temperatureInput =
+        document.getElementById(
+            "temperature"
+        );
+
+
+    const humidityInput =
+        document.getElementById(
+            "humidity"
+        );
+
+
+    const windSpeedInput =
+        document.getElementById(
+            "wind_speed"
+        );
+
+
+    const pressureInput =
+        document.getElementById(
+            "pressure"
+        );
+
+
+    const errorBox =
+        document.getElementById(
+            "error"
+        );
+
+
+    const resultBox =
+        document.getElementById(
+            "result"
+        );
+
+
+    /* Safety check */
+
+    if (
+        !locationInput ||
+        !rainfallInput ||
+        !temperatureInput ||
+        !humidityInput ||
+        !windSpeedInput ||
+        !pressureInput ||
+        !errorBox ||
+        !resultBox
+    ) {
+
+        console.error(
+            "Rainfall prediction elements not found."
+        );
+
+        return;
+
+    }
+
+
+    const location =
+        locationInput.value.trim();
+
+
+    const rainfall =
+        rainfallInput.value;
+
+
+    const temperature =
+        temperatureInput.value;
+
+
+    const humidity =
+        humidityInput.value;
+
+
+    const wind_speed =
+        windSpeedInput.value;
+
+
+    const pressure =
+        pressureInput.value;
+
+
+    /* Clear previous error */
+
+    errorBox.innerHTML = "";
+
+
+    /* Validate inputs */
+
+    if (
+        !location ||
+        !rainfall ||
+        !temperature ||
+        !humidity ||
+        !wind_speed ||
+        !pressure
+    ) {
+
+        errorBox.innerHTML =
+            "⚠️ Please enter all weather values.";
+
+        return;
+
+    }
+
+
+    /* Prepare API data */
+
+    const data = {
+
+        location: location,
+
+        rainfall: Number(rainfall),
+
+        temperature: Number(temperature),
+
+        humidity: Number(humidity),
+
+        wind_speed: Number(wind_speed),
+
+        pressure: Number(pressure)
+
+    };
+
+
+    /* Loading */
+
+    resultBox.innerHTML =
+        "<p>⏳ Calculating prediction...</p>";
+
+
+    try {
+
+        const response = await fetch(
+
+            "/api/predict/",
+
+            {
+
+                method: "POST",
+
+                headers: {
+
+                    "Content-Type":
+                        "application/json"
+
+                },
+
+                body:
+                    JSON.stringify(data)
+
+            }
+
+        );
+
+
+        const result =
+            await response.json();
+
+
+        console.log(
+            "API response:",
+            result
+        );
+
+
+        if (!response.ok) {
+
+            throw new Error(
+
+                result.message ||
+                "Prediction failed"
+
+            );
+
+        }
+
+
+        displayResult(result);
+
+    }
+
+
+    catch (error) {
+
+        console.error(
+            "Prediction error:",
+            error
+        );
+
+
+        errorBox.innerHTML =
+            "❌ " + error.message;
+
+
+        resultBox.innerHTML =
+            "<p>Prediction failed.</p>";
+
+    }
+
+}
+
+
+/* =========================================================
+   DISPLAY RAINFALL PREDICTION RESULT
+   ========================================================= */
+
+function displayResult(data) {
+
+    const prediction =
+        data.prediction;
+
+
+    const resultBox =
+        document.getElementById(
+            "result"
+        );
+
+
+    if (!resultBox) {
+
+        return;
+
+    }
+
+
+    if (!prediction) {
+
+        resultBox.innerHTML =
+            "<p>❌ Invalid prediction response.</p>";
+
+        return;
+
+    }
+
+
+    resultBox.innerHTML = `
+
+        <div class="rainfall">
+
+            📍 Location:
+
+            <b>
+                ${prediction.location}
+            </b>
+
+        </div>
+
+
+        <div class="rainfall">
+
+            🌧️ Rainfall:
+
+            <b>
+                ${prediction.rainfall_mm} mm
+            </b>
+
+        </div>
+
+
+        <div class="risk">
+
+            ${prediction.risk_level}
+
+        </div>
+
+
+        <div>
+
+            <b>
+                Inundation Risk:
+            </b>
+
+            ${prediction.inundation_risk}
+
+        </div>
+
+
+        <div class="warning">
+
+            ⚠️ ${prediction.warning}
+
+        </div>
+
+    `;
+
+}
