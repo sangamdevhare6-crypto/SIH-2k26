@@ -18,8 +18,128 @@
     <link rel="stylesheet"
           href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 
-</head>
+    <style id="risk-map-additional-css">
+        .risk-map-area {
+            position: relative;
+            overflow: hidden;
+        }
 
+        #liveRiskMap {
+            width: 100%;
+            height: 100%;
+            min-height: 590px;
+            border-radius: 18px;
+            z-index: 1;
+        }
+
+        #liveRiskMap .leaflet-control-zoom {
+            margin-left: 12px;
+            margin-top: 12px;
+        }
+
+        #liveRiskMap .leaflet-control-attribution {
+            font-size: 10px;
+        }
+
+        .risk-map-popup {
+            min-width: 190px;
+            font-family: Arial, sans-serif;
+            line-height: 1.45;
+        }
+
+        .risk-map-popup h4 {
+            margin: 0 0 7px;
+            font-size: 15px;
+            color: #173d66;
+        }
+
+        .risk-map-popup p {
+            margin: 3px 0;
+            font-size: 12px;
+        }
+
+        .risk-map-popup .risk-badge {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 12px;
+            color: #fff;
+            font-size: 11px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .risk-map-popup .low {
+            background: #2eaf5d;
+        }
+
+        .risk-map-popup .moderate {
+            background: #f0b429;
+        }
+
+        .risk-map-popup .high {
+            background: #f07818;
+        }
+
+        .risk-map-popup .very-high {
+            background: #ef4444;
+        }
+
+        /* Risk Level Legend */
+.map-legend {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 14px 16px;
+    border-radius: 14px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    min-width: 135px;
+}
+
+.map-legend strong {
+    display: block;
+    margin-bottom: 12px;
+    color: #24466a;
+    font-size: 14px;
+}
+
+.map-legend > div {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin: 9px 0;
+    font-size: 12px;
+    color: #24466a;
+}
+
+.legend-dot {
+    width: 13px;
+    height: 13px;
+    min-width: 13px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.legend-low {
+    background: #2eaf5d;
+}
+
+.legend-moderate {
+    background: #f0b429;
+}
+
+.legend-high {
+    background: #f07818;
+}
+
+.legend-very-high {
+    background: #ef4444;
+}
+        @media (max-width: 900px) {
+            #liveRiskMap {
+                min-height: 480px;
+            }
+        }
+    </style>
+
+</head>
 
 <body>
 
@@ -895,6 +1015,498 @@
 <script src="script.js"></script>
 
 
-</body>
+<script id="risk-map-additional-js">
+(function () {
+    "use strict";
 
+    function initializeRiskMap() {
+
+        if (typeof L === "undefined") {
+            console.error("Leaflet could not be loaded.");
+            return;
+        }
+
+        const mapElement = document.getElementById("liveRiskMap");
+
+        if (!mapElement) {
+            console.error("Element #liveRiskMap was not found.");
+            return;
+        }
+
+        if (mapElement._leaflet_id) {
+            return;
+        }
+
+        const map = L.map("liveRiskMap", {
+            center: [18.5204, 73.8567],
+            zoom: 11,
+            zoomControl: true,
+            scrollWheelZoom: true
+        });
+
+
+        const streetLayer = L.tileLayer(
+    "https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}",
+    {
+        maxZoom: 19,
+        attribution: "Tiles &copy; Esri"
+    }
+).addTo(map);
+
+
+        const riskZones = [
+
+            {
+                name: "Kharadi - Mundhwa",
+                risk: "Very High",
+                rainfall: 118,
+                population: 4200,
+                coordinates: [
+                    [18.5665, 73.9390],
+                    [18.5745, 73.9560],
+                    [18.5555, 73.9700],
+                    [18.5440, 73.9500],
+                    [18.5665, 73.9390]
+                ]
+            },
+
+            {
+                name: "Hadapsar",
+                risk: "High",
+                rainfall: 96,
+                population: 3100,
+                coordinates: [
+                    [18.4860, 73.9150],
+                    [18.5050, 73.9400],
+                    [18.4780, 73.9580],
+                    [18.4550, 73.9280],
+                    [18.4860, 73.9150]
+                ]
+            },
+
+            {
+                name: "Shivajinagar - Central Pune",
+                risk: "Moderate",
+                rainfall: 82,
+                population: 2700,
+                coordinates: [
+                    [18.5250, 73.8250],
+                    [18.5480, 73.8420],
+                    [18.5350, 73.8680],
+                    [18.5050, 73.8550],
+                    [18.5250, 73.8250]
+                ]
+            },
+
+            {
+                name: "Aundh - Baner",
+                risk: "Low",
+                rainfall: 61,
+                population: 1450,
+                coordinates: [
+                    [18.5650, 73.7850],
+                    [18.5900, 73.7950],
+                    [18.5850, 73.8250],
+                    [18.5550, 73.8180],
+                    [18.5650, 73.7850]
+                ]
+            },
+
+            {
+                name: "Loni Kalbhor",
+                risk: "High",
+                rainfall: 101,
+                population: 1980,
+                coordinates: [
+                    [18.4300, 73.9800],
+                    [18.4480, 74.0150],
+                    [18.4200, 74.0350],
+                    [18.3980, 74.0050],
+                    [18.4300, 73.9800]
+                ]
+            },
+
+            {
+                name: "Mulshi",
+                risk: "Moderate",
+                rainfall: 88,
+                population: 1760,
+                coordinates: [
+                    [18.4700, 73.5100],
+                    [18.5050, 73.5500],
+                    [18.4750, 73.5900],
+                    [18.4350, 73.5550],
+                    [18.4700, 73.5100]
+                ]
+            }
+
+        ];
+
+
+        const riskColors = {
+            "Low": "#2eaf5d",
+            "Moderate": "#f0b429",
+            "High": "#f07818",
+            "Very High": "#ef4444"
+        };
+
+
+        const riskClasses = {
+            "Low": "low",
+            "Moderate": "moderate",
+            "High": "high",
+            "Very High": "very-high"
+        };
+
+
+        const zoneLayers = [];
+
+
+        function popupHTML(zone) {
+
+            const cls = riskClasses[zone.risk] || "moderate";
+
+            return `
+                <div class="risk-map-popup">
+
+                    <h4>${zone.name}</h4>
+
+                    <span class="risk-badge ${cls}">
+                        ${zone.risk} Risk
+                    </span>
+
+                    <p>
+                        <strong>Rainfall:</strong>
+                        ${zone.rainfall} mm
+                    </p>
+
+                    <p>
+                        <strong>Estimated Population:</strong>
+                        ${zone.population.toLocaleString()} people
+                    </p>
+
+                    <p>
+                        <strong>Status:</strong>
+                        Monitoring active
+                    </p>
+
+                </div>
+            `;
+        }
+
+
+        riskZones.forEach(function (zone) {
+
+    const polygon = L.polygon(
+        zone.coordinates,
+        {
+            color: riskColors[zone.risk],
+            weight: 3,
+            opacity: 1,
+            fillColor: riskColors[zone.risk],
+            fillOpacity: 0.60
+        }
+    );
+
+    polygon.bindPopup(
+        popupHTML(zone)
+    );
+
+    polygon.bindTooltip(
+        "<b>" + zone.name + "</b><br>" +
+        zone.risk + " Risk<br>" +
+        "Rainfall: " + zone.rainfall + " mm",
+        {
+            sticky: true,
+            direction: "center"
+        }
+    );
+
+    polygon.addTo(map);
+
+    polygon.bringToFront();
+
+    zoneLayers.push({
+        layer: polygon,
+        risk: zone.risk
+    });
+
+});
+
+
+        const monitoringPoints = [
+
+            {
+                name: "Mula-Mutha River Monitoring",
+                lat: 18.5208,
+                lng: 73.8972,
+                type: "River",
+                value: "Water level: 2.8 m"
+            },
+
+            {
+                name: "Khadakwasla Monitoring Point",
+                lat: 18.4439,
+                lng: 73.7640,
+                type: "Reservoir",
+                value: "Level: 57.4%"
+            },
+
+            {
+                name: "Haveli Monitoring Station",
+                lat: 18.4935,
+                lng: 73.9440,
+                type: "Rain Gauge",
+                value: "Rainfall: 82 mm"
+            }
+
+        ];
+
+
+        monitoringPoints.forEach(function (point) {
+
+            const marker = L.circleMarker(
+                [point.lat, point.lng],
+                {
+                    radius: 7,
+                    color: "#0b74c9",
+                    weight: 2,
+                    fillColor: "#ffffff",
+                    fillOpacity: 1
+                }
+            );
+
+
+            marker.bindPopup(`
+                <div class="risk-map-popup">
+
+                    <h4>${point.name}</h4>
+
+                    <p>
+                        <strong>Type:</strong>
+                        ${point.type}
+                    </p>
+
+                    <p>
+                        <strong>${point.value}</strong>
+                    </p>
+
+                </div>
+            `);
+
+
+            marker.bindTooltip(
+                point.name,
+                {
+                    direction: "top"
+                }
+            );
+
+
+            marker.addTo(map);
+
+        });
+
+
+        const river = L.polyline(
+
+            [
+                [18.5850, 73.7600],
+                [18.5650, 73.8000],
+                [18.5350, 73.8450],
+                [18.5150, 73.8850],
+                [18.4950, 73.9250],
+                [18.4700, 73.9700],
+                [18.4450, 74.0150]
+            ],
+
+            {
+                color: "#168dcc",
+                weight: 5,
+                opacity: 0.8
+            }
+
+        ).bindTooltip("Mula-Mutha River");
+
+
+        river.addTo(map);
+
+
+
+
+        const allCoordinates = [];
+
+
+        riskZones.forEach(function (zone) {
+
+            zone.coordinates.forEach(
+                function (coordinate) {
+
+                    allCoordinates.push(
+                        coordinate
+                    );
+
+                }
+            );
+
+        });
+
+
+        if (allCoordinates.length) {
+
+            map.fitBounds(
+                L.latLngBounds(allCoordinates),
+                {
+                    padding: [25, 25]
+                }
+            );
+
+        }
+
+
+        const rainfallElement =
+            document.getElementById("mapRainfall");
+
+
+        if (rainfallElement) {
+
+            rainfallElement.textContent =
+                "82 mm";
+
+        }
+
+
+        const selectedAreaElement =
+            document.getElementById("selectedArea");
+
+
+        if (selectedAreaElement) {
+
+            selectedAreaElement.textContent =
+                "Maharashtra • Pune • Haveli";
+
+        }
+
+
+        const filterButton =
+            document.getElementById("filterButton");
+
+
+        if (filterButton) {
+
+            filterButton.addEventListener(
+                "click",
+                function () {
+
+                    const state =
+                        document.getElementById(
+                            "stateFilter"
+                        );
+
+                    const district =
+                        document.getElementById(
+                            "districtFilter"
+                        );
+
+                    const taluka =
+                        document.getElementById(
+                            "talukaFilter"
+                        );
+
+
+                    if (
+                        selectedAreaElement &&
+                        state &&
+                        district &&
+                        taluka
+                    ) {
+
+                        selectedAreaElement.textContent =
+                            state.value +
+                            " • " +
+                            district.value +
+                            " • " +
+                            taluka.value;
+
+                    }
+
+
+                    map.invalidateSize();
+
+                }
+            );
+
+        }
+
+
+        const refreshButton =
+            document.getElementById(
+                "refreshButton"
+            );
+
+
+        if (refreshButton) {
+
+            refreshButton.addEventListener(
+                "click",
+                function () {
+
+                    map.invalidateSize();
+
+
+                    if (rainfallElement) {
+
+                        rainfallElement.textContent =
+                            "82 mm";
+
+                    }
+
+                }
+            );
+
+        }
+
+
+        setTimeout(
+            function () {
+
+                map.invalidateSize();
+
+            },
+            300
+        );
+
+
+        window.addEventListener(
+            "resize",
+            function () {
+
+                map.invalidateSize();
+
+            }
+        );
+
+
+        window.varshaRiskMap = map;
+
+    }
+
+
+    if (document.readyState === "loading") {
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            initializeRiskMap
+        );
+
+    } else {
+
+        initializeRiskMap();
+
+    }
+
+})();
+</script>
+
+</body>
 </html>
