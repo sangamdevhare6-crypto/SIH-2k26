@@ -64,22 +64,9 @@ def predict_rainfall(request):
             pressure
         )
 
-       # Save live weather data
-        weather_record = WeatherRecord.objects.create(
-            location=location,
-            latitude=latitude,
-            longitude=longitude,
-            rainfall=weather["rainfall"],
-            temperature=weather["temperature"],
-            humidity=weather["humidity"],
-            wind_speed=weather["wind_speed"],
-            pressure=weather["pressure"]
-        )
-        # Save ML prediction
-        PredictionRecord.objects.create(
-            weather_record=weather_record,
-            risk_level=risk_level
-        )
+        # NOTE: predict_rainfall is a manual-input endpoint (no lat/lon),
+        # so we skip saving to WeatherRecord here.
+        # Use /api/auto-predict/ for live weather + DB recording.
 
         # ==========================================
         # 🌊 INUNDATION RISK
@@ -134,7 +121,6 @@ def predict_rainfall(request):
         return JsonResponse({
 
             "status": "success",
-            "record_id": weather_record.id,
 
             "prediction": {
 
