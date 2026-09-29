@@ -83,16 +83,18 @@ print("================================")
 
 
 # Save model
+MODEL_DIR = os.path.dirname(os.path.abspath(__file__))
+
 joblib.dump(
     model,
-    "rainfall_model.pkl"
+    os.path.join(MODEL_DIR, "rainfall_model.pkl")
 )
 
 
 # Save encoder
 joblib.dump(
     encoder,
-    "risk_encoder.pkl"
+    os.path.join(MODEL_DIR, "risk_encoder.pkl")
 )
 
 

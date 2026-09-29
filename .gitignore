@@ -1,9 +1,12 @@
 # Python
 venv/
 .venv/
+backend/venv/
 __pycache__/
-*.pyc
-*.pyo
+**/__pycache__/
+*.py[cod]
+*$py.class
+
 
 # Environment
 .env

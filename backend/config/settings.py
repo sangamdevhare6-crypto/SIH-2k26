@@ -10,11 +10,17 @@ SECRET_KEY = config('DJANGO_SECRET_KEY', default='dev-only-change-this-secret-ke
 DEBUG = config('DJANGO_DEBUG', default='0') == '1'
 
 ALLOWED_HOSTS = [
-    '127.0.0.1',
-    'localhost',
-    # Railway / Render / other cloud hosts — set via env var
-    *config('ALLOWED_HOSTS', default='').split(','),
+    h.strip()
+    for h in config('ALLOWED_HOSTS', default='*,127.0.0.1,localhost').split(',')
+    if h.strip()
 ]
+
+CSRF_TRUSTED_ORIGINS = [
+    o.strip()
+    for o in config('CSRF_TRUSTED_ORIGINS', default='https://*.onrender.com,https://*.railway.app,http://localhost,http://127.0.0.1').split(',')
+    if o.strip()
+]
+
 
 # ─── Applications ──────────────────────────────────────────────────────────────
 INSTALLED_APPS = [

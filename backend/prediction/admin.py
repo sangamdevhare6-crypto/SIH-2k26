@@ -1,5 +1,4 @@
 from django.contrib import admin
-from .models import WeatherRecord, PredictionRecord
 from .models import WeatherRecord, PredictionRecord, MonitoringLocation, Alert
 
 @admin.register(WeatherRecord)

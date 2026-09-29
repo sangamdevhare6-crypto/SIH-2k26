@@ -1,5 +1,5 @@
 from django.contrib import admin
-from django.urls import path, re_path
+from django.urls import path, re_path, include
 from accounts import views
 from django.views.generic import TemplateView
 from django.views.static import serve
@@ -88,6 +88,9 @@ urlpatterns = [
     path("api/logout/", views.logout_api),
     path("api/reset-password/", views.reset_password),
     path("api/me/", views.me),
+
+    # Prediction / ML endpoints
+    path("api/", include("prediction.urls")),
 
 
     re_path(
